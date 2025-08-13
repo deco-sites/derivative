@@ -1,7 +1,4 @@
-import Image from "apps/website/components/Image.tsx";
-import type { ImageWidget } from "apps/admin/widgets.ts";
-
-type Type = "dark" | "light";
+import type { ImageWidget, VideoWidget } from "apps/admin/widgets.ts";
 
 export interface CTA {
   id?: string;
@@ -10,7 +7,7 @@ export interface CTA {
   outline?: boolean;
 }
 
-export interface Nav {
+export interface Props {
   logo?: {
     src?: ImageWidget;
     alt?: string;
@@ -20,22 +17,14 @@ export interface Nav {
       label?: string;
       url?: string;
     }[];
-    buttons: CTA[];
   };
+  backgroundVideo?: VideoWidget;
+  title?: string;
+  ctaButton?: CTA;
 }
 
-export const ColorType: Record<Type, string> = {
-  "dark": "base-content",
-  "light": "base-100",
-};
-
-export const StyleType: Record<"background" | "color", string> = {
-  "background": "bg-",
-  "color": "text-",
-};
-
 const generateLineStyles = (position: string) => `
-  absolute ${position} z-50 block h-0.5 w-7 bg-black transition-all duration-200 ease-out 
+  absolute ${position} z-50 block h-0.5 w-7 bg-white transition-all duration-200 ease-out 
 `;
 
 const lineStyles = [
@@ -46,104 +35,137 @@ const lineStyles = [
   "peer-checked:-translate-y-[0.2rem] peer-checked:-rotate-[45deg]",
 ];
 
-export default function Haader({
+export default function Header({
   logo = {
-    src:
-      "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/67120bcd-936a-4ea5-a760-02ed5c4a3d04",
-    alt: "Logo",
+    src: "https://assets.decocache.com/derivative/63f2145a-4b99-403e-ba27-cf49104ea963/logo_deriva_horizontal_NO.svg",
+    alt: "Deriva",
   },
   navigation = {
     links: [
-      { label: "Home", url: "/" },
-      { label: "About us", url: "/" },
-      { label: "Princing", url: "/" },
-      { label: "Contact", url: "/" },
-    ],
-    buttons: [
-      { id: "change-me-1", href: "/", text: "Change me", outline: false },
-      { id: "change-me-2", href: "/", text: "Change me", outline: true },
+      { label: "DERIVATIVE", url: "/derivative" },
+      { label: "SISTEMA REGENERATIVO", url: "/sistema" },
+      { label: "B2B", url: "/b2b" },
     ],
   },
-}: Nav) {
+  backgroundVideo = "https://assets.decocache.com/derivative/d81f13fc-4f89-4c4c-a562-b434436f99bd/background2_header-(1).mp4",
+  title = "Fortaleça sua marca enquanto regeneramos os oceanos",
+  ctaButton = {
+    id: "cta-movement",
+    href: "#movimento",
+    text: "JUNTAR-SE AO MOVIMENTO",
+    outline: false,
+  },
+}: Props) {
   return (
-    <nav class="container mx-auto lg:px-0 px-4">
-      <div class="flex gap-8 items-center justify-between py-4">
-        <a href="/">
-          <Image src={logo.src || ""} width={100} height={28} alt={logo.alt} />
-        </a>
-
-        <label
-          class="cursor-pointer lg:hidden pt-6 relative z-40"
-          for="menu-mobile"
+    <header class="relative min-h-screen overflow-hidden">
+      {/* Video Background */}
+      <div class="absolute inset-0 z-0">
+        <video
+          class="w-full h-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster=""
         >
-          <input class="hidden peer" type="checkbox" id="menu-mobile" />
-          {lineStyles.map((style, index) => (
-            <div key={index} class={`relative ${style}`}></div>
-          ))}
-          <div class="backdrop-blur-sm bg-black/50 fixed h-full hidden inset-0 peer-checked:block w-full z-40">
-            &nbsp;
-          </div>
-          <div class="duration-500 fixed h-full overflow-y-auto overscroll-y-none peer-checked:translate-x-0 right-0 top-0 transition translate-x-full w-full z-40">
-            <div class="bg-base-100 flex flex-col float-right gap-8 min-h-full pt-12 px-6 shadow-2xl w-1/2">
-              <ul class="flex flex-col gap-8">
-                {navigation?.links.map((link) => (
-                  <li>
-                    <a href={link.url} aria-label={link.label}>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <ul class="flex items-center gap-3">
-                {navigation.buttons?.map((item) => (
-                  <a
-                    key={item?.id}
-                    id={item?.id}
-                    href={item?.href}
-                    target={item?.href.includes("http") ? "_blank" : "_self"}
-                    class={`font-normal btn btn-primary ${
-                      item.outline && "btn-outline"
-                    }`}
-                  >
-                    {item?.text}
-                  </a>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </label>
-
-        <ul class="hidden items-center justify-between lg:flex">
-          <ul class="flex">
-            {navigation.links.map((link) => (
-              <li>
-                <a
-                  href={link.url}
-                  aria-label={link.label}
-                  class="link no-underline hover:underline p-4"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ul class="flex gap-3">
-            {navigation.buttons?.map((item) => (
-              <a
-                key={item?.id}
-                id={item?.id}
-                href={item?.href}
-                target={item?.href.includes("http") ? "_blank" : "_self"}
-                class={`font-normal btn btn-primary ${
-                  item.outline && "btn-outline"
-                }`}
-              >
-                {item?.text}
-              </a>
-            ))}
-          </ul>
-        </ul>
+          <source src={backgroundVideo} type="video/mp4" />
+          <p>Seu navegador não suporta o elemento de vídeo.</p>
+        </video>
+        {/* Dark overlay for better text readability */}
+        <div class="absolute inset-0 bg-black/40"></div>
       </div>
-    </nav>
+
+      {/* Navigation */}
+      <nav class="relative z-20 container mx-auto px-4 lg:px-8">
+        <div class="flex items-center justify-between py-6">
+          {/* Logo */}
+          <a href="/" class="flex-shrink-0">
+            <img 
+              src={logo.src} 
+              alt={logo.alt} 
+              class="h-8 md:h-10 lg:h-12 w-auto"
+            />
+          </a>
+
+          {/* Mobile Menu Button */}
+          <label
+            class="cursor-pointer lg:hidden relative z-50"
+            for="menu-mobile"
+          >
+            <input class="hidden peer" type="checkbox" id="menu-mobile" />
+            {lineStyles.map((style, index) => (
+              <div key={index} class={style}></div>
+            ))}
+            
+            {/* Mobile Menu Overlay */}
+            <div class="backdrop-blur-sm bg-black/80 fixed h-full hidden inset-0 peer-checked:block w-full z-40">
+              &nbsp;
+            </div>
+            
+            {/* Mobile Menu */}
+            <div class="duration-500 fixed h-full overflow-y-auto peer-checked:translate-x-0 right-0 top-0 transition translate-x-full w-full z-40">
+              <div class="bg-mineral-black flex flex-col float-right gap-8 min-h-full pt-20 px-6 shadow-2xl w-4/5 max-w-sm">
+                <ul class="flex flex-col gap-6">
+                  {navigation?.links.map((link) => (
+                    <li key={link.url}>
+                      <a 
+                        href={link.url} 
+                        aria-label={link.label}
+                        class="text-snow-white hover:text-fog-gray transition-colors duration-200 font-mono text-sm uppercase tracking-wider"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-8">
+                  <a
+                    href={ctaButton?.href}
+                    class="inline-block bg-snow-white text-mineral-black px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200"
+                  >
+                    {ctaButton?.text}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </label>
+
+          {/* Desktop Navigation */}
+          <div class="hidden lg:flex items-center space-x-8">
+            <ul class="flex items-center space-x-8">
+              {navigation.links.map((link) => (
+                <li key={link.url}>
+                  <a
+                    href={link.url}
+                    aria-label={link.label}
+                    class="text-snow-white hover:text-fog-gray transition-colors duration-200 font-mono text-sm uppercase tracking-wider"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Content */}
+      <div class="relative z-10 flex items-center justify-center min-h-[calc(100vh-120px)]">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-snow-white leading-tight mb-8 max-w-5xl mx-auto font-sans">
+            {title}
+          </h1>
+          
+          <div class="mt-12">
+            <a
+              href={ctaButton?.href}
+              class="inline-block bg-snow-white text-mineral-black px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200 shadow-lg"
+            >
+              {ctaButton?.text}
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }

@@ -3,11 +3,29 @@
   "path": "/",
   "sections": [
     {
-      "__resolveType": "Header"
+      "__resolveType": "site/sections/Header.tsx",
+      "navigation": {
+        "links": [
+          {
+            "label": "Performance",
+            "url": "/performance"
+          },
+          {
+            "label": "Culture",
+            "url": "/culture"
+          },
+          {
+            "label": "Customization",
+            "url": "/customization"
+          }
+        ],
+        "buttons": []
+      },
+      "title": "Fortaleça sua marca enquanto regenera o oceano"
     },
     {
       "__resolveType": "site/sections/Hero.tsx",
-      "title": "<p>Click here to tweak this text however you want.</p>",
+      "title": "<p></p>",
       "description": "This text is entirely editable, tailor it freely."
     },
     {
