@@ -24,6 +24,13 @@
       "title": "Fortaleça sua marca enquanto regenera o oceano"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Derivative.tsx",
+        "title": "DERIVATIVE"
+      }
+    },
+    {
       "__resolveType": "site/sections/Hero.tsx",
       "title": "<p></p>",
       "description": "This text is entirely editable, tailor it freely."
