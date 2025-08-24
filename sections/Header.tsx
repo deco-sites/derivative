@@ -73,6 +73,12 @@ export default function Header({
         </video>
         {/* Dark overlay for better text readability */}
         <div class="absolute inset-0 bg-black/40"></div>
+        
+        {/* Gradient overlay at bottom to blend with #1d1b1d background */}
+        <div 
+          class="absolute bottom-0 left-0 right-0 z-10" 
+          style="height: 120px; background: linear-gradient(to top, #1d1b1d 0%, rgba(29, 27, 29, 0.8) 40%, rgba(29, 27, 29, 0.4) 70%, transparent 100%);"
+        ></div>
       </div>
 
       {/* Navigation */}
