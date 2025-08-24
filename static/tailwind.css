@@ -3571,9 +3571,6 @@ input.tab:checked + .tab-content,
 .border-transparent{
   border-color: transparent;
 }
-.border-white\/10{
-  border-color: rgb(255 255 255 / 0.1);
-}
 .border-white\/20{
   border-color: rgb(255 255 255 / 0.2);
 }
@@ -4211,10 +4208,6 @@ input.tab:checked + .tab-content,
   }
 }
 
-.hover\:border-white\/20:hover{
-  border-color: rgb(255 255 255 / 0.2);
-}
-
 .hover\:bg-fog-gray:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(206 200 193 / var(--tw-bg-opacity));
@@ -4272,12 +4265,12 @@ input.tab:checked + .tab-content,
   color: rgb(255 255 255 / 0.9);
 }
 
-.group[open] .group-open\:opacity-30{
-  opacity: 0.3;
+.group[open] .group-open\:opacity-100{
+  opacity: 1;
 }
 
-.group[open] .group-open\:opacity-5{
-  opacity: 0.05;
+.group[open] .group-open\:opacity-30{
+  opacity: 0.3;
 }
 
 .group:disabled .group-disabled\:bg-\[\#0D1717\]{

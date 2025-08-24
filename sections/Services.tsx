@@ -154,9 +154,11 @@ export default function Services({
                 {title}
               </h2>
             </div>
-            <p class="text-lg leading-relaxed subtitle-text" style="color: rgba(255, 255, 255, 0.85);">
-              {description}
-            </p>
+            <div style="margin-top: 32px;">
+              <p class="text-lg leading-relaxed subtitle-text" style="color: rgba(255, 255, 255, 0.85);">
+                {description}
+              </p>
+            </div>
             {cta && (
               <a
                 key={cta?.id}
@@ -176,12 +178,11 @@ export default function Services({
               {services?.map((service, index) => (
                 <details 
                   key={index}
-                  class="group bg-white/5 rounded-lg border-b border-white/10 hover:border-white/20 transition-all duration-300 relative overflow-hidden"
-                  style="border-bottom: 1px solid; border-image: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,1)) 1;"
+                  class="group bg-white/5 rounded-lg transition-all duration-300 relative overflow-hidden"
                 >
                   {/* Background image when expanded */}
                   {service.icon && (
-                    <div class="absolute inset-0 opacity-0 group-open:opacity-5 transition-opacity duration-700 ease-out pointer-events-none">
+                    <div class="absolute inset-0 opacity-0 group-open:opacity-100 transition-opacity duration-700 ease-out pointer-events-none">
                       <img 
                         src={service.icon}
                         alt=""
@@ -233,7 +234,7 @@ export default function Services({
                    <div class="px-6 pb-8 group-open:animate-fadeIn relative z-10" style="margin-left: 104px !important; min-height: 200px;">
                     <div class="flex gap-8 items-start">
                       {/* Lottie Animation Area */}
-                      <div class="flex-shrink-0 bg-white/5 rounded-lg flex items-center justify-center" style="width: 300px; height: 250px; min-width: 300px; min-height: 250px;">
+                      <div class="flex-shrink-0 flex items-center justify-center" style="width: 300px; height: 250px; min-width: 300px; min-height: 250px; background: transparent;">
                         <div
                           id={`lottie-container-${index}`}
                           style="width: 280px; height: 230px;"
