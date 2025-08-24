@@ -27,7 +27,7 @@ export default function Derivative({
 }: Props) {
   return (
     <div style="background-color: #1d1b1d; min-height: 100vh;">
-      <section class="relative py-20 lg:py-32 mx-4 lg:mx-8" style="background-color: #fcfafc; border-radius: 24px; overflow: hidden;">
+      <section class="relative py-20 lg:py-32 mx-4 lg:mx-8" style="background-color: #fcfafc; border-radius: 24px; overflow: hidden; background-image: url('https://assets.decocache.com/derivative/59fbafa1-c394-4fac-a866-06ea2cad64a8/background_nets.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
       {/* Background Pattern */}
       <div class="absolute inset-0 opacity-15">
         <img 
@@ -118,15 +118,15 @@ export default function Derivative({
             </div>
 
           {/* Card 2 - Pellets */}
-          <div class="bg-mineral-black rounded-2xl h-[500px] flex flex-col items-center" style="width: 380px;">
-              <div class="flex flex-col gap-3 px-6 py-4 w-full">
+          <div class="bg-mineral-black rounded-2xl h-[400px] flex flex-col items-center" style="width: 380px;">
+              <div class="flex flex-col gap-2 px-6 py-3 w-full">
                 <p class="text-fog-gray font-bold text-sm">Matéria-prima</p>
                 <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
                   PELLETS
                 </h3>
               </div>
             {/* 3D Animation Container */}
-            <div style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 1rem; overflow: hidden; position: relative; background-color: transparent;">
+            <div style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
               <div id="pellets-animation" style="width: 100%; height: 100%;"></div>
             </div>
             </div>
@@ -141,15 +141,15 @@ export default function Derivative({
             </div>
 
           {/* Card 3 - Produtos */}
-          <div class="bg-mineral-black rounded-2xl h-[500px] flex flex-col items-center" style="width: 380px;">
-              <div class="flex flex-col gap-3 px-6 py-4 w-full">
+          <div class="bg-mineral-black rounded-2xl h-[400px] flex flex-col items-center" style="width: 380px;">
+              <div class="flex flex-col gap-2 px-6 py-3 w-full">
                 <p class="text-fog-gray font-bold text-sm">PRODUTOS</p>
                 <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
                   ARMAÇÃO DE ÓCULOS
                 </h3>
               </div>
             {/* Video Container */}
-            <div style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 1rem; overflow: hidden; position: relative; background-color: transparent;">
+            <div style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
               <video 
                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
                 autoplay 

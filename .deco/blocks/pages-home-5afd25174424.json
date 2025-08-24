@@ -31,9 +31,16 @@
       }
     },
     {
-      "__resolveType": "site/sections/Hero.tsx",
-      "title": "<p></p>",
-      "description": "This text is entirely editable, tailor it freely."
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/NetworkRecoverySteps.tsx"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Services.tsx"
+      }
     },
     {
       "__resolveType": "site/sections/MainPost.tsx",
