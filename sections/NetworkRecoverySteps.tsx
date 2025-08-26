@@ -49,9 +49,9 @@ export default function NetworkRecoverySteps({
       style="background-color: #1d1b1d;"
     >
       <div class="container mx-auto px-2 lg:px-4 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh]">
+        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-12 items-center min-h-[80vh]">
           
-          {/* Coluna 1 - Conteúdo Dinâmico */}
+          {/* Coluna 1 - Conteúdo Dinâmico - Reduzida */}
           <div class="order-2 lg:order-1 flex flex-col justify-between h-full">
             {/* Conteúdo Principal que muda */}
             <div class="flex-1 flex flex-col justify-center space-y-8">
@@ -62,7 +62,7 @@ export default function NetworkRecoverySteps({
 
               {/* Título Dinâmico */}
               <div id="step-title" class="transition-all duration-500 ease-in-out">
-                <h2 class="text-snow-white font-mono font-normal text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-none">
+                <h2 class="text-snow-white font-mono font-normal text-3xl lg:text-4xl xl:text-5xl tracking-tight leading-none">
                   {steps[0].title}
                 </h2>
               </div>
@@ -70,7 +70,7 @@ export default function NetworkRecoverySteps({
               {/* Subtitle Dinâmico */}
               <div id="step-subtitle" class="transition-all duration-500 ease-in-out">
                 <p 
-                  class="text-lg lg:text-xl leading-relaxed font-sans max-w-2xl"
+                  class="text-base lg:text-lg leading-relaxed font-sans max-w-lg"
                   style="color: #A1ACAA;"
                 >
                   {steps[0].subtitle}
@@ -87,12 +87,12 @@ export default function NetworkRecoverySteps({
             </div>
           </div>
 
-          {/* Coluna 2 - Vídeo Dinâmico */}
+          {/* Coluna 2 - Vídeo Dinâmico - Ampliada */}
           <div class="order-1 lg:order-2 flex items-center justify-center">
-            <div class="w-full max-w-3xl">
+            <div class="w-full max-w-4xl">
               <div 
                 class="relative w-full bg-mineral-black rounded-2xl overflow-hidden"
-                style="aspect-ratio: 16/10; border: 2px solid rgba(255, 255, 255, 0.2);"
+                style="aspect-ratio: 16/9; border: 2px solid rgba(255, 255, 255, 0.2);"
               >
                 <video 
                   id="step-video"
@@ -112,103 +112,127 @@ export default function NetworkRecoverySteps({
         </div>
       </div>
 
-      {/* Script de Animação */}
-      <script type="text/javascript">{`
-            (function() {
-              const steps = ${JSON.stringify(steps)};
-              const stepDuration = ${stepDuration * 1000}; // converter para ms
-              const totalSteps = ${totalSteps};
-              let currentStep = 0;
-              let progressInterval;
-              let stepTimeout;
+      {/* Script de Animação - Versão Simplificada */}
+      <script type="text/javascript" dangerouslySetInnerHTML={{
+        __html: `
+          (function() {
+            console.log('🚀 NetworkRecoverySteps: NOVA VERSÃO iniciada - ${Date.now()}');
+            
+            const steps = ${JSON.stringify(steps)};
+            const stepDuration = ${stepDuration * 1000};
+            const totalSteps = steps.length;
+            let currentStep = 0;
+            let animationInterval;
 
-              function updateContent(stepIndex) {
-                const step = steps[stepIndex];
-                const titleElement = document.getElementById('step-title');
-                const subtitleElement = document.getElementById('step-subtitle');
-                const videoElement = document.getElementById('step-video');
+            console.log('📊 Configuração:', { totalSteps, stepDuration });
 
-                if (titleElement && subtitleElement && videoElement) {
-                  // Fade out
-                  titleElement.style.opacity = '0';
-                  subtitleElement.style.opacity = '0';
-                  videoElement.style.opacity = '0';
+            function forceUpdateContent(stepIndex) {
+              const stepStartTime = Date.now();
+              console.log('🔄 Forçando update para step:', stepIndex, 'às', stepStartTime);
+              
+              const step = steps[stepIndex];
+              const titleEl = document.getElementById('step-title');
+              const subtitleEl = document.getElementById('step-subtitle');
+              const videoEl = document.getElementById('step-video');
 
-                  setTimeout(() => {
-                    // Update content
-                    titleElement.innerHTML = '<h2 class="text-snow-white font-mono font-normal text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-none">' + step.title + '</h2>';
-                    subtitleElement.innerHTML = '<p class="text-lg lg:text-xl leading-relaxed font-sans max-w-2xl" style="color: #A1ACAA;">' + step.subtitle + '</p>';
-                    
-                    // Update video source
-                    videoElement.innerHTML = '<source src="' + step.videoUrl + '" type="video/mp4" />Seu navegador não suporta vídeos.';
-                    videoElement.load();
-
-                    // Fade in
-                    titleElement.style.opacity = '1';
-                    subtitleElement.style.opacity = '1';
-                    videoElement.style.opacity = '1';
-                  }, 250);
-                }
+              if (!titleEl || !subtitleEl || !videoEl) {
+                console.error('❌ Elementos não encontrados!');
+                return;
               }
 
-              function nextStep() {
-                currentStep = (currentStep + 1) % totalSteps;
-                updateContent(currentStep);
-                updateStepProgress(currentStep);
-              }
+              console.log('✅ Elementos encontrados, atualizando para:', step.title);
 
-              function updateStepProgress(activeStep) {
-                // Atualizar indicadores visuais dos steps
-                for (let i = 0; i < totalSteps; i++) {
-                  const stepDot = document.querySelector('[data-step="' + i + '"]');
-                  const stepLine = document.querySelector('[data-line="' + i + '"]');
-                  
-                  if (stepDot) {
-                    if (i === activeStep) {
-                      stepDot.classList.add('active');
-                    } else {
-                      stepDot.classList.remove('active');
-                    }
+              // Update imediato sem fade
+              titleEl.innerHTML = '<h2 class="text-snow-white font-mono font-normal text-3xl lg:text-4xl xl:text-5xl tracking-tight leading-none">' + step.title + '</h2>';
+              subtitleEl.innerHTML = '<p class="text-base lg:text-lg leading-relaxed font-sans max-w-lg" style="color: #A1ACAA;">' + step.subtitle + '</p>';
+              
+              // Force video update
+              videoEl.src = step.videoUrl;
+              videoEl.load();
+              
+              const updateEndTime = Date.now();
+              console.log('📝 Conteúdo atualizado para:', step.title, 'em', updateEndTime - stepStartTime, 'ms');
+            }
+
+            function advanceStep() {
+              const previousStep = currentStep;
+              currentStep = (currentStep + 1) % totalSteps;
+              
+              const now = Date.now();
+              console.log('⏭️ Avançando de step', previousStep, 'para', currentStep, 'às', now);
+              console.log('⏱️ Próxima troca em', stepDuration, 'ms');
+              
+              forceUpdateContent(currentStep);
+              updateProgressIndicators(currentStep);
+            }
+
+            function updateProgressIndicators(activeStep) {
+              for (let i = 0; i < totalSteps; i++) {
+                const dot = document.querySelector('[data-step="' + i + '"]');
+                if (dot) {
+                  if (i === activeStep) {
+                    dot.classList.add('active');
+                  } else {
+                    dot.classList.remove('active');
                   }
-
-                  if (stepLine) {
-                    stepLine.style.transform = 'scaleX(0)';
-                    stepLine.style.transition = 'none';
-                  }
-                }
-
-                // Animar a linha do step atual
-                const currentLine = document.querySelector('[data-line="' + activeStep + '"]');
-                if (currentLine) {
-                  setTimeout(() => {
-                    currentLine.style.transition = 'transform ' + (stepDuration / 1000) + 's linear';
-                    currentLine.style.transform = 'scaleX(1)';
-                  }, 100);
                 }
               }
+            }
 
-              function startAnimation() {
-                // Inicializar primeiro step
-                updateStepProgress(0);
-                
-                // Configurar intervalo para próximos steps
-                stepTimeout = setInterval(nextStep, stepDuration);
+            function startCycle() {
+              console.log('🎬 Iniciando ciclo de animação...');
+              
+              // Limpar qualquer intervalo existente
+              if (animationInterval) {
+                clearInterval(animationInterval);
+                console.log('🧹 Intervalo anterior limpo');
               }
+              
+              // Inicializar
+              updateProgressIndicators(0);
+              
+              // Começar ciclo após 2 segundos
+              setTimeout(() => {
+                console.log('🚀 Primeira troca de step em', stepDuration, 'ms');
+                animationInterval = setInterval(() => {
+                  console.log('⏰ Intervalo executado - tempo configurado:', stepDuration, 'ms');
+                  advanceStep();
+                }, stepDuration);
+                console.log('✨ Intervalo iniciado com', stepDuration, 'ms');
+              }, 2000);
+            }
 
-              // Iniciar quando DOM estiver pronto
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', startAnimation);
-              } else {
-                startAnimation();
+            // Inicialização única e controlada
+            let isInitialized = false;
+            
+            function safeInit() {
+              if (!isInitialized) {
+                isInitialized = true;
+                console.log('🔒 Inicialização única executada');
+                startCycle();
               }
+            }
+            
+            // Tentar inicializar quando DOM estiver pronto
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', safeInit);
+            } else {
+              safeInit();
+            }
 
-              // Cleanup ao sair da página
-              window.addEventListener('beforeunload', () => {
-                if (stepTimeout) clearInterval(stepTimeout);
-                if (progressInterval) clearInterval(progressInterval);
-              });
-            })();
-      `}</script>
+            // Cleanup
+            window.addEventListener('beforeunload', () => {
+              if (animationInterval) clearInterval(animationInterval);
+            });
+
+            // Debug helper - manual advance
+            window.debugAdvanceStep = () => {
+              console.log('🔧 Debug: Forçando próximo step');
+              advanceStep();
+            };
+          })();
+        `
+      }} />
     </section>
   );
 }
