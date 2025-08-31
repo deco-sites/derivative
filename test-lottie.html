@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Lottie Scene-derivative</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <h1>Teste Lottie Scene-derivative.json</h1>
+    
+    <div style="width: 280px; height: 230px; overflow: hidden;">
+        <lottie-player
+            src="./static/Scene-derivative.json"
+            background="transparent"
+            speed="1"
+            style="width: 140%; height: 140%; transform: translate(-14.3%, -14.3%);"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const player = document.querySelector('lottie-player');
+            
+            player.addEventListener('error', function(e) {
+                console.error('Erro no Lottie Player:', e);
+                document.body.innerHTML += '<p style="color: red;">ERRO: ' + e.detail + '</p>';
+            });
+            
+            player.addEventListener('ready', function() {
+                console.log('Lottie Player carregado com sucesso');
+                document.body.innerHTML += '<p style="color: green;">SUCESSO: Lottie Player carregado</p>';
+            });
+        });
+    </script>
+</body>
+</html>

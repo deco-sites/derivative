@@ -11,27 +11,30 @@ import * as $$$$$$2 from "./sections/BlogPosts.tsx";
 import * as $$$$$$3 from "./sections/Derivative.tsx";
 import * as $$$$$$4 from "./sections/Faq.tsx";
 import * as $$$$$$5 from "./sections/Footer.tsx";
-import * as $$$$$$6 from "./sections/Header.tsx";
-import * as $$$$$$7 from "./sections/Hero.tsx";
-import * as $$$$$$8 from "./sections/ImageWithParagraph.tsx";
-import * as $$$$$$9 from "./sections/Logos.tsx";
-import * as $$$$$$10 from "./sections/MainPost.tsx";
-import * as $$$$$$11 from "./sections/NetworkRecoverySteps.tsx";
-import * as $$$$$$12 from "./sections/ScrollBlurAlwaysOn.tsx";
-import * as $$$$$$13 from "./sections/ScrollBlurCSS.tsx";
-import * as $$$$$$14 from "./sections/ScrollBlurDynamic.tsx";
-import * as $$$$$$15 from "./sections/ScrollBlurEffect.tsx";
-import * as $$$$$$16 from "./sections/ScrollBlurGradient.tsx";
-import * as $$$$$$17 from "./sections/ScrollBlurGradient2.tsx";
-import * as $$$$$$18 from "./sections/ScrollBlurHybrid.tsx";
-import * as $$$$$$19 from "./sections/ScrollBlurLayered.tsx";
-import * as $$$$$$20 from "./sections/ScrollBlurPure.tsx";
-import * as $$$$$$21 from "./sections/ScrollBlurSimple.tsx";
-import * as $$$$$$22 from "./sections/ScrollBlurTest.tsx";
-import * as $$$$$$23 from "./sections/Services.tsx";
-import * as $$$$$$24 from "./sections/Testimonials.tsx";
-import * as $$$$$$25 from "./sections/Theme/Theme.tsx";
-import * as $$$$$$26 from "./sections/UnicornStudioEffect.tsx";
+import * as $$$$$$6 from "./sections/FormsFooter.tsx";
+import * as $$$$$$7 from "./sections/Header.tsx";
+import * as $$$$$$8 from "./sections/Hero.tsx";
+import * as $$$$$$9 from "./sections/ImageWithParagraph.tsx";
+import * as $$$$$$10 from "./sections/Logos.tsx";
+import * as $$$$$$11 from "./sections/MainPost.tsx";
+import * as $$$$$$12 from "./sections/Mission.tsx";
+import * as $$$$$$13 from "./sections/NetworkRecoverySteps.tsx";
+import * as $$$$$$14 from "./sections/ScrollBlurAlwaysOn.tsx";
+import * as $$$$$$15 from "./sections/ScrollBlurCSS.tsx";
+import * as $$$$$$16 from "./sections/ScrollBlurDynamic.tsx";
+import * as $$$$$$17 from "./sections/ScrollBlurEffect.tsx";
+import * as $$$$$$18 from "./sections/ScrollBlurGradient.tsx";
+import * as $$$$$$19 from "./sections/ScrollBlurGradient2.tsx";
+import * as $$$$$$20 from "./sections/ScrollBlurHybrid.tsx";
+import * as $$$$$$21 from "./sections/ScrollBlurLayered.tsx";
+import * as $$$$$$22 from "./sections/ScrollBlurPure.tsx";
+import * as $$$$$$23 from "./sections/ScrollBlurSimple.tsx";
+import * as $$$$$$24 from "./sections/ScrollBlurTest.tsx";
+import * as $$$$$$25 from "./sections/Services.tsx";
+import * as $$$$$$26 from "./sections/Supporters.tsx";
+import * as $$$$$$27 from "./sections/Testimonials.tsx";
+import * as $$$$$$28 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$29 from "./sections/UnicornStudioEffect.tsx";
 
 const manifest = {
   "sections": {
@@ -41,27 +44,30 @@ const manifest = {
     "site/sections/Derivative.tsx": $$$$$$3,
     "site/sections/Faq.tsx": $$$$$$4,
     "site/sections/Footer.tsx": $$$$$$5,
-    "site/sections/Header.tsx": $$$$$$6,
-    "site/sections/Hero.tsx": $$$$$$7,
-    "site/sections/ImageWithParagraph.tsx": $$$$$$8,
-    "site/sections/Logos.tsx": $$$$$$9,
-    "site/sections/MainPost.tsx": $$$$$$10,
-    "site/sections/NetworkRecoverySteps.tsx": $$$$$$11,
-    "site/sections/ScrollBlurAlwaysOn.tsx": $$$$$$12,
-    "site/sections/ScrollBlurCSS.tsx": $$$$$$13,
-    "site/sections/ScrollBlurDynamic.tsx": $$$$$$14,
-    "site/sections/ScrollBlurEffect.tsx": $$$$$$15,
-    "site/sections/ScrollBlurGradient.tsx": $$$$$$16,
-    "site/sections/ScrollBlurGradient2.tsx": $$$$$$17,
-    "site/sections/ScrollBlurHybrid.tsx": $$$$$$18,
-    "site/sections/ScrollBlurLayered.tsx": $$$$$$19,
-    "site/sections/ScrollBlurPure.tsx": $$$$$$20,
-    "site/sections/ScrollBlurSimple.tsx": $$$$$$21,
-    "site/sections/ScrollBlurTest.tsx": $$$$$$22,
-    "site/sections/Services.tsx": $$$$$$23,
-    "site/sections/Testimonials.tsx": $$$$$$24,
-    "site/sections/Theme/Theme.tsx": $$$$$$25,
-    "site/sections/UnicornStudioEffect.tsx": $$$$$$26,
+    "site/sections/FormsFooter.tsx": $$$$$$6,
+    "site/sections/Header.tsx": $$$$$$7,
+    "site/sections/Hero.tsx": $$$$$$8,
+    "site/sections/ImageWithParagraph.tsx": $$$$$$9,
+    "site/sections/Logos.tsx": $$$$$$10,
+    "site/sections/MainPost.tsx": $$$$$$11,
+    "site/sections/Mission.tsx": $$$$$$12,
+    "site/sections/NetworkRecoverySteps.tsx": $$$$$$13,
+    "site/sections/ScrollBlurAlwaysOn.tsx": $$$$$$14,
+    "site/sections/ScrollBlurCSS.tsx": $$$$$$15,
+    "site/sections/ScrollBlurDynamic.tsx": $$$$$$16,
+    "site/sections/ScrollBlurEffect.tsx": $$$$$$17,
+    "site/sections/ScrollBlurGradient.tsx": $$$$$$18,
+    "site/sections/ScrollBlurGradient2.tsx": $$$$$$19,
+    "site/sections/ScrollBlurHybrid.tsx": $$$$$$20,
+    "site/sections/ScrollBlurLayered.tsx": $$$$$$21,
+    "site/sections/ScrollBlurPure.tsx": $$$$$$22,
+    "site/sections/ScrollBlurSimple.tsx": $$$$$$23,
+    "site/sections/ScrollBlurTest.tsx": $$$$$$24,
+    "site/sections/Services.tsx": $$$$$$25,
+    "site/sections/Supporters.tsx": $$$$$$26,
+    "site/sections/Testimonials.tsx": $$$$$$27,
+    "site/sections/Theme/Theme.tsx": $$$$$$28,
+    "site/sections/UnicornStudioEffect.tsx": $$$$$$29,
   },
   "apps": {
     "site/apps/deco/blog.ts": $$$$$$$$$$$0,

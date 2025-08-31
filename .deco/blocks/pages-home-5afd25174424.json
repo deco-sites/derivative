@@ -49,21 +49,28 @@
       }
     },
     {
-      "__resolveType": "site/sections/MainPost.tsx",
-      "post": {
-        "__resolveType": "blog/loaders/BlogPostItem.ts",
-        "slug": "why-we-web"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Supporters.tsx"
       }
     },
     {
-      "__resolveType": "site/sections/BlogPosts.tsx",
-      "posts": {
-        "__resolveType": "blog/loaders/BlogpostList.ts",
-        "count": 6
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Mission.tsx"
       }
     },
     {
-      "__resolveType": "Footer"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Faq - default"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/FormsFooter.tsx"
+      }
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

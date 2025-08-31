@@ -235,20 +235,20 @@ export default function Services({
                     <div class="flex gap-8 items-start">
                       {/* Lottie Animation Area */}
                       <div class="flex-shrink-0 flex items-center justify-center" style="width: 300px; height: 250px; min-width: 300px; min-height: 250px; background: transparent;">
-                        <div
-                          id={`lottie-container-${index}`}
-                          style="width: 280px; height: 230px;"
-                          dangerouslySetInnerHTML={{
-                            __html: `<lottie-player
-                              src="${asset("/Scene-1.json")}"
-                              background="transparent"
-                              speed="1"
-                              style="width: 100%; height: 100%;"
-                              loop
-                              autoplay>
-                            </lottie-player>`
-                          }}
-                        ></div>
+                                <div
+          id={`lottie-container-${index}`}
+          style="width: 280px; height: 230px; overflow: hidden;"
+          dangerouslySetInnerHTML={{
+            __html: `<lottie-player
+              src="${index === 0 ? asset("/Scene_derivative.json") : index === 2 ? asset("/Scene-way.json") : asset("/Scene-1.json")}"
+              background="transparent"
+              speed="1"
+              style="width: 140%; height: 140%; transform: translate(-14.3%, -14.3%);"
+              loop
+              autoplay>
+            </lottie-player>`
+          }}
+        ></div>
                       </div>
                       
                       {/* Content Area */}

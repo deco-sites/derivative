@@ -107,7 +107,8 @@ export default function Footer({
   ],
 }: Props) {
   return (
-    <div class="lg:container lg:mx-auto md:max-w-6xl mx-4 pt-16 text-sm">
+    <div style="background-color: #1D1B1D; padding: 80px 0;">
+      <div class="lg:container lg:mx-auto md:max-w-6xl mx-4 pt-16 text-sm text-white">
       <div class="flex flex-col gap-20">
         <div class="flex flex-col gap-6 justify-between lg:flex-row">
           <div>
@@ -121,10 +122,10 @@ export default function Footer({
           <div class="flex gap-9">
             {links?.map((link) => (
               <div>
-                <h4 class="font-semibold mb-4">{link.title}</h4>
+                <h4 class="font-semibold mb-4 text-white">{link.title}</h4>
                 {link.items?.map((item) => (
                   <a
-                    class="block hover:underline link no-underline py-1"
+                    class="block hover:underline link no-underline py-1 text-white/80 hover:text-white"
                     href={item.href}
                   >
                     {item.label}
@@ -134,9 +135,9 @@ export default function Footer({
             ))}
           </div>
           <div class="lg:w-[40%]">
-            <h4 class="font-semibold mb-4">{subscribe?.title}</h4>
+            <h4 class="font-semibold mb-4 text-white">{subscribe?.title}</h4>
             <form class="flex flex-col gap-4">
-              <p class="font-normal">{subscribe.description}</p>
+                              <p class="font-normal text-white/80">{subscribe.description}</p>
               <div class="flex gap-4">
                 <input
                   type="text"
@@ -153,7 +154,7 @@ export default function Footer({
               </div>
               {subscribe.instructions && (
                 <p
-                  class="text-xs"
+                  class="text-xs text-white/60"
                   dangerouslySetInnerHTML={{ __html: subscribe.instructions }}
                 >
                 </p>
@@ -161,14 +162,14 @@ export default function Footer({
             </form>
           </div>
         </div>
-        <div class="border-primary border-t flex flex-col gap-4 items-center justify-between lg:flex-row lg:items-center py-8">
+        <div class="border-white/20 border-t flex flex-col gap-4 items-center justify-between lg:flex-row lg:items-center py-8">
           <div class="flex flex-col gap-4 items-center lg:flex-row lg:gap-6">
             <a
               href={madeWith?.href}
               class="flex items-center gap-2"
               target="_blank"
             >
-              <span>{madeWith?.label}</span>
+              <span class="text-white/80">{madeWith?.label}</span>
               <Image
                 src={madeWith?.src || ""}
                 width={100}
@@ -176,10 +177,10 @@ export default function Footer({
                 alt={madeWith?.label}
               />
             </a>
-            <span>{copyright}</span>
+            <span class="text-white/80">{copyright}</span>
             <div class="flex gap-2 justify-between lg:gap-6">
               {bottomLinks?.map((item) => (
-                <a class="link" href={item.href} target="_blank">
+                <a class="link text-white/80 hover:text-white" href={item.href} target="_blank">
                   {item.label}
                 </a>
               ))}
@@ -187,7 +188,7 @@ export default function Footer({
           </div>
           <div class="flex gap-3">
             {social?.map((item) => (
-              <a class="block" href={item.href} target="_blank">
+              <a class="block text-white/80 hover:text-white" href={item.href} target="_blank">
                 <Icon
                   id={item.network as AvailableIcons}
                   width={24}
@@ -197,6 +198,7 @@ export default function Footer({
             ))}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
