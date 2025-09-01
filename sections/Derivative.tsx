@@ -141,15 +141,20 @@ export default function Derivative({
                 </h3>
               </div>
             {/* Video Container */}
-            <div style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+            <div className="video-lighten" style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
               <video 
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
-                autoplay 
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "0.5rem"
+                }}
+                autoPlay 
                 muted 
                 loop 
-                playsinline
+                playsInline
               >
-                <source src="https://assets.decocache.com/derivative/489370b4-faa2-450e-83a3-3b092e3eea2d/sunglasses.mp4" type="video/mp4" />
+                <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
                 </video>
             </div>
@@ -644,6 +649,20 @@ export default function Derivative({
           `
         }}
       />
+
+      {/* Video Blend Mode CSS */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .video-lighten {
+            mix-blend-mode: lighten !important;
+            isolation: isolate;
+          }
+          .video-lighten video {
+            mix-blend-mode: lighten !important;
+            filter: brightness(1.3) contrast(1.2) !important;
+          }
+        `
+      }} />
 
       {/* UnicornStudio Script */}
       <script 
