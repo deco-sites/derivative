@@ -49,23 +49,29 @@ export default function Benefits({
   ],
 }: Props) {
   return (
-    <div style="background-color: #1D1B1D; padding: 80px 0;">
+    <div style="background-color: #1D1B1D; padding: 96px 0 48px 0;">
       <div class="xl:container xl:mx-auto mx-5 md:mx-10">
         {/* Header Section */}
         <div class="text-center mb-16">
+          {/* Eyebrow */}
+          <p class="font-mono font-normal text-base uppercase tracking-wider mb-4 opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate" style="color: #A1ACAA;">
+            Benefícios
+          </p>
+          
           <div
-            class="font-medium inline-block leading-[100%] lg:text-[90px] text-4xl tracking-[-2.4px] text-white mb-6"
+            class="font-normal inline-block leading-[100%] tracking-tight text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate"
+            style="font-size: clamp(3rem, 6vw, 5rem); max-width: 900px; margin: 0 auto 32px auto;"
             dangerouslySetInnerHTML={{
               __html: title,
             }}
           />
-          <p class="leading-[150%] md:text-lg text-lg text-white/80 max-w-3xl mx-auto">
+          <p class="leading-[150%] md:text-lg text-lg max-w-3xl mx-auto opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate" style="color: #A1ACAA;">
             {description}
           </p>
         </div>
 
         {/* Benefits Bento Grid */}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600 scroll-animate">
           {/* First 3 cards (top row) - each takes 2 columns */}
           {benefits.slice(0, 3).map((benefit, index) => (
             <div
@@ -115,6 +121,57 @@ export default function Benefits({
           ))}
         </div>
       </div>
+      
+      {/* Scroll Animation Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Scroll Animation for elements
+            (function() {
+              function animateOnScroll() {
+                const elements = document.querySelectorAll('.scroll-animate');
+                
+                elements.forEach((element) => {
+                  const elementTop = element.getBoundingClientRect().top;
+                  const elementVisible = 150;
+                  
+                  if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                  }
+                });
+              }
+              
+              // Throttle scroll events for performance
+              let ticking = false;
+              function requestTick() {
+                if (!ticking) {
+                  requestAnimationFrame(function() {
+                    animateOnScroll();
+                    ticking = false;
+                  });
+                  ticking = true;
+                }
+              }
+              
+              // Add event listeners
+              window.addEventListener('scroll', requestTick, { passive: true });
+              window.addEventListener('resize', animateOnScroll);
+              
+              // Initial check
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', animateOnScroll);
+              } else {
+                setTimeout(animateOnScroll, 100);
+              }
+              
+              // Also check on load
+              window.addEventListener('load', animateOnScroll);
+            })();
+          `
+        }}
+      />
     </div>
   );
 }

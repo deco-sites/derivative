@@ -42,9 +42,10 @@ export default function Header({
   },
   navigation = {
     links: [
-      { label: "DERIVATIVE", url: "/derivative" },
-      { label: "SISTEMA REGENERATIVO", url: "/sistema" },
-      { label: "B2B", url: "/b2b" },
+      { label: "DERIVATIVE", url: "#derivative" },
+      { label: "SISTEMA REGENERATIVO", url: "#sistema" },
+      { label: "SOLUÇÕES", url: "#services" },
+      { label: "MISSÃO", url: "#mission" },
     ],
   },
   backgroundVideo = "https://assets.decocache.com/derivative/d81f13fc-4f89-4c4c-a562-b434436f99bd/background2_header-(1).mp4",
@@ -72,19 +73,19 @@ export default function Header({
           <p>Seu navegador não suporta o elemento de vídeo.</p>
         </video>
         {/* Dark overlay for better text readability */}
-        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 bg-black/25"></div>
         
         {/* Gradient overlay at bottom to blend with #1d1b1d background */}
         <div 
           class="absolute bottom-0 left-0 right-0 z-10" 
-          style="height: 120px; background: linear-gradient(to top, #1d1b1d 0%, rgba(29, 27, 29, 0.8) 40%, rgba(29, 27, 29, 0.4) 70%, transparent 100%);"
+          style="height: 80px; background: linear-gradient(to top, #1d1b1d 0%, rgba(29, 27, 29, 0.9) 30%, rgba(29, 27, 29, 0.6) 60%, rgba(29, 27, 29, 0.2) 85%, transparent 100%);"
         ></div>
       </div>
 
       {/* Navigation */}
       <nav class="relative z-20 container mx-auto px-4 lg:px-8">
-        <div class="flex items-center justify-between py-6">
-          {/* Logo */}
+        <div class="flex items-center py-6">
+          {/* Logo - Left */}
           <a href="/" class="flex-shrink-0">
             <img 
               src={logo.src} 
@@ -93,9 +94,37 @@ export default function Header({
             />
           </a>
 
+          {/* Desktop Navigation - Center */}
+          <div class="hidden lg:flex items-center justify-center flex-1">
+            <ul class="flex items-center space-x-8">
+              {navigation.links.map((link) => (
+                <li key={link.url}>
+                  <a
+                    href={link.url}
+                    aria-label={link.label}
+                    class="text-snow-white font-mono text-sm uppercase tracking-wider relative group"
+                  >
+                    {link.label}
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-snow-white/70 to-snow-white/20 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Button - Right */}
+          <div class="hidden lg:block">
+            <a
+              href="/contato"
+              class="inline-block border-2 border-snow-white text-snow-white px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-snow-white hover:text-mineral-black transition-all duration-200 rounded-lg"
+            >
+              CONTATO
+            </a>
+          </div>
+
           {/* Mobile Menu Button */}
           <label
-            class="cursor-pointer lg:hidden relative z-50"
+            class="cursor-pointer lg:hidden relative z-50 ml-auto"
             for="menu-mobile"
           >
             <input class="hidden peer" type="checkbox" id="menu-mobile" />
@@ -117,41 +146,25 @@ export default function Header({
                       <a 
                         href={link.url} 
                         aria-label={link.label}
-                        class="text-snow-white hover:text-fog-gray transition-colors duration-200 font-mono text-sm uppercase tracking-wider"
+                        class="text-snow-white font-mono text-sm uppercase tracking-wider relative group"
                       >
                         {link.label}
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-snow-white/70 to-snow-white/20 transition-all duration-300 group-hover:w-full"></span>
                       </a>
                     </li>
                   ))}
                 </ul>
                 <div class="mt-8">
                   <a
-                    href={ctaButton?.href}
-                    class="inline-block bg-snow-white text-mineral-black px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200"
+                    href="/contato"
+                    class="inline-block border-2 border-snow-white text-snow-white px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-snow-white hover:text-mineral-black transition-all duration-200 rounded-lg"
                   >
-                    {ctaButton?.text}
+                    CONTATO
                   </a>
                 </div>
               </div>
             </div>
           </label>
-
-          {/* Desktop Navigation */}
-          <div class="hidden lg:flex items-center space-x-8">
-            <ul class="flex items-center space-x-8">
-              {navigation.links.map((link) => (
-                <li key={link.url}>
-                  <a
-                    href={link.url}
-                    aria-label={link.label}
-                    class="text-snow-white hover:text-fog-gray transition-colors duration-200 font-mono text-sm uppercase tracking-wider"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </nav>
 
@@ -165,7 +178,7 @@ export default function Header({
           <div class="mt-12">
             <a
               href={ctaButton?.href}
-              class="inline-block bg-snow-white text-mineral-black px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200 shadow-lg"
+              class="inline-block bg-snow-white text-mineral-black px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200 shadow-lg rounded-lg"
             >
               {ctaButton?.text}
             </a>

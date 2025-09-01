@@ -7,16 +7,20 @@
       "navigation": {
         "links": [
           {
-            "label": "Performance",
-            "url": "/performance"
+            "label": "DERIVATIVE",
+            "url": "#derivative"
           },
           {
-            "label": "Culture",
-            "url": "/culture"
+            "label": "SISTEMA REGENERATIVO",
+            "url": "#sistema"
           },
           {
-            "label": "Customization",
-            "url": "/customization"
+            "label": "SOLUÇÕES",
+            "url": "#services"
+          },
+          {
+            "label": "MISSÃO",
+            "url": "#mission"
           }
         ],
         "buttons": []

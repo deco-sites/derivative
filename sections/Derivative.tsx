@@ -14,19 +14,11 @@ export default function Derivative({
     {
       icon: "https://assets.decocache.com/derivative/59a05c46-dd77-42a0-b6d5-d8cdf3244268/Frame-(1).svg",
       text: "Novo destino para ameaças ambientais"
-    },
-    {
-      icon: "https://assets.decocache.com/derivative/fbe74e0c-de1e-46b4-a4fd-8fc3266a3cc3/Frame-(2).svg", 
-      text: "Material Reciclável"
-    },
-    {
-      icon: "https://assets.decocache.com/derivative/b96f4608-2070-43d7-9cae-3d3c4776695f/Frame-(3).svg",
-      text: "Cadeia Rastreável"
     }
   ]
 }: Props) {
   return (
-    <div style="background-color: #1d1b1d; min-height: 100vh;">
+    <div id="derivative" style="background-color: #1d1b1d; min-height: 100vh;">
       <section class="relative py-20 lg:py-32 mx-4 lg:mx-8" style="background-color: #fcfafc; border-radius: 24px; overflow: hidden; background-image: url('https://assets.decocache.com/derivative/59fbafa1-c394-4fac-a866-06ea2cad64a8/background_nets.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
       {/* Background Pattern */}
       <div class="absolute inset-0 opacity-15">
@@ -40,12 +32,12 @@ export default function Derivative({
       <div class="container mx-auto px-4 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Column - Content */}
-          <div class="order-2 lg:order-1">
+          <div class="order-2 lg:order-1 opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
             {/* UnicornStudio Interactive Component with DERIVATIVE title */}
             <div class="mb-0">
               <div 
                 class="relative w-full overflow-hidden"
-                style="aspect-ratio: 1440/900; max-height: 150px;"
+                style="aspect-ratio: 1440/900; max-height: 150px; transform: translateX(-40px) !important;"
               >
                 <div 
                   data-us-project="CfUBNRWqqovof8qgj5r4" 
@@ -56,22 +48,22 @@ export default function Derivative({
             </div>
 
             {/* Subtitle */}
-            <p class="text-lg lg:text-xl text-mineral-black leading-relaxed mb-6 font-sans max-w-2xl" style="margin-top: -10px;">
-              {subtitle}
+            <p class="text-xl lg:text-2xl leading-relaxed mb-6 font-sans max-w-2xl" style="margin-top: -10px; color: #4A4A4A !important;">
+              Criado a partir da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas antes de virarem redes fantasmas e <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
             </p>
 
             {/* Key Benefits */}
-            <div class="space-y-2 mb-16">
+            <div class="mb-16">
               {keyBenefits.map((benefit, index) => (
-                <div key={index} class="flex items-center gap-3">
+                <div key={index} class="flex items-center gap-4 px-6 py-4 rounded-xl border-2 inline-block" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important; width: fit-content;">
                   <div class="flex-shrink-0">
                     <img 
                       src={benefit.icon} 
                       alt=""
-                      class="w-6 h-6"
+                      style="width: 32px !important; height: 32px !important;"
                     />
                   </div>
-                  <span class="text-mineral-black font-sans text-base leading-relaxed">
+                  <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 18px !important; font-weight: 500 !important; line-height: 1.5 !important;">
                     {benefit.text}
                   </span>
                 </div>
@@ -80,7 +72,7 @@ export default function Derivative({
           </div>
 
           {/* Right Column - UnicornStudio Element */}
-          <div class="order-1 lg:order-2">
+          <div class="order-1 lg:order-2 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
             <div 
               data-us-project="AI2KbKFrSjPoQHEs6hQK" 
               style="width: 100%; height: 450px; max-width: 600px; aspect-ratio: 1440/900;"
@@ -92,7 +84,7 @@ export default function Derivative({
 
       {/* Material Flow Cards - 3 Column Layout - Full Width - SEPARATE SECTION */}
       <div class="container mx-auto px-4 lg:px-8 relative z-10" style="margin-top: 100px;">
-        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
             
             {/* Card 1 - Redes Danificadas */}
           <div class="bg-mineral-black rounded-2xl h-[400px] flex flex-col items-center" style="width: 380px;">
@@ -597,6 +589,57 @@ export default function Derivative({
                   renderer.dispose();
                 }
               });
+            })();
+          `
+        }}
+      />
+
+      {/* Scroll Animation Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Scroll Animation for elements
+            (function() {
+              function animateOnScroll() {
+                const elements = document.querySelectorAll('.scroll-animate');
+                
+                elements.forEach((element) => {
+                  const elementTop = element.getBoundingClientRect().top;
+                  const elementVisible = 150;
+                  
+                  if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                  }
+                });
+              }
+              
+              // Throttle scroll events for performance
+              let ticking = false;
+              function requestTick() {
+                if (!ticking) {
+                  requestAnimationFrame(function() {
+                    animateOnScroll();
+                    ticking = false;
+                  });
+                  ticking = true;
+                }
+              }
+              
+              // Add event listeners
+              window.addEventListener('scroll', requestTick, { passive: true });
+              window.addEventListener('resize', animateOnScroll);
+              
+              // Initial check
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', animateOnScroll);
+              } else {
+                setTimeout(animateOnScroll, 100);
+              }
+              
+              // Also check on load
+              window.addEventListener('load', animateOnScroll);
             })();
           `
         }}

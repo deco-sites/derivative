@@ -24,7 +24,7 @@ export default function Mission({
   ]
 }: Props) {
   return (
-    <div style="background-color: #1d1b1d;">
+    <div id="mission" style="background-color: #1d1b1d;">
       <section 
         class="relative mx-4 lg:mx-8 py-20 lg:py-32" 
         style="background-color: #fcfafc; border-radius: 24px; overflow: hidden; background-image: url('https://assets.decocache.com/derivative/6ea633f1-547f-4478-89c0-97356b6354a9/blue-texture.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
@@ -41,12 +41,12 @@ export default function Mission({
         <div class="container mx-auto px-4 lg:px-8 relative z-10 h-full flex flex-col">
           <div class="text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center">
             {/* Eyebrow */}
-            <p class="font-bold text-sm uppercase tracking-wider mb-6 text-white">
+            <p class="font-bold text-sm uppercase tracking-wider mb-6 text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
               {eyebrow}
             </p>
 
             {/* Mission Text with Word-by-Word Focus Effect */}
-            <div id="mission-container" class="font-mono font-normal text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-none text-white">
+            <div id="mission-container" class="font-mono font-normal text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-none text-white opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
               {mission.split(' ').map((word, index) => (
                 <span 
                   key={index}
@@ -62,7 +62,7 @@ export default function Mission({
 
           {/* Info Cards at Bottom */}
           <div class="mt-auto pt-20">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
               {/* Info 1 */}
               <div class="text-center">
                 <h3 class="text-white font-mono font-medium text-lg lg:text-xl tracking-tight leading-tight mb-3">
@@ -105,6 +105,57 @@ export default function Mission({
             </div>
           </div>
         </div>
+
+        {/* Scroll Animation Script */}
+        <script 
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Scroll Animation for elements
+              (function() {
+                function animateOnScroll() {
+                  const elements = document.querySelectorAll('.scroll-animate');
+                  
+                  elements.forEach((element) => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                      element.style.opacity = '1';
+                      element.style.transform = 'translateY(0)';
+                    }
+                  });
+                }
+                
+                // Throttle scroll events for performance
+                let ticking = false;
+                function requestTick() {
+                  if (!ticking) {
+                    requestAnimationFrame(function() {
+                      animateOnScroll();
+                      ticking = false;
+                    });
+                    ticking = true;
+                  }
+                }
+                
+                // Add event listeners
+                window.addEventListener('scroll', requestTick, { passive: true });
+                window.addEventListener('resize', animateOnScroll);
+                
+                // Initial check
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', animateOnScroll);
+                } else {
+                  setTimeout(animateOnScroll, 100);
+                }
+                
+                // Also check on load
+                window.addEventListener('load', animateOnScroll);
+              })();
+            `
+          }}
+        />
 
         {/* Word-by-Word Focus Effect Script */}
         <script 

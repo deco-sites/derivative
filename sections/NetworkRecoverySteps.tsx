@@ -12,7 +12,7 @@ export interface Props {
 }
 
 export default function NetworkRecoverySteps({
-  eyebrow = "Nosso Sistema",
+  eyebrow = "Etapas",
   steps = [
     {
       id: 1,
@@ -36,7 +36,7 @@ export default function NetworkRecoverySteps({
       id: 4,
       title: "COLLAB",
       subtitle: "Empresas comprometidas com impacto positivo utilizam nosso material para criar produtos inovadores e sustentáveis, ampliando o ciclo de regeneração dos oceanos.",
-      videoUrl: "https://assets.decocache.com/derivative/73bedff9-93dd-4a36-9797-9506365ac2b6/collab_lp.mov"
+      videoUrl: "https://assets.decocache.com/derivative/ed79f4ad-8cb8-43f1-9bec-437422340c18/collab_lp.mov"
     }
   ],
   stepDuration = 12 // 12 segundos por etapa
@@ -45,11 +45,35 @@ export default function NetworkRecoverySteps({
 
   return (
     <section 
-      class="relative min-h-screen py-20 lg:py-32" 
-      style="background-color: #1d1b1d;"
+      id="sistema"
+      class="relative" 
+      style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px;"
     >
       <div class="container mx-auto px-2 lg:px-4 relative z-10">
-        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-12 items-start min-h-[80vh]">
+        {/* Nova seção - Operação */}
+        <div class="mb-12 lg:mb-16">
+          <div class="max-w-4xl mx-auto text-center">
+            {/* Eyebrow */}
+            <p class="font-mono font-normal text-base uppercase tracking-wider mb-4 opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate" style="color: #A1ACAA;">
+              OPERAÇÃO
+            </p>
+
+            {/* Título */}
+            <h2 class="text-snow-white font-sans font-normal text-4xl lg:text-6xl xl:text-7xl tracking-tight leading-none mb-6 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate" style="font-size: clamp(3rem, 6vw, 5rem);">
+              Sistema Regenerativo
+            </h2>
+
+            {/* Descrição */}
+            <p 
+              class="text-base lg:text-lg leading-relaxed font-sans mx-auto opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate"
+              style="color: #A1ACAA; max-width: 800px;"
+            >
+              Nosso modelo interrompe ciclos de degradação e, com o tempo, cria condições para restaurar e fortalecer ecossistemas naturais e comunidades
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_1.5fr] gap-8 lg:gap-12 items-start">
           
           {/* Coluna 1 - Conteúdo Dinâmico - Reduzida */}
           <div class="order-2 lg:order-1 flex flex-col justify-between h-full">
@@ -58,7 +82,7 @@ export default function NetworkRecoverySteps({
               {/* Layout flexível para distribuir elementos verticalmente */}
               <div class="h-full flex flex-col justify-between py-4">
                 {/* Conteúdo Principal que muda - Posicionado no topo */}
-                <div class="flex flex-col space-y-4 max-w-sm">
+                <div class="flex flex-col space-y-3 max-w-md opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600 scroll-animate">
                   {/* Eyebrow */}
                   <p class="font-bold text-sm uppercase tracking-wider" style="color: #A1ACAA;">
                     {eyebrow}
@@ -66,7 +90,7 @@ export default function NetworkRecoverySteps({
 
                   {/* Título Dinâmico */}
                   <div id="step-title" class="transition-all duration-500 ease-in-out">
-                    <h2 class="text-snow-white font-mono font-normal text-2xl lg:text-3xl xl:text-4xl tracking-tight leading-none">
+                    <h2 class="text-snow-white font-mono font-normal text-xl lg:text-2xl xl:text-3xl tracking-tight leading-none">
                       {steps[0].title}
                     </h2>
                   </div>
@@ -74,7 +98,7 @@ export default function NetworkRecoverySteps({
                   {/* Subtitle Dinâmico */}
                   <div id="step-subtitle" class="transition-all duration-500 ease-in-out">
                     <p 
-                      class="text-sm lg:text-base leading-relaxed font-sans max-w-sm"
+                      class="text-base lg:text-lg leading-relaxed font-sans max-w-md"
                       style="color: #A1ACAA;"
                     >
                       {steps[0].subtitle}
@@ -94,7 +118,7 @@ export default function NetworkRecoverySteps({
           </div>
 
           {/* Coluna 2 - Vídeo Dinâmico - Ampliada */}
-          <div class="order-1 lg:order-2 flex items-start justify-center">
+          <div class="order-1 lg:order-2 flex items-start justify-center opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-800 scroll-animate">
             <div class="w-full max-w-4xl">
               <div 
                 class="relative w-full bg-mineral-black rounded-2xl overflow-hidden"
@@ -117,6 +141,57 @@ export default function NetworkRecoverySteps({
 
         </div>
       </div>
+
+      {/* Scroll Animation Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Scroll Animation for elements
+            (function() {
+              function animateOnScroll() {
+                const elements = document.querySelectorAll('.scroll-animate');
+                
+                elements.forEach((element) => {
+                  const elementTop = element.getBoundingClientRect().top;
+                  const elementVisible = 150;
+                  
+                  if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                  }
+                });
+              }
+              
+              // Throttle scroll events for performance
+              let ticking = false;
+              function requestTick() {
+                if (!ticking) {
+                  requestAnimationFrame(function() {
+                    animateOnScroll();
+                    ticking = false;
+                  });
+                  ticking = true;
+                }
+              }
+              
+              // Add event listeners
+              window.addEventListener('scroll', requestTick, { passive: true });
+              window.addEventListener('resize', animateOnScroll);
+              
+              // Initial check
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', animateOnScroll);
+              } else {
+                setTimeout(animateOnScroll, 100);
+              }
+              
+              // Also check on load
+              window.addEventListener('load', animateOnScroll);
+            })();
+          `
+        }}
+      />
 
       {/* Script de Animação - Versão Simplificada */}
       <script type="text/javascript" dangerouslySetInnerHTML={{
@@ -149,8 +224,8 @@ export default function NetworkRecoverySteps({
               console.log('✅ Elementos encontrados, atualizando para:', step.title);
 
               // Update imediato sem fade
-              titleEl.innerHTML = '<h2 class="text-snow-white font-mono font-normal text-3xl lg:text-4xl xl:text-5xl tracking-tight leading-none">' + step.title + '</h2>';
-              subtitleEl.innerHTML = '<p class="text-base lg:text-lg leading-relaxed font-sans max-w-lg" style="color: #A1ACAA;">' + step.subtitle + '</p>';
+              titleEl.innerHTML = '<h2 class="text-snow-white font-mono font-normal text-xl lg:text-2xl xl:text-3xl tracking-tight leading-none">' + step.title + '</h2>';
+              subtitleEl.innerHTML = '<p class="text-base lg:text-lg leading-relaxed font-sans max-w-md" style="color: #A1ACAA;">' + step.subtitle + '</p>';
               
               // Force video update
               videoEl.src = step.videoUrl;
@@ -254,6 +329,90 @@ export default function NetworkRecoverySteps({
               console.log('🔧 Debug: Forçando próximo step');
               advanceStep();
             };
+
+            // Debug helper - test click functionality
+            window.debugTestClick = (stepIndex) => {
+              console.log('🔧 Debug: Testando clique no step', stepIndex);
+              goToStep(stepIndex);
+            };
+
+            // Debug helper - check elements
+            window.debugCheckElements = () => {
+              console.log('🔍 Verificando elementos...');
+              for (let i = 0; i < totalSteps; i++) {
+                const element = document.querySelector('[data-step-icon="' + i + '"]');
+                console.log('Step', i, ':', element);
+              }
+            };
+
+            // Função para navegar para um step específico
+            function goToStep(stepIndex) {
+              if (stepIndex >= 0 && stepIndex < totalSteps) {
+                console.log('🎯 Navegando para step:', stepIndex);
+                
+                // Parar o ciclo automático
+                if (animationInterval) {
+                  clearInterval(animationInterval);
+                  animationInterval = null;
+                }
+                
+                // Atualizar step atual
+                currentStep = stepIndex;
+                
+                // Forçar atualização do conteúdo
+                forceUpdateContent(currentStep);
+                updateProgressIndicators(currentStep);
+                
+                // Reiniciar o ciclo após 3 segundos
+                setTimeout(() => {
+                  console.log('🔄 Reiniciando ciclo automático...');
+                  startCycle();
+                }, 3000);
+              }
+            }
+
+            // Adicionar event listeners para os ícones clicáveis
+            function addClickListeners() {
+              console.log('🔍 Tentando adicionar click listeners...');
+              
+              for (let i = 0; i < totalSteps; i++) {
+                const iconElement = document.querySelector('[data-step-icon="' + i + '"]');
+                console.log('🎯 Procurando elemento [data-step-icon="' + i + '"]:', iconElement);
+                
+                if (iconElement) {
+                  console.log('✅ Elemento encontrado para step', i, ':', iconElement);
+                  iconElement.style.cursor = 'pointer';
+                  
+                  iconElement.addEventListener('click', (e) => {
+                    console.log('🖱️ Clique detectado no step', i);
+                    e.preventDefault();
+                    e.stopPropagation();
+                    goToStep(i);
+                  });
+                  
+                  // Adicionar hover effect
+                  iconElement.addEventListener('mouseenter', () => {
+                    iconElement.style.opacity = '0.7';
+                    iconElement.style.transform = 'scale(1.1)';
+                  });
+                  
+                  iconElement.addEventListener('mouseleave', () => {
+                    iconElement.style.opacity = '1';
+                    iconElement.style.transform = 'scale(1)';
+                  });
+                  
+                  console.log('🎉 Event listeners adicionados para step', i);
+                } else {
+                  console.log('❌ Elemento NÃO encontrado para step', i);
+                }
+              }
+            }
+
+            // Adicionar listeners após um pequeno delay para garantir que os elementos existam
+            setTimeout(() => {
+              console.log('⏰ Executando addClickListeners após delay...');
+              addClickListeners();
+            }, 1000);
           })();
         `
       }} />
@@ -263,30 +422,16 @@ export default function NetworkRecoverySteps({
 
 // Componente Steps Progress - NOVO DESIGN RADIAL CORRIGIDO
 function StepsProgress({ totalSteps, stepDuration }: { totalSteps: number; stepDuration: number }) {
-  // Ícones para cada etapa (usando SVG inline para simplicidade)
+  // Ícones para cada etapa (usando URLs externas)
   const stepIcons = [
     // INTERCEPTAR - Rede de pesca (ícone de grade)
-    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 3H21V21H3V3Z" stroke="currentColor" stroke-width="2"/>
-      <path d="M3 9H21M3 15H21M9 3V21M15 3V21" stroke="currentColor" stroke-width="2"/>
-    </svg>`,
-    // PRÉ-PROCESSAR - Triagem/Classificação (ícone de lista)
-    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    `<img src="https://assets.decocache.com/derivative/0b024ea2-1cec-4df8-b13a-bbdc0c19cecb/grid_4x4_520dp_F7F7F7_FILL0_wght400_GRAD0_opsz48.svg" width="20" height="20" alt="Interceptar" />`,
+    // PRÉ-PROCESSAR - Triagem/Classificação (ícone de gota d'água)
+    `<img src="https://assets.decocache.com/derivative/f5216741-1b7d-44b7-a8e2-e4adc4546373/water_drop_520dp_F7F7F7_FILL0_wght400_GRAD0_opsz48.svg" width="20" height="20" alt="Pré-processar" />`,
     // TRANSFORMAR - Reciclagem (ícone de ciclo)
-    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" stroke="currentColor" stroke-width="2"/>
-      <path d="M12 3C14.5013 3 16.8911 3.79018 18.6685 5.1967C20.4459 6.60322 21.5 8.53409 21.5 10.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      <path d="M12 21C9.49872 21 7.10892 20.2098 5.33148 18.8033C3.55404 17.3968 2.5 15.4659 2.5 13.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>`,
-    // COLLAB - Colaboração/Empresas (ícone de pessoas)
-    `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-      <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`
+    `<img src="https://assets.decocache.com/derivative/90d1dccf-8be5-45ef-8e34-da10ed116cc9/cycle_520dp_F7F7F7_FILL0_wght400_GRAD0_opsz48.svg" width="20" height="20" alt="Transformar" />`,
+    // COLLAB - Colaboração/Empresas (ícone de design services)
+    `<img src="https://assets.decocache.com/derivative/a0a6b7f8-cc97-4b8a-b53a-4d6afa5f1d05/design_services_520dp_F7F7F7_FILL0_wght400_GRAD0_opsz48.svg" width="20" height="20" alt="Collab" />`
   ];
 
   return (
@@ -343,28 +488,28 @@ function StepsProgress({ totalSteps, stepDuration }: { totalSteps: number; stepD
         {/* Ícones centralizados entre os círculos - REPOSICIONADOS */}
         {/* Top-left (INTERCEPTAR) */}
         <div class="absolute top-2 left-2 w-20 h-20 flex items-center justify-center">
-          <div class="w-5 h-5 text-snow-white">
+          <div class="w-5 h-5 text-snow-white transition-all duration-200" data-step-icon="0">
             <div dangerouslySetInnerHTML={{ __html: stepIcons[0] }}></div>
           </div>
         </div>
         
         {/* Top-right (PRÉ-PROCESSAR) */}
         <div class="absolute top-2 right-2 w-20 h-20 flex items-center justify-center">
-          <div class="w-5 h-5 text-snow-white">
+          <div class="w-5 h-5 text-snow-white transition-all duration-200" data-step-icon="1">
             <div dangerouslySetInnerHTML={{ __html: stepIcons[1] }}></div>
           </div>
         </div>
         
         {/* Bottom-right (TRANSFORMAR) */}
         <div class="absolute bottom-2 right-2 w-20 h-20 flex items-center justify-center">
-          <div class="w-5 h-5 text-snow-white">
+          <div class="w-5 h-5 text-snow-white transition-all duration-200" data-step-icon="2">
             <div dangerouslySetInnerHTML={{ __html: stepIcons[2] }}></div>
           </div>
         </div>
         
         {/* Bottom-left (COLLAB) */}
         <div class="absolute bottom-2 left-2 w-20 h-20 flex items-center justify-center">
-          <div class="w-5 h-5 text-snow-white">
+          <div class="w-5 h-5 text-snow-white transition-all duration-200" data-step-icon="3">
             <div dangerouslySetInnerHTML={{ __html: stepIcons[3] }}></div>
           </div>
         </div>

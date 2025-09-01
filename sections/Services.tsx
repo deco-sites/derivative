@@ -55,7 +55,7 @@ export default function Services({
   ],
 }: Props) {
   return (
-    <div style="background-color: #1d1b1d; min-height: 100vh; padding: 80px 0;">
+    <div id="services" style="background-color: #1d1b1d; padding: 96px 0 48px 0;">
       {/* Lottie Player CDN */}
       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       
@@ -81,11 +81,11 @@ export default function Services({
         }
         .eyebrow-text {
           font-family: 'Geist Mono', 'JetBrains Mono', monospace !important;
-          font-size: 12px !important;
-          font-weight: 500 !important;
+          font-size: 16px !important;
+          font-weight: 400 !important;
           letter-spacing: 0.1em !important;
           text-transform: uppercase !important;
-          color: rgba(255, 255, 255, 0.7) !important;
+          color: #A1ACAA !important;
         }
         .title-text {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
@@ -94,10 +94,12 @@ export default function Services({
           font-size: clamp(3rem, 6vw, 5rem) !important;
           max-width: 900px !important;
           margin: 0 auto !important;
+          color: #ffffff !important;
         }
         .subtitle-text {
           max-width: 800px !important;
           margin: 0 auto !important;
+          color: #A1ACAA !important;
         }
         .service-description-short {
           max-width: 384px !important; /* Same as max-w-sm */
@@ -147,15 +149,15 @@ export default function Services({
           {/* Header Content */}
           <div class="text-center space-y-8">
             <div class="space-y-12">
-              <p class="eyebrow-text">
+              <p class="eyebrow-text opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
                 {subtitle}
               </p>
-              <h2 class="text-white title-text">
+              <h2 class="text-white title-text opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
                 {title}
               </h2>
             </div>
             <div style="margin-top: 32px;">
-              <p class="text-lg leading-relaxed subtitle-text" style="color: rgba(255, 255, 255, 0.85);">
+              <p class="text-lg leading-relaxed subtitle-text opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate" style="color: rgba(255, 255, 255, 0.85);">
                 {description}
               </p>
             </div>
@@ -165,7 +167,7 @@ export default function Services({
                 id={cta?.id}
                 href={cta?.href}
                 target={cta?.href.includes("http") ? "_blank" : "_self"}
-                class="cta-button"
+                class="cta-button opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600 scroll-animate"
               >
                 {cta?.text}
               </a>
@@ -173,7 +175,7 @@ export default function Services({
           </div>
 
           {/* Services Accordion */}
-          <div class="w-full">
+          <div class="w-full opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-800 scroll-animate">
             <div class="space-y-4">
               {services?.map((service, index) => (
                 <details 
@@ -281,6 +283,57 @@ export default function Services({
         </div>
       </div>
       
+      {/* Scroll Animation Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Scroll Animation for elements
+            (function() {
+              function animateOnScroll() {
+                const elements = document.querySelectorAll('.scroll-animate');
+                
+                elements.forEach((element) => {
+                  const elementTop = element.getBoundingClientRect().top;
+                  const elementVisible = 150;
+                  
+                  if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                  }
+                });
+              }
+              
+              // Throttle scroll events for performance
+              let ticking = false;
+              function requestTick() {
+                if (!ticking) {
+                  requestAnimationFrame(function() {
+                    animateOnScroll();
+                    ticking = false;
+                  });
+                  ticking = true;
+                }
+              }
+              
+              // Add event listeners
+              window.addEventListener('scroll', requestTick, { passive: true });
+              window.addEventListener('resize', animateOnScroll);
+              
+              // Initial check
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', animateOnScroll);
+              } else {
+                setTimeout(animateOnScroll, 100);
+              }
+              
+              // Also check on load
+              window.addEventListener('load', animateOnScroll);
+            })();
+          `
+        }}
+      />
+
       {/* Lottie Player Monitor */}
       <script type="text/javascript">{`
         console.log('Services: Script loaded');
