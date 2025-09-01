@@ -356,19 +356,43 @@ export default function NetworkRecoverySteps({
                   animationInterval = null;
                 }
                 
-                // Atualizar step atual
+                // Atualizar step atual para o clicado
                 currentStep = stepIndex;
                 
                 // Forçar atualização do conteúdo
                 forceUpdateContent(currentStep);
                 updateProgressIndicators(currentStep);
                 
-                // Reiniciar o ciclo após 3 segundos
+                // Reiniciar o ciclo a partir do step atual após 3 segundos
                 setTimeout(() => {
-                  console.log('🔄 Reiniciando ciclo automático...');
-                  startCycle();
+                  console.log('🔄 Reiniciando ciclo automático a partir do step:', currentStep);
+                  startCycleFromCurrent();
                 }, 3000);
               }
+            }
+
+            // Função para iniciar ciclo a partir do step atual
+            function startCycleFromCurrent() {
+              console.log('🎬 Iniciando ciclo a partir do step:', currentStep);
+              
+              // Limpar qualquer intervalo existente
+              if (animationInterval) {
+                clearInterval(animationInterval);
+                console.log('🧹 Intervalo anterior limpo');
+              }
+              
+              // Inicializar com o step atual ativo
+              updateProgressIndicators(currentStep);
+              
+              // Começar ciclo após 2 segundos
+              setTimeout(() => {
+                console.log('🚀 Primeira troca de step em', stepDuration, 'ms a partir do step:', currentStep);
+                animationInterval = setInterval(() => {
+                  console.log('⏰ Intervalo executado - tempo configurado:', stepDuration, 'ms');
+                  advanceStep();
+                }, stepDuration);
+                console.log('✨ Intervalo iniciado com', stepDuration, 'ms');
+              }, 2000);
             }
 
             // Adicionar event listeners para os ícones clicáveis
