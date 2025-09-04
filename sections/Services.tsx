@@ -130,6 +130,22 @@ export default function Services({
             display: inline-block !important;
           }
         }
+        
+        /* Remove default list markers from summary elements - Mobile only */
+        @media (max-width: 1023px) {
+          .service-card summary {
+            list-style: none !important;
+            display: block !important;
+          }
+          
+          .service-card summary::-webkit-details-marker {
+            display: none !important;
+          }
+          
+          .service-card summary::marker {
+            display: none !important;
+          }
+        }
         @media (min-width: 1024px) {
           .title-text {
             margin: 0 auto !important;
@@ -248,33 +264,36 @@ export default function Services({
                     </div>
 
                     {/* Layout Mobile - Novo */}
-                    <div class="flex lg:hidden flex-col gap-3 flex-1">
-                      {/* Container circular com imagem */}
-                      <div 
-                        id="service-icon-container-mobile"
-                        class="flex-shrink-0 rounded-full bg-white/10 border border-white/20 overflow-hidden group-open:opacity-30 transition-opacity duration-700 self-start" 
-                        style="width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; max-width: 60px !important; max-height: 60px !important; background-color: rgba(255,255,255,0.1) !important; border: 2px solid rgba(255,255,255,0.2) !important; border-radius: 50% !important;"
-                      >
-                        {service.icon && (
-                          <img 
-                            src={service.icon}
-                            alt={`Ícone ${service.title}`}
-                            class="w-full h-full object-cover group-open:scale-110 transition-transform duration-700 ease-out"
-                          />
-                        )}
-                      </div>
-                      
-                      {/* Container de texto mobile */}
-                      <div class="flex-1 min-w-0">
-                        {/* Título do serviço */}
-                        <h3 class="text-lg font-mono font-normal text-white group-open:text-white/90 transition-colors uppercase tracking-wide">
-                          {service.title}
-                        </h3>
+                    <div class="flex lg:hidden items-start gap-4 flex-1">
+                      {/* Container esquerdo - círculo e texto */}
+                      <div class="flex flex-col items-start gap-3 flex-1">
+                        {/* Container circular com imagem */}
+                        <div 
+                          id="service-icon-container-mobile"
+                          class="rounded-full bg-white/10 border border-white/20 overflow-hidden group-open:opacity-30 transition-opacity duration-700" 
+                          style="width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; max-width: 60px !important; max-height: 60px !important; background-color: rgba(255,255,255,0.1) !important; border: 2px solid rgba(255,255,255,0.2) !important; border-radius: 50% !important;"
+                        >
+                          {service.icon && (
+                            <img 
+                              src={service.icon}
+                              alt={`Ícone ${service.title}`}
+                              class="w-full h-full object-cover group-open:scale-110 transition-transform duration-700 ease-out"
+                            />
+                          )}
+                        </div>
                         
-                        {/* Subtítulo do serviço - embaixo do título */}
-                        <p class="text-sm font-sans italic mt-1" style="color: rgba(243, 245, 245, 0.7);">
-                          {service.subtitle || ""}
-                        </p>
+                        {/* Container de texto mobile */}
+                        <div class="flex flex-col items-start">
+                          {/* Título do serviço */}
+                          <h3 class="text-lg font-mono font-normal text-white group-open:text-white/90 transition-colors uppercase tracking-wide">
+                            {service.title}
+                          </h3>
+                          
+                          {/* Subtítulo do serviço - embaixo do título */}
+                          <p class="text-sm font-sans italic mt-1" style="color: rgba(243, 245, 245, 0.7);">
+                            {service.subtitle || ""}
+                          </p>
+                        </div>
                       </div>
                     </div>
                     

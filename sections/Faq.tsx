@@ -79,6 +79,38 @@ export default function BlogPosts({
               box-sizing: border-box !important;
             }
           }
+          
+          /* Remove default list markers from summary elements - Mobile only */
+          @media (max-width: 1023px) {
+            .faq-mobile-container summary {
+              list-style: none !important;
+              display: flex !important;
+              align-items: flex-start !important;
+              justify-content: space-between !important;
+              width: 100% !important;
+              padding: 1rem 0 !important;
+            }
+            
+            .faq-mobile-container summary::-webkit-details-marker {
+              display: none !important;
+            }
+            
+            .faq-mobile-container summary::marker {
+              display: none !important;
+            }
+            
+            /* Force mobile layout structure for FAQ */
+            .faq-mobile-container summary > span:first-child {
+              flex: 1 !important;
+              padding-right: 0.75rem !important;
+            }
+            
+            .faq-mobile-container summary > span:last-child {
+              flex-shrink: 0 !important;
+              margin-left: auto !important;
+              align-self: flex-start !important;
+            }
+          }
         `
       }} />
       {/* Desktop Layout */}

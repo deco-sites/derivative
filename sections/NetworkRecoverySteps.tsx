@@ -70,6 +70,9 @@ export default function NetworkRecoverySteps({
               aspect-ratio: unset !important;
               height: auto !important;
             }
+            #sistema .video-container {
+              aspect-ratio: 1/1 !important;
+            }
           }
         `
       }} />
@@ -145,7 +148,7 @@ export default function NetworkRecoverySteps({
           <div class="order-1 lg:order-2 flex items-start justify-center">
             <div class="w-full max-w-4xl lg:max-w-4xl">
               <div 
-                class="relative w-full bg-mineral-black rounded-2xl overflow-hidden"
+                class="relative w-full bg-mineral-black rounded-2xl overflow-hidden video-container"
                 style="aspect-ratio: 16/9; border: 2px solid rgba(255, 255, 255, 0.2); max-width: 100%;"
               >
                 <video 
