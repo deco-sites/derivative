@@ -38,7 +38,9 @@
     "daisyui": "npm:daisyui@4.4.19",
     "preact": "npm:preact@10.23.1",
     "std/": "https://deno.land/std@0.204.0/",
-    "@deco/dev": "jsr:@deco/dev@1.120.11"
+    "@deco/dev": "jsr:@deco/dev@1.120.11",
+    "convex/": "https://esm.sh/convex@^1.0.0/",
+    "convex/browser": "https://esm.sh/convex@^1.0.0/browser"
   },
   "tasks": {
     "start": "deno run -A --unstable-http --env https://deco.cx/run -- deno task dev",
@@ -55,7 +57,8 @@
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
     "dev": "deno run -A --env --unstable-kv --unstable-hmr dev.ts",
-    "reload": "deno cache -r https://deco.cx/run"
+    "reload": "deno cache -r https://deco.cx/run",
+    "convex:dev": "npx convex dev --once"
   },
   "githooks": {
     "pre-commit": "check"

@@ -3,21 +3,28 @@
   "path": "/:category",
   "sections": [
     {
-      "__resolveType": "Header"
-    },
-    {
-      "__resolveType": "site/sections/BlogPosts.tsx",
-      "posts": {
-        "__resolveType": "blog/loaders/BlogpostList.ts",
-        "count": 6,
-        "slug": {
-          "__resolveType": "website/functions/requestToParam.ts",
-          "param": "category"
-        }
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/ContactFormBypass.tsx"
       }
     },
     {
-      "__resolveType": "Footer"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/ContactFormStyled.tsx"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/ContactFormTest.tsx"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/ContactFormHybrid.tsx"
+      }
     }
   ],
   "seo": {

@@ -1,3 +1,6 @@
+import { useSignal, useEffect } from "@preact/signals";
+import { invoke } from "../runtime.ts";
+
 export interface Props {
   title?: string;
   description?: string;
@@ -7,6 +10,106 @@ export default function FormsFooter({
   title = "Vamos conversar!",
   description = "Nos conte sobre o seu projeto e entenda melhor como podemos colaborar."
 }: Props) {
+  const isLoading = useSignal(false);
+  const message = useSignal("");
+  const isSuccess = useSignal(false);
+
+  const handleSubmit = async (e: Event) => {
+    console.log("handleSubmit chamado", e);
+    e.preventDefault();
+    e.stopPropagation();
+    
+    isLoading.value = true;
+    message.value = "";
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    console.log("Dados do formulário:", data);
+
+    try {
+      console.log("Chamando invoke...");
+      const result = await invoke("site/actions/contactForm.ts", data);
+      console.log("Resultado da action:", result);
+      
+      if (result.success) {
+        isSuccess.value = true;
+        message.value = result.message;
+        form.reset(); // Limpar o formulário
+      } else {
+        isSuccess.value = false;
+        message.value = result.message;
+      }
+    } catch (error) {
+      console.error("Erro no handleSubmit:", error);
+      isSuccess.value = false;
+      message.value = "Erro ao enviar mensagem. Tente novamente.";
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  const handleButtonClick = async (e: Event) => {
+    console.log("Botão clicado!", e);
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Buscar o formulário
+    const form = (e.target as HTMLElement).closest('form') as HTMLFormElement;
+    if (!form) {
+      console.error("Formulário não encontrado");
+      return;
+    }
+
+    // Validar campos obrigatórios
+    const nameInput = form.querySelector('input[name="name"]') as HTMLInputElement;
+    const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
+    const messageInput = form.querySelector('textarea[name="message"]') as HTMLTextAreaElement;
+
+    if (!nameInput?.value || !emailInput?.value || !messageInput?.value) {
+      message.value = "Todos os campos são obrigatórios.";
+      isSuccess.value = false;
+      return;
+    }
+
+    isLoading.value = true;
+    message.value = "";
+
+    const data = {
+      name: nameInput.value,
+      email: emailInput.value,
+      message: messageInput.value,
+    };
+
+    console.log("Dados do formulário:", data);
+
+    try {
+      console.log("Chamando invoke...");
+      const result = await invoke("site/actions/contactForm.ts", data);
+      console.log("Resultado da action:", result);
+      
+      if (result.success) {
+        isSuccess.value = true;
+        message.value = result.message;
+        form.reset(); // Limpar o formulário
+      } else {
+        isSuccess.value = false;
+        message.value = result.message;
+      }
+    } catch (error) {
+      console.error("Erro no handleButtonClick:", error);
+      isSuccess.value = false;
+      message.value = "Erro ao enviar mensagem. Tente novamente.";
+    } finally {
+      isLoading.value = false;
+    }
+  };
   return (
     <div class="relative">
       {/* Image Background */}
@@ -36,7 +139,18 @@ export default function FormsFooter({
 
           {/* Right Side - Form */}
           <div class="bg-white rounded-2xl p-6 lg:p-8 shadow-2xl max-w-md mx-auto lg:mx-0">
-            <form class="space-y-4">
+            {/* Mensagem de feedback */}
+            {message.value && (
+              <div class={`mb-4 p-3 rounded-lg text-sm ${
+                isSuccess.value 
+                  ? "bg-green-100 text-green-800 border border-green-200" 
+                  : "bg-red-100 text-red-800 border border-red-200"
+              }`}>
+                {message.value}
+              </div>
+            )}
+
+            <form class="space-y-4" onSubmit={handleSubmit} action="javascript:void(0)">
               {/* Name Field */}
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
@@ -84,10 +198,12 @@ export default function FormsFooter({
 
               {/* Submit Button */}
               <button
-                type="submit"
-                class="w-full bg-black hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                type="button"
+                onClick={handleButtonClick}
+                disabled={isLoading.value}
+                class="w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white font-medium py-3 px-6 rounded-full transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:transform-none disabled:cursor-not-allowed"
               >
-                Enviar Mensagem
+                {isLoading.value ? "Enviando..." : "Enviar Mensagem"}
               </button>
             </form>
           </div>
