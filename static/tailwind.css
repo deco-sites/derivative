@@ -3107,9 +3107,6 @@ input.tab:checked + .tab-content,
 .h-6{
   height: 1.5rem;
 }
-.h-64{
-  height: 16rem;
-}
 .h-8{
   height: 2rem;
 }
@@ -4546,8 +4543,18 @@ input.tab:checked + .tab-content,
 .hover\:underline:hover{
   text-decoration-line: underline;
 }
+.focus\:border:focus{
+  border-width: 1px;
+}
+.focus\:border-gray-400:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
 .focus\:border-transparent:focus{
   border-color: transparent;
+}
+.focus\:bg-transparent:focus{
+  background-color: transparent;
 }
 .focus\:bg-white:focus{
   --tw-bg-opacity: 1;
@@ -4710,8 +4717,18 @@ input.tab:checked + .tab-content,
     flex-wrap: wrap;
   }
 
+  .sm\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .sm\:text-\[20px\]{
     font-size: 20px;
+  }
+
+  .sm\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .sm\:leading-\[28px\]{
@@ -4923,6 +4940,10 @@ input.tab:checked + .tab-content,
 
   .lg\:items-center{
     align-items: center;
+  }
+
+  .lg\:justify-end{
+    justify-content: flex-end;
   }
 
   .lg\:justify-center{

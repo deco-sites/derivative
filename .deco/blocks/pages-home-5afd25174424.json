@@ -73,13 +73,7 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/FormsFooter.tsx"
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/ContactFormWorking.tsx"
+        "__resolveType": "site/sections/ContactFormHybrid.tsx"
       }
     }
   ],
