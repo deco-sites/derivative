@@ -3017,6 +3017,9 @@ input.tab:checked + .tab-content,
 .mr-3{
   margin-right: 0.75rem;
 }
+.mt-1{
+  margin-top: 0.25rem;
+}
 .mt-10{
   margin-top: 2.5rem;
 }
@@ -3107,6 +3110,9 @@ input.tab:checked + .tab-content,
 .h-6{
   height: 1.5rem;
 }
+.h-7{
+  height: 1.75rem;
+}
 .h-8{
   height: 2rem;
 }
@@ -3118,6 +3124,9 @@ input.tab:checked + .tab-content,
 }
 .h-\[210px\]{
   height: 210px;
+}
+.h-\[300px\]{
+  height: 300px;
 }
 .h-\[3px\]{
   height: 3px;
@@ -3259,6 +3268,9 @@ input.tab:checked + .tab-content,
 .w-px{
   width: 1px;
 }
+.min-w-0{
+  min-width: 0px;
+}
 .min-w-\[100px\]{
   min-width: 100px;
 }
@@ -3294,6 +3306,9 @@ input.tab:checked + .tab-content,
 }
 .max-w-6xl{
   max-width: 72rem;
+}
+.max-w-7xl{
+  max-width: 80rem;
 }
 .max-w-\[139px\]{
   max-width: 139px;
@@ -3569,6 +3584,9 @@ input.tab:checked + .tab-content,
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
 }
+.self-start{
+  align-self: flex-start;
+}
 .overflow-hidden{
   overflow: hidden;
 }
@@ -3577,6 +3595,9 @@ input.tab:checked + .tab-content,
 }
 .overflow-y-auto{
   overflow-y: auto;
+}
+.overflow-x-hidden{
+  overflow-x: hidden;
 }
 .overflow-y-hidden{
   overflow-y: hidden;
@@ -3679,9 +3700,6 @@ input.tab:checked + .tab-content,
 .border-2{
   border-width: 2px;
 }
-.border-b{
-  border-bottom-width: 1px;
-}
 .border-b-4{
   border-bottom-width: 4px;
 }
@@ -3708,10 +3726,6 @@ input.tab:checked + .tab-content,
 .border-green-200{
   --tw-border-opacity: 1;
   border-color: rgb(187 247 208 / var(--tw-border-opacity));
-}
-.border-primary{
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
 }
 .border-red-200{
   --tw-border-opacity: 1;
@@ -3874,6 +3888,15 @@ input.tab:checked + .tab-content,
   --tw-gradient-to: rgb(252 250 250 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-transparent{
+  --tw-gradient-from: transparent var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.via-white{
+  --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
 .to-snow-white\/20{
   --tw-gradient-to: rgb(252 250 250 / 0.2) var(--tw-gradient-to-position);
 }
@@ -3927,6 +3950,10 @@ input.tab:checked + .tab-content,
 .p-8{
   padding: 2rem;
 }
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
 .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -3967,6 +3994,10 @@ input.tab:checked + .tab-content,
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-2\.5{
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
 .py-20{
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -3997,6 +4028,9 @@ input.tab:checked + .tab-content,
 .pb-4{
   padding-bottom: 1rem;
 }
+.pb-6{
+  padding-bottom: 1.5rem;
+}
 .pb-8{
   padding-bottom: 2rem;
 }
@@ -4011,6 +4045,9 @@ input.tab:checked + .tab-content,
 }
 .pr-2{
   padding-right: 0.5rem;
+}
+.pr-3{
+  padding-right: 0.75rem;
 }
 .pr-4{
   padding-right: 1rem;
@@ -4301,6 +4338,9 @@ input.tab:checked + .tab-content,
 .opacity-15{
   opacity: 0.15;
 }
+.opacity-50{
+  opacity: 0.5;
+}
 .opacity-60{
   opacity: 0.6;
 }
@@ -4532,6 +4572,10 @@ input.tab:checked + .tab-content,
   --tw-bg-opacity: 1;
   background-color: rgb(252 250 250 / var(--tw-bg-opacity));
 }
+.hover\:text-gray-300:hover{
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
+}
 .hover\:text-mineral-black:hover{
   --tw-text-opacity: 1;
   color: rgb(29 27 29 / var(--tw-text-opacity));
@@ -4717,6 +4761,11 @@ input.tab:checked + .tab-content,
     flex-wrap: wrap;
   }
 
+  .sm\:text-4xl{
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .sm\:text-5xl{
     font-size: 3rem;
     line-height: 1;
@@ -4724,6 +4773,11 @@ input.tab:checked + .tab-content,
 
   .sm\:text-\[20px\]{
     font-size: 20px;
+  }
+
+  .sm\:text-lg{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .sm\:text-xl{
@@ -4744,6 +4798,14 @@ input.tab:checked + .tab-content,
   .md\:mx-10{
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+  }
+
+  .md\:flex{
+    display: flex;
+  }
+
+  .md\:hidden{
+    display: none;
   }
 
   .md\:h-10{
@@ -4942,10 +5004,6 @@ input.tab:checked + .tab-content,
     align-items: center;
   }
 
-  .lg\:justify-end{
-    justify-content: flex-end;
-  }
-
   .lg\:justify-center{
     justify-content: center;
   }
@@ -4980,6 +5038,11 @@ input.tab:checked + .tab-content,
 
   .lg\:p-8{
     padding: 2rem;
+  }
+
+  .lg\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .lg\:px-16{
