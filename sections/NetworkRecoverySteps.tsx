@@ -47,8 +47,28 @@ export default function NetworkRecoverySteps({
     <section 
       id="sistema"
       class="relative" 
-      style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px;"
+      style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px; overflow-x: hidden;"
     >
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @media (max-width: 1023px) {
+            #sistema {
+              overflow-x: hidden !important;
+            }
+            #sistema .container {
+              overflow-x: hidden !important;
+              max-width: 100vw !important;
+            }
+            #sistema video {
+              max-width: 100% !important;
+              width: 100% !important;
+            }
+            #sistema .max-w-4xl {
+              max-width: 100% !important;
+            }
+          }
+        `
+      }} />
       <div class="container mx-auto px-4 lg:px-4 relative z-10 max-w-7xl">
         {/* Nova seção - Operação */}
         <div class="mb-12 lg:mb-16">
@@ -119,10 +139,10 @@ export default function NetworkRecoverySteps({
 
           {/* Coluna 2 - Vídeo Dinâmico - Ampliada */}
           <div class="order-1 lg:order-2 flex items-start justify-center opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-800 scroll-animate">
-            <div class="w-full max-w-4xl">
+            <div class="w-full max-w-4xl lg:max-w-4xl">
               <div 
                 class="relative w-full bg-mineral-black rounded-2xl overflow-hidden"
-                style="aspect-ratio: 16/9; border: 2px solid rgba(255, 255, 255, 0.2);"
+                style="aspect-ratio: 16/9; border: 2px solid rgba(255, 255, 255, 0.2); max-width: 100%;"
               >
                 <video 
                   id="step-video"

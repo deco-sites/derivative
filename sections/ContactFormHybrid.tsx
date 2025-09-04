@@ -228,7 +228,7 @@ export default function ContactFormHybrid({
               <img 
                 src="https://assets.decocache.com/derivative/63f2145a-4b99-403e-ba27-cf49104ea963/logo_deriva_horizontal_NO.svg"
                 alt="Deriva Logo"
-                class="h-7 w-auto"
+                class="h-6 w-auto"
               />
             </div>
 

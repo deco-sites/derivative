@@ -112,24 +112,10 @@ export default function Services({
           #services .container {
             overflow-x: hidden !important;
             max-width: 100vw !important;
-            width: 100% !important;
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
           }
           .service-card {
             max-width: 100% !important;
             overflow-x: hidden !important;
-            width: 100% !important;
-          }
-          /* Apenas elementos dentro da seção services */
-          #services *:not([style*="position: absolute"]):not([style*="position: fixed"]) {
-            max-width: 100vw !important;
-            box-sizing: border-box !important;
-          }
-          /* Imagens de conteúdo dentro da seção services */
-          #services img:not([style*="position: absolute"]):not([style*="object-cover"]) {
-            max-width: 100% !important;
-            height: auto !important;
           }
         }
         /* Mobile tags spacing */
