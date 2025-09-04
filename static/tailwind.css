@@ -3265,9 +3265,6 @@ input.tab:checked + .tab-content,
 .w-px{
   width: 1px;
 }
-.min-w-0{
-  min-width: 0px;
-}
 .min-w-\[100px\]{
   min-width: 100px;
 }
@@ -3580,9 +3577,6 @@ input.tab:checked + .tab-content,
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-.self-start{
-  align-self: flex-start;
 }
 .overflow-hidden{
   overflow: hidden;
