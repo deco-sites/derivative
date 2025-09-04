@@ -104,6 +104,46 @@ export default function Services({
         .service-description-short {
           max-width: 384px !important; /* Same as max-w-sm */
         }
+        /* Mobile overflow prevention - apenas para esta seção */
+        @media (max-width: 1023px) {
+          #services {
+            overflow-x: hidden !important;
+          }
+          #services .container {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+          }
+          .service-card {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+          }
+          /* Apenas elementos dentro da seção services */
+          #services *:not([style*="position: absolute"]):not([style*="position: fixed"]) {
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+          }
+          /* Imagens de conteúdo dentro da seção services */
+          #services img:not([style*="position: absolute"]):not([style*="object-cover"]) {
+            max-width: 100% !important;
+            height: auto !important;
+          }
+        }
+        /* Mobile tags spacing */
+        @media (max-width: 1023px) {
+          .service-tags-mobile {
+            margin-bottom: 2rem !important;
+            padding-bottom: 1rem !important;
+          }
+          .service-tag-mobile {
+            padding: 0.625rem 1rem !important;
+            margin: 0.125rem !important;
+            display: inline-block !important;
+          }
+        }
         @media (min-width: 1024px) {
           .title-text {
             margin: 0 auto !important;
@@ -144,7 +184,7 @@ export default function Services({
           </linearGradient>
         </defs>
       </svg>
-      <div class="container lg:mx-auto mx-4 text-sm">
+      <div class="container mx-auto px-4 lg:px-0 text-sm max-w-7xl">
         <div class="flex flex-col gap-10 lg:gap-16">
           {/* Header Content */}
           <div class="text-center space-y-8">
@@ -180,7 +220,7 @@ export default function Services({
               {services?.map((service, index) => (
                 <details 
                   key={index}
-                  class="group bg-white/5 rounded-lg transition-all duration-300 relative overflow-hidden"
+                  class="group bg-white/5 rounded-lg transition-all duration-300 relative overflow-hidden service-card"
                 >
                   {/* Background image when expanded */}
                   {service.icon && (
@@ -194,8 +234,8 @@ export default function Services({
                   )}
                   
                   <summary class="cursor-pointer p-6 flex items-center justify-between relative z-10">
-                    {/* Conteúdo principal (ícone + título + subtítulo) */}
-                    <div class="flex items-center gap-6 flex-1">
+                    {/* Layout Desktop - Original */}
+                    <div class="hidden lg:flex items-center gap-6 flex-1">
                       {/* Container circular com imagem */}
                       <div 
                         id="service-icon-container"
@@ -220,6 +260,37 @@ export default function Services({
                         {service.subtitle || ""}
                       </p>
                     </div>
+
+                    {/* Layout Mobile - Novo */}
+                    <div class="flex lg:hidden flex-col gap-3 flex-1">
+                      {/* Container circular com imagem */}
+                      <div 
+                        id="service-icon-container-mobile"
+                        class="flex-shrink-0 rounded-full bg-white/10 border border-white/20 overflow-hidden group-open:opacity-30 transition-opacity duration-700 self-start" 
+                        style="width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; max-width: 60px !important; max-height: 60px !important; background-color: rgba(255,255,255,0.1) !important; border: 2px solid rgba(255,255,255,0.2) !important; border-radius: 50% !important;"
+                      >
+                        {service.icon && (
+                          <img 
+                            src={service.icon}
+                            alt={`Ícone ${service.title}`}
+                            class="w-full h-full object-cover group-open:scale-110 transition-transform duration-700 ease-out"
+                          />
+                        )}
+                      </div>
+                      
+                      {/* Container de texto mobile */}
+                      <div class="flex-1 min-w-0">
+                        {/* Título do serviço */}
+                        <h3 class="text-lg font-mono font-normal text-white group-open:text-white/90 transition-colors uppercase tracking-wide">
+                          {service.title}
+                        </h3>
+                        
+                        {/* Subtítulo do serviço - embaixo do título */}
+                        <p class="text-sm font-sans italic mt-1" style="color: rgba(243, 245, 245, 0.7);">
+                          {service.subtitle || ""}
+                        </p>
+                      </div>
+                    </div>
                     
                     {/* Chevron */}
                     <span class="flex-none transition-transform duration-300 group-open:rotate-180">
@@ -233,24 +304,25 @@ export default function Services({
                     </span>
                   </summary>
                   
-                   <div class="px-6 pb-8 group-open:animate-fadeIn relative z-10" style="margin-left: 104px !important; min-height: 200px;">
+                   {/* Layout Desktop - Original */}
+                   <div class="hidden lg:block px-6 pb-8 group-open:animate-fadeIn relative z-10" style="margin-left: 104px !important; min-height: 200px;">
                     <div class="flex gap-8 items-start">
                       {/* Lottie Animation Area */}
                       <div class="flex-shrink-0 flex items-center justify-center" style="width: 300px; height: 250px; min-width: 300px; min-height: 250px; background: transparent;">
-                                <div
-          id={`lottie-container-${index}`}
-          style="width: 280px; height: 230px; overflow: hidden;"
-          dangerouslySetInnerHTML={{
-            __html: `<lottie-player
-              src="${index === 0 ? asset("/Scene_derivative.json") : index === 2 ? asset("/Scene-way.json") : asset("/Scene-1.json")}"
-              background="transparent"
-              speed="1"
-              style="width: 140%; height: 140%; transform: translate(-14.3%, -14.3%);"
-              loop
-              autoplay>
-            </lottie-player>`
-          }}
-        ></div>
+                        <div
+                          id={`lottie-container-${index}`}
+                          style="width: 280px; height: 230px; overflow: hidden;"
+                          dangerouslySetInnerHTML={{
+                            __html: `<lottie-player
+                              src="${index === 0 ? asset("/Scene_derivative.json") : index === 2 ? asset("/Scene-way.json") : asset("/Scene-1.json")}"
+                              background="transparent"
+                              speed="1"
+                              style="width: 140%; height: 140%; transform: translate(-14.3%, -14.3%);"
+                              loop
+                              autoplay>
+                            </lottie-player>`
+                          }}
+                        ></div>
                       </div>
                       
                       {/* Content Area */}
@@ -267,6 +339,52 @@ export default function Services({
                                 key={tagIndex}
                                 class="px-4 py-2 text-xs font-medium rounded-full border"
                                 style="color: #F3F5F5; border-color: rgba(255,255,255,0.2); background-color: rgba(255,255,255,0.05);"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Layout Mobile - Novo */}
+                  <div class="block lg:hidden px-4 pb-6 group-open:animate-fadeIn relative z-10" style="margin-left: 0 !important; min-height: 200px;">
+                    <div class="flex flex-col gap-6 items-start">
+                      {/* Lottie Animation Area */}
+                      <div class="flex-shrink-0 flex items-center justify-center w-full" style="height: 200px; min-height: 200px; background: transparent;">
+                        <div
+                          id={`lottie-container-mobile-${index}`}
+                          class="w-full max-w-sm"
+                          style="height: 200px; overflow: hidden;"
+                          dangerouslySetInnerHTML={{
+                            __html: `<lottie-player
+                              src="${index === 0 ? asset("/Scene_derivative.json") : index === 2 ? asset("/Scene-way.json") : asset("/Scene-1.json")}"
+                              background="transparent"
+                              speed="1"
+                              style="width: 100%; height: 100%;"
+                              loop
+                              autoplay>
+                            </lottie-player>`
+                          }}
+                        ></div>
+                      </div>
+                      
+                      {/* Content Area */}
+                      <div class="flex-1 space-y-4 w-full">
+                        <p class="leading-relaxed text-sm" style="color: #F3F5F5;">
+                          {service.description}
+                        </p>
+                        
+                        {/* Tags */}
+                        {service.tags && service.tags.length > 0 && (
+                          <div class="flex flex-wrap gap-2 mt-6 mb-8 service-tags-mobile" style="margin-bottom: 2rem !important;">
+                            {service.tags.map((tag, tagIndex) => (
+                              <span 
+                                key={tagIndex}
+                                class="px-4 py-2.5 text-xs font-medium rounded-full border service-tag-mobile"
+                                style="color: #F3F5F5 !important; border-color: rgba(255,255,255,0.2) !important; background-color: rgba(255,255,255,0.05) !important; padding: 0.625rem 1rem !important; margin: 0.125rem !important;"
                               >
                                 {tag}
                               </span>

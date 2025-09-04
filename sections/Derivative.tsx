@@ -30,9 +30,10 @@ export default function Derivative({
       </div>
 
       <div class="container mx-auto px-4 lg:px-8 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Desktop Layout */}
+        <div class="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Column - Content */}
-          <div class="order-2 lg:order-1 opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
             {/* UnicornStudio Interactive Component with DERIVATIVE title */}
             <div class="mb-0">
               <div 
@@ -72,10 +73,60 @@ export default function Derivative({
           </div>
 
           {/* Right Column - UnicornStudio Element */}
-          <div class="order-1 lg:order-2 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
             <div 
               data-us-project="AI2KbKFrSjPoQHEs6hQK" 
               style="width: 100%; height: 450px; max-width: 600px; aspect-ratio: 1440/900;"
+            ></div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div class="block lg:hidden">
+          {/* Mobile - UnicornStudio DERIVATIVE title at top */}
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8">
+            <div 
+              class="relative w-full overflow-hidden mx-auto"
+              style="aspect-ratio: 1440/900; max-height: 120px; width: 100%; max-width: 100%;"
+            >
+              <div 
+                data-us-project="CfUBNRWqqovof8qgj5r4" 
+                class="absolute inset-0 w-full h-full"
+                style="width: 100%; height: 100%;"
+              ></div>
+            </div>
+          </div>
+
+          {/* Mobile - Description */}
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8">
+            <p class="text-lg leading-relaxed font-sans w-full px-2" style="color: #4A4A4A !important;">
+              Criado a partir da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas antes de virarem redes fantasmas e <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
+            </p>
+          </div>
+
+          {/* Mobile - Key Benefits */}
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8">
+            {keyBenefits.map((benefit, index) => (
+              <div key={index} class="flex items-center gap-3 px-4 py-3 rounded-xl border-2 w-full" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important;">
+                <div class="flex-shrink-0">
+                  <img 
+                    src={benefit.icon} 
+                    alt=""
+                    style="width: 28px !important; height: 28px !important;"
+                  />
+                </div>
+                <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 16px !important; font-weight: 500 !important; line-height: 1.4 !important;">
+                  {benefit.text}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile - UnicornStudio Element below */}
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
+            <div 
+              data-us-project="AI2KbKFrSjPoQHEs6hQK" 
+              style="width: 100%; height: 400px; max-width: 100%; aspect-ratio: 1440/900; min-height: 400px;"
             ></div>
           </div>
         </div>
@@ -84,7 +135,8 @@ export default function Derivative({
 
       {/* Material Flow Cards - 3 Column Layout - Full Width - SEPARATE SECTION */}
       <div class="container mx-auto px-4 lg:px-8 relative z-10" style="margin-top: 100px;">
-        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
+        {/* Desktop Layout */}
+        <div class="hidden lg:flex lg:flex-row items-center justify-center gap-6 lg:gap-8 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
             
             {/* Card 1 - Redes Danificadas */}
           <div class="bg-mineral-black rounded-2xl h-[400px] flex flex-col items-center" style="width: 380px;">
@@ -160,6 +212,87 @@ export default function Derivative({
             </div>
           </div>
 
+        </div>
+
+        {/* Mobile Layout */}
+        <div class="block lg:hidden opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
+          <div class="flex flex-col items-center justify-center gap-6">
+            
+            {/* Card 1 - Redes Danificadas */}
+            <div class="bg-mineral-black rounded-2xl h-[300px] flex flex-col items-center w-full max-w-sm">
+              <div class="flex flex-col justify-center flex-1 gap-2 px-4 py-3 w-full">
+                  <p class="text-fog-gray font-bold text-sm">Resíduo</p>
+                  <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
+                    REDES DANIFICADAS
+                  </h3>
+                </div>
+              {/* Interference Pattern Animation Container */}
+              <div style="width: 90%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative;">
+                <div id="redes-animation-mobile" style="width: 100%; height: 100%;"></div>
+              </div>
+            </div>
+
+            {/* Seta 1 - Resíduos → Matéria-prima */}
+            <div class="flex items-center justify-center">
+              <img 
+                src="https://assets.decocache.com/derivative/3d40778e-d8d1-47f1-925d-9ba8717d50d8/Arrow-1.svg" 
+                alt="Fluxo para Matéria-prima"
+                style="width: 30px; height: 30px; transform: rotate(90deg);"
+              />
+            </div>
+
+            {/* Card 2 - Pellets */}
+            <div class="bg-mineral-black rounded-2xl h-[300px] flex flex-col items-center w-full max-w-sm">
+                <div class="flex flex-col gap-2 px-4 py-3 w-full">
+                  <p class="text-fog-gray font-bold text-sm">Matéria-prima</p>
+                  <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
+                    PELLETS
+                  </h3>
+                </div>
+              {/* 3D Animation Container */}
+              <div style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+                <div id="pellets-animation-mobile" style="width: 100%; height: 100%;"></div>
+              </div>
+            </div>
+
+            {/* Seta 2 - Matéria-prima → Produtos */}
+            <div class="flex items-center justify-center">
+              <img 
+                src="https://assets.decocache.com/derivative/3d40778e-d8d1-47f1-925d-9ba8717d50d8/Arrow-1.svg" 
+                alt="Fluxo para Produtos"
+                style="width: 30px; height: 30px; transform: rotate(90deg);"
+              />
+            </div>
+
+            {/* Card 3 - Produtos */}
+            <div class="bg-mineral-black rounded-2xl h-[300px] flex flex-col items-center w-full max-w-sm">
+                <div class="flex flex-col gap-2 px-4 py-3 w-full">
+                  <p class="text-fog-gray font-bold text-sm">PRODUTOS</p>
+                  <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
+                    ARMAÇÃO DE ÓCULOS
+                  </h3>
+                </div>
+              {/* Video Container */}
+              <div className="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+                <video 
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    borderRadius: "0.5rem"
+                  }}
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                >
+                  <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                  </video>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
@@ -288,10 +421,12 @@ export default function Derivative({
               
               const init = () => {
                 const container = document.getElementById('pellets-animation');
-                if (!container) return;
+                const mobileContainer = document.getElementById('pellets-animation-mobile');
+                const targetContainer = container || mobileContainer;
+                if (!targetContainer) return;
                 
-                const width = container.offsetWidth;
-                const height = container.offsetHeight;
+                const width = targetContainer.offsetWidth;
+                const height = targetContainer.offsetHeight;
                 
                 scene = new THREE.Scene();
                 camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -303,7 +438,7 @@ export default function Derivative({
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
                 renderer.setSize(width, height);
                 renderer.setClearColor(0x000000, 0);
-                container.appendChild(renderer.domElement);
+                targetContainer.appendChild(renderer.domElement);
                 
                 const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
                 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
@@ -357,10 +492,10 @@ export default function Derivative({
               };
               
               const handleResize = () => {
-                if (!camera || !renderer || !container) return;
+                if (!camera || !renderer || !targetContainer) return;
                 
-                const width = container.offsetWidth;
-                const height = container.offsetHeight;
+                const width = targetContainer.offsetWidth;
+                const height = targetContainer.offsetHeight;
                 
                 camera.aspect = width / height;
                 camera.updateProjectionMatrix();
@@ -507,10 +642,12 @@ export default function Derivative({
 
               function init() {
                 const container = document.getElementById('redes-animation');
-                if (!container) return;
+                const mobileContainer = document.getElementById('redes-animation-mobile');
+                const targetContainer = container || mobileContainer;
+                if (!targetContainer) return;
                 
-                const width = container.offsetWidth;
-                const height = container.offsetHeight;
+                const width = targetContainer.offsetWidth;
+                const height = targetContainer.offsetHeight;
 
                 scene = new THREE.Scene();
                 camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -523,7 +660,7 @@ export default function Derivative({
                 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
                 renderer.setSize(width, height);
                 renderer.setClearColor(0x000000, 0);
-                container.appendChild(renderer.domElement);
+                targetContainer.appendChild(renderer.domElement);
 
                 const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
                 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
@@ -663,6 +800,350 @@ export default function Derivative({
           }
         `
       }} />
+
+      {/* Mobile Animations Initialization Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Mobile Animations Initialization
+            (function() {
+              function initMobileAnimations() {
+                // Initialize mobile pellets animation
+                const pelletsMobile = document.getElementById('pellets-animation-mobile');
+                if (pelletsMobile && typeof THREE !== 'undefined') {
+                  const width = pelletsMobile.offsetWidth;
+                  const height = pelletsMobile.offsetHeight;
+                  
+                  const scene = new THREE.Scene();
+                  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                  const renderer = new THREE.WebGLRenderer({ 
+                    antialias: true, 
+                    alpha: true,
+                    powerPreference: "high-performance"
+                  });
+                  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+                  renderer.setSize(width, height);
+                  renderer.setClearColor(0x000000, 0);
+                  pelletsMobile.appendChild(renderer.domElement);
+                  
+                  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+                  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+                  directionalLight.position.set(5, 5, 5);
+                  const pointLight = new THREE.PointLight(0xffffff, 0.4);
+                  pointLight.position.set(-5, 3, -5);
+                  
+                  scene.add(ambientLight);
+                  scene.add(directionalLight);
+                  scene.add(pointLight);
+                  
+                  camera.position.set(0, 0, 8);
+                  camera.lookAt(0, 0, 0);
+                  
+                  const mainGroup = new THREE.Group();
+                  scene.add(mainGroup);
+                  
+                  let time = 0;
+                  const animate = () => {
+                    requestAnimationFrame(animate);
+                    time += 0.005;
+                    
+                    mainGroup.children.forEach((child) => {
+                      if (child instanceof THREE.Group) {
+                        child.children.forEach((sphere) => {
+                          if (sphere.geometry) sphere.geometry.dispose();
+                          if (sphere.material) sphere.material.dispose();
+                        });
+                        mainGroup.remove(child);
+                      }
+                    });
+                    
+                    // Create wave sources
+                    const createWaveSources = (time, scale) => {
+                      const result = [];
+                      const count = 5;
+                      for (let i = 0; i < count; i++) {
+                        const angle = (i / count) * Math.PI * 2;
+                        const radius = scale * (1 + Math.sin(angle * 3) * 0.2);
+                        result.push({
+                          position: [
+                            Math.cos(angle) * radius,
+                            0,
+                            Math.sin(angle) * radius
+                          ],
+                          frequency: 1.5 + Math.sin(angle * 2) * 0.3,
+                          amplitude: 0.2 + Math.cos(angle) * 0.05,
+                          phase: time * 2 + angle
+                        });
+                      }
+                      result.push({
+                        position: [0, 0, 0],
+                        frequency: 1.8,
+                        amplitude: 0.25,
+                        phase: time * 2.5
+                      });
+                      return result;
+                    };
+                    
+                    // Create floating spheres
+                    const createFloatingSpheres = (sources, size, resolution, time) => {
+                      const step = size / resolution;
+                      const spheresGroup = new THREE.Group();
+                      
+                      for (let i = 0; i <= resolution; i += 5) {
+                        for (let j = 0; j <= resolution; j += 5) {
+                          for (let k = 0; k <= resolution; k += 6) {
+                            const baseX = (i * step) - (size / 2);
+                            const baseY = (j * step) - (size / 2);
+                            const baseZ = (k * step) - (size / 2);
+                            
+                            const organicOffset = Math.sin(baseX * 0.5 + baseY * 0.3 + baseZ * 0.7) * 0.2;
+                            const x = baseX + organicOffset;
+                            const y = baseY + Math.cos(baseX * 0.4 + baseZ * 0.6) * 0.15;
+                            const z = baseZ + Math.sin(baseY * 0.8 + baseX * 0.2) * 0.18;
+                            
+                            let waveHeight = 0;
+                            sources.forEach(({ position: [sx, sy, sz], frequency, amplitude, phase }) => {
+                              const dx = x - sx;
+                              const dy = y - sy;
+                              const dz = z - sz;
+                              const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+                              waveHeight += Math.sin(distance * frequency - time * 3 + phase) * amplitude * Math.exp(-distance * 0.15);
+                            });
+                            
+                            const sphereRadius = 0.35;
+                            const sphereOpacity = Math.max(0.2, Math.min(0.8, Math.abs(waveHeight) * 1.5 + 0.4));
+                            
+                            const floatX = Math.sin(time * 1.2 + x * 0.8 + y * 0.3) * 0.15;
+                            const floatY = Math.cos(time * 0.9 + z * 0.5 + x * 0.2) * 0.12;
+                            const floatZ = Math.sin(time * 1.1 + y * 0.4 + z * 0.6) * 0.18;
+                            
+                            const cylinderGeometry = new THREE.CylinderGeometry(sphereRadius * 1.2, sphereRadius * 1.2, sphereRadius * 1.8, 20, 8);
+                            const sphereMaterial = new THREE.MeshBasicMaterial({
+                              color: 0xffffff,
+                              wireframe: true,
+                              transparent: true,
+                              opacity: sphereOpacity
+                            });
+                            const sphere = new THREE.Mesh(cylinderGeometry, sphereMaterial);
+                            sphere.position.set(
+                              x + floatX + waveHeight * 0.3,
+                              y + waveHeight * 0.6 + floatY,
+                              z + floatZ + waveHeight * 0.2
+                            );
+                            sphere.rotation.x = time * 0.3 + x * 0.05;
+                            sphere.rotation.y = time * 0.2 + y * 0.05;
+                            sphere.rotation.z = time * 0.25 + z * 0.05;
+                            
+                            spheresGroup.add(sphere);
+                          }
+                        }
+                      }
+                      
+                      return spheresGroup;
+                    };
+                    
+                    const sources1 = createWaveSources(time, 1.2);
+                    const field1 = createFloatingSpheres(sources1, 1.2 * 3, 8, time);
+                    mainGroup.add(field1);
+                    
+                    const sources2 = createWaveSources(time + 0.5, 0.8);
+                    const field2 = createFloatingSpheres(sources2, 0.8 * 3, 6, time + 0.5);
+                    field2.position.set(0, 1.0, 0);
+                    field2.rotation.set(Math.PI/8, 0, Math.PI/6);
+                    mainGroup.add(field2);
+                    
+                    mainGroup.rotation.y = Math.sin(time * 0.08) * 0.2;
+                    mainGroup.rotation.x = Math.cos(time * 0.06) * 0.15;
+                    
+                    renderer.render(scene, camera);
+                  };
+                  
+                  animate();
+                }
+                
+                // Initialize mobile redes animation
+                const redesMobile = document.getElementById('redes-animation-mobile');
+                if (redesMobile && typeof THREE !== 'undefined') {
+                  const width = redesMobile.offsetWidth;
+                  const height = redesMobile.offsetHeight;
+                  
+                  const scene = new THREE.Scene();
+                  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                  const renderer = new THREE.WebGLRenderer({ 
+                    antialias: true, 
+                    alpha: true,
+                    powerPreference: "high-performance"
+                  });
+                  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+                  renderer.setSize(width, height);
+                  renderer.setClearColor(0x000000, 0);
+                  redesMobile.appendChild(renderer.domElement);
+                  
+                  const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+                  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+                  directionalLight.position.set(5, 5, 5);
+                  const pointLight = new THREE.PointLight(0xffffff, 0.4);
+                  pointLight.position.set(-5, 3, -5);
+                  
+                  scene.add(ambientLight);
+                  scene.add(directionalLight);
+                  scene.add(pointLight);
+                  
+                  camera.position.set(0, 0, 8);
+                  camera.lookAt(0, 0, 0);
+                  
+                  const mainGroup = new THREE.Group();
+                  scene.add(mainGroup);
+                  
+                  let time = 0;
+                  const animate = () => {
+                    requestAnimationFrame(animate);
+                    time += 0.005;
+                    
+                    mainGroup.children.forEach((child) => {
+                      if (child instanceof THREE.Group) {
+                        child.children.forEach((line) => {
+                          if (line.geometry) line.geometry.dispose();
+                          if (line.material) line.material.dispose();
+                        });
+                        mainGroup.remove(child);
+                      }
+                    });
+                    
+                    // Create wave sources
+                    const createWaveSources = (time, scale) => {
+                      const result = [];
+                      const count = 5;
+                      for (let i = 0; i < count; i++) {
+                        const angle = (i / count) * Math.PI * 2;
+                        const radius = scale * (1 + Math.sin(angle * 3) * 0.2);
+                        result.push({
+                          position: [
+                            Math.cos(angle) * radius,
+                            0,
+                            Math.sin(angle) * radius
+                          ],
+                          frequency: 2 + Math.sin(angle * 2),
+                          amplitude: 0.3 + Math.cos(angle) * 0.1,
+                          phase: time * 3 + angle
+                        });
+                      }
+                      result.push({
+                        position: [0, 0, 0],
+                        frequency: 3,
+                        amplitude: 0.4,
+                        phase: time * 4
+                      });
+                      return result;
+                    };
+                    
+                    // Create interference lines
+                    const createInterferenceLines = (sources, size, resolution, time) => {
+                      const step = size / resolution;
+                      const linesGroup = new THREE.Group();
+                      
+                      const linesMaterial = new THREE.LineBasicMaterial({
+                        color: 0xffffff,
+                        transparent: true,
+                        opacity: 1.0,
+                        linewidth: 2
+                      });
+                      
+                      // Horizontal lines
+                      for (let i = 0; i <= resolution; i += 1) {
+                        const geometry = new THREE.BufferGeometry();
+                        const points = [];
+                        const x = (i * step) - (size / 2);
+                        
+                        for (let j = 0; j <= resolution; j += 1) {
+                          const z = (j * step) - (size / 2);
+                          let height = 0;
+                          
+                          sources.forEach(({ position: [sx, sy, sz], frequency, amplitude, phase }) => {
+                            const dx = x - sx;
+                            const dz = z - sz;
+                            const distance = Math.sqrt(dx * dx + dz * dz);
+                            height += Math.sin(distance * frequency - time * 5 + phase) * 
+                                     amplitude * Math.exp(-distance * 0.3);
+                          });
+                          
+                          points.push(x, height * 0.5, z);
+                        }
+                        
+                        if (points.length > 2) {
+                          geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+                          const line = new THREE.Line(geometry, linesMaterial);
+                          linesGroup.add(line);
+                        }
+                      }
+                      
+                      // Vertical lines
+                      for (let j = 0; j <= resolution; j += 1) {
+                        const geometry = new THREE.BufferGeometry();
+                        const points = [];
+                        const z = (j * step) - (size / 2);
+                        
+                        for (let i = 0; i <= resolution; i += 1) {
+                          const x = (i * step) - (size / 2);
+                          let height = 0;
+                          
+                          sources.forEach(({ position: [sx, sy, sz], frequency, amplitude, phase }) => {
+                            const dx = x - sx;
+                            const dz = z - sz;
+                            const distance = Math.sqrt(dx * dx + dz * dz);
+                            height += Math.sin(distance * frequency - time * 5 + phase) * 
+                                     amplitude * Math.exp(-distance * 0.3);
+                          });
+                          
+                          points.push(x, height * 0.5, z);
+                        }
+                        
+                        if (points.length > 2) {
+                          geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+                          const line = new THREE.Line(geometry, linesMaterial);
+                          linesGroup.add(line);
+                        }
+                      }
+                      
+                      return linesGroup;
+                    };
+                    
+                    const sources1 = createWaveSources(time, 1.6);
+                    const field1 = createInterferenceLines(sources1, 1.6 * 3.5, 18, time);
+                    mainGroup.add(field1);
+                    
+                    const sources2 = createWaveSources(time + 0.5, 1.2);
+                    const field2 = createInterferenceLines(sources2, 1.2 * 3.5, 14, time + 0.5);
+                    field2.position.set(0, 1.2, 0);
+                    field2.rotation.set(Math.PI/6, 0, Math.PI/4);
+                    mainGroup.add(field2);
+                    
+                    mainGroup.rotation.y = Math.sin(time * 0.08) * 0.2;
+                    mainGroup.rotation.x = Math.cos(time * 0.06) * 0.15;
+                    
+                    renderer.render(scene, camera);
+                  };
+                  
+                  animate();
+                }
+              }
+              
+              // Initialize after THREE.js is loaded
+              if (typeof THREE !== 'undefined') {
+                setTimeout(initMobileAnimations, 1000);
+              } else {
+                const checkThree = setInterval(() => {
+                  if (typeof THREE !== 'undefined') {
+                    clearInterval(checkThree);
+                    setTimeout(initMobileAnimations, 1000);
+                  }
+                }, 100);
+              }
+            })();
+          `
+        }}
+      />
 
       {/* UnicornStudio Script */}
       <script 

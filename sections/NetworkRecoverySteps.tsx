@@ -49,7 +49,7 @@ export default function NetworkRecoverySteps({
       class="relative" 
       style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px;"
     >
-      <div class="container mx-auto px-2 lg:px-4 relative z-10">
+      <div class="container mx-auto px-4 lg:px-4 relative z-10 max-w-7xl">
         {/* Nova seção - Operação */}
         <div class="mb-12 lg:mb-16">
           <div class="max-w-4xl mx-auto text-center">

@@ -83,7 +83,7 @@ export default function Header({
       </div>
 
       {/* Navigation */}
-      <nav class="relative z-20 container mx-auto px-4 lg:px-8">
+      <nav class="relative z-20 container mx-auto px-6 lg:px-8">
         <div class="flex items-center py-6">
           {/* Logo - Left */}
           <a href="/" class="flex-shrink-0">
@@ -126,6 +126,7 @@ export default function Header({
           <label
             class="cursor-pointer lg:hidden relative z-50 ml-auto"
             for="menu-mobile"
+            style="margin-right: 16px !important;"
           >
             <input class="hidden peer" type="checkbox" id="menu-mobile" />
             {lineStyles.map((style, index) => (
