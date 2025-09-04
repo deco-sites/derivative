@@ -107,15 +107,15 @@ export default function Services({
         /* Mobile overflow prevention - apenas para esta seção */
         @media (max-width: 1023px) {
           #services {
-            overflow-x: hidden !important;
+            overflow: visible !important;
           }
           #services .container {
-            overflow-x: hidden !important;
+            overflow: visible !important;
             max-width: 100vw !important;
           }
           .service-card {
             max-width: 100% !important;
-            overflow-x: hidden !important;
+            overflow: visible !important;
           }
         }
         /* Mobile tags spacing */
@@ -175,15 +175,15 @@ export default function Services({
           {/* Header Content */}
           <div class="text-center space-y-8">
             <div class="space-y-12">
-              <p class="eyebrow-text opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate">
+              <p class="eyebrow-text">
                 {subtitle}
               </p>
-              <h2 class="text-white title-text opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate">
+              <h2 class="text-white title-text">
                 {title}
               </h2>
             </div>
             <div style="margin-top: 32px;">
-              <p class="text-lg leading-relaxed subtitle-text opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate" style="color: rgba(255, 255, 255, 0.85);">
+              <p class="text-lg leading-relaxed subtitle-text" style="color: rgba(255, 255, 255, 0.85);">
                 {description}
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function Services({
                 id={cta?.id}
                 href={cta?.href}
                 target={cta?.href.includes("http") ? "_blank" : "_self"}
-                class="cta-button opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600 scroll-animate"
+                class="cta-button"
               >
                 {cta?.text}
               </a>
@@ -201,7 +201,7 @@ export default function Services({
           </div>
 
           {/* Services Accordion */}
-          <div class="w-full opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-800 scroll-animate">
+          <div class="w-full">
             <div class="space-y-4">
               {services?.map((service, index) => (
                 <details 
@@ -387,56 +387,6 @@ export default function Services({
         </div>
       </div>
       
-      {/* Scroll Animation Script */}
-      <script 
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `
-            // Scroll Animation for elements
-            (function() {
-              function animateOnScroll() {
-                const elements = document.querySelectorAll('.scroll-animate');
-                
-                elements.forEach((element) => {
-                  const elementTop = element.getBoundingClientRect().top;
-                  const elementVisible = 150;
-                  
-                  if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                  }
-                });
-              }
-              
-              // Throttle scroll events for performance
-              let ticking = false;
-              function requestTick() {
-                if (!ticking) {
-                  requestAnimationFrame(function() {
-                    animateOnScroll();
-                    ticking = false;
-                  });
-                  ticking = true;
-                }
-              }
-              
-              // Add event listeners
-              window.addEventListener('scroll', requestTick, { passive: true });
-              window.addEventListener('resize', animateOnScroll);
-              
-              // Initial check
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', animateOnScroll);
-              } else {
-                setTimeout(animateOnScroll, 100);
-              }
-              
-              // Also check on load
-              window.addEventListener('load', animateOnScroll);
-            })();
-          `
-        }}
-      />
 
       {/* Lottie Player Monitor */}
       <script type="text/javascript">{`

@@ -47,16 +47,16 @@ export default function NetworkRecoverySteps({
     <section 
       id="sistema"
       class="relative" 
-      style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px; overflow-x: hidden;"
+      style="background-color: #1d1b1d; padding-top: 112px; padding-bottom: 48px;"
     >
       <style dangerouslySetInnerHTML={{
         __html: `
           @media (max-width: 1023px) {
             #sistema {
-              overflow-x: hidden !important;
+              overflow: visible !important;
             }
             #sistema .container {
-              overflow-x: hidden !important;
+              overflow: visible !important;
               max-width: 100vw !important;
             }
             #sistema video {
@@ -66,6 +66,10 @@ export default function NetworkRecoverySteps({
             #sistema .max-w-4xl {
               max-width: 100% !important;
             }
+            #sistema .aspect-ratio-container {
+              aspect-ratio: unset !important;
+              height: auto !important;
+            }
           }
         `
       }} />
@@ -74,18 +78,18 @@ export default function NetworkRecoverySteps({
         <div class="mb-12 lg:mb-16">
           <div class="max-w-4xl mx-auto text-center">
             {/* Eyebrow */}
-            <p class="font-mono font-normal text-base uppercase tracking-wider mb-4 opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate" style="color: #A1ACAA;">
+            <p class="font-mono font-normal text-base uppercase tracking-wider mb-4" style="color: #A1ACAA;">
               OPERAÇÃO
             </p>
 
             {/* Título */}
-            <h2 class="text-snow-white font-sans font-normal text-4xl lg:text-6xl xl:text-7xl tracking-tight leading-none mb-6 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-200 scroll-animate" style="font-size: clamp(3rem, 6vw, 5rem);">
+            <h2 class="text-snow-white font-sans font-normal text-4xl lg:text-6xl xl:text-7xl tracking-tight leading-none mb-6" style="font-size: clamp(3rem, 6vw, 5rem);">
               Sistema Regenerativo
             </h2>
 
             {/* Descrição */}
             <p 
-              class="text-base lg:text-lg leading-relaxed font-sans mx-auto opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate"
+              class="text-base lg:text-lg leading-relaxed font-sans mx-auto"
               style="color: #A1ACAA; max-width: 800px;"
             >
               Nosso modelo interrompe ciclos de degradação e, com o tempo, cria condições para restaurar e fortalecer ecossistemas naturais e comunidades
@@ -98,11 +102,11 @@ export default function NetworkRecoverySteps({
           {/* Coluna 1 - Conteúdo Dinâmico - Reduzida */}
           <div class="order-2 lg:order-1 flex flex-col justify-between h-full">
             {/* Container que simula a altura do vídeo */}
-            <div class="relative" style="aspect-ratio: 16/9;">
+            <div class="relative aspect-ratio-container" style="aspect-ratio: 16/9;">
               {/* Layout flexível para distribuir elementos verticalmente */}
               <div class="h-full flex flex-col justify-between py-4">
                 {/* Conteúdo Principal que muda - Posicionado no topo */}
-                <div class="flex flex-col space-y-3 max-w-md opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-600 scroll-animate">
+                <div class="flex flex-col space-y-3 max-w-md">
                   {/* Eyebrow */}
                   <p class="font-bold text-sm uppercase tracking-wider" style="color: #A1ACAA;">
                     {eyebrow}
@@ -138,7 +142,7 @@ export default function NetworkRecoverySteps({
           </div>
 
           {/* Coluna 2 - Vídeo Dinâmico - Ampliada */}
-          <div class="order-1 lg:order-2 flex items-start justify-center opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-800 scroll-animate">
+          <div class="order-1 lg:order-2 flex items-start justify-center">
             <div class="w-full max-w-4xl lg:max-w-4xl">
               <div 
                 class="relative w-full bg-mineral-black rounded-2xl overflow-hidden"
@@ -162,56 +166,6 @@ export default function NetworkRecoverySteps({
         </div>
       </div>
 
-      {/* Scroll Animation Script */}
-      <script 
-        type="text/javascript"
-        dangerouslySetInnerHTML={{
-          __html: `
-            // Scroll Animation for elements
-            (function() {
-              function animateOnScroll() {
-                const elements = document.querySelectorAll('.scroll-animate');
-                
-                elements.forEach((element) => {
-                  const elementTop = element.getBoundingClientRect().top;
-                  const elementVisible = 150;
-                  
-                  if (elementTop < window.innerHeight - elementVisible) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                  }
-                });
-              }
-              
-              // Throttle scroll events for performance
-              let ticking = false;
-              function requestTick() {
-                if (!ticking) {
-                  requestAnimationFrame(function() {
-                    animateOnScroll();
-                    ticking = false;
-                  });
-                  ticking = true;
-                }
-              }
-              
-              // Add event listeners
-              window.addEventListener('scroll', requestTick, { passive: true });
-              window.addEventListener('resize', animateOnScroll);
-              
-              // Initial check
-              if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', animateOnScroll);
-              } else {
-                setTimeout(animateOnScroll, 100);
-              }
-              
-              // Also check on load
-              window.addEventListener('load', animateOnScroll);
-            })();
-          `
-        }}
-      />
 
       {/* Script de Animação - Versão Simplificada */}
       <script type="text/javascript" dangerouslySetInnerHTML={{
