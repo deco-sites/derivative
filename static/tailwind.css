@@ -3110,9 +3110,6 @@ input.tab:checked + .tab-content,
 .h-6{
   height: 1.5rem;
 }
-.h-7{
-  height: 1.75rem;
-}
 .h-8{
   height: 2rem;
 }
@@ -4966,6 +4963,10 @@ input.tab:checked + .tab-content,
 
   .lg\:max-w-3xl{
     max-width: 48rem;
+  }
+
+  .lg\:max-w-4xl{
+    max-width: 56rem;
   }
 
   .lg\:max-w-xl{
