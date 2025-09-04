@@ -8,29 +8,30 @@ export default function ContactFormHybrid({
   description = "nos conte sobre o seu projeto e entenda como podemos colaborar."
 }: Props) {
   return (
-    <div class="container mx-auto px-4 py-16">
-      {/* Imagem como banner no topo */}
-      <div class="mb-8 rounded-lg overflow-hidden">
-        <img 
-          src="https://assets.decocache.com/derivative/9c51b37a-0a0b-41e8-bebc-98bea5946f87/Jubarte-I-(1).jpg"
-          alt="Background"
-          class="w-full h-64 object-cover"
-        />
-      </div>
+    <div class="relative min-h-screen">
+      {/* Imagem de fundo simples */}
+      <img 
+        src="https://assets.decocache.com/derivative/9c51b37a-0a0b-41e8-bebc-98bea5946f87/Jubarte-I-(1).jpg"
+        alt="Background"
+        class="absolute inset-0 w-full h-full object-cover z-0"
+      />
       
-      {/* Conteúdo - EXATAMENTE igual ao ContactFormBypass */}
-      <div class="max-w-2xl mx-auto">
-        <div class="max-w-2xl mx-auto">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+      {/* Conteúdo */}
+      <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-8">
+          {/* Textos à esquerda */}
+          <div class="text-left order-2 lg:order-1">
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               {title}
             </h2>
-            <p class="text-lg text-gray-600">
+            <p class="text-lg sm:text-xl lg:text-2xl text-white leading-relaxed">
               {description}
             </p>
           </div>
 
-          <div class="bg-white rounded-lg shadow-lg p-8">
+          {/* Formulário à direita */}
+          <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+            <div class="rounded-2xl shadow-lg p-8 w-full max-w-md" style="background-color: #FCFAFA;">
             <div id="message" class="mb-6 p-4 rounded-lg hidden"></div>
 
             {/* Formulário sem form tag - usando divs */}
@@ -44,7 +45,8 @@ export default function ContactFormHybrid({
                   id="nome"
                   name="nome"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none"
+                  style="background-color: #F5F5F5; color: #1F2937;"
                   placeholder="Seu nome completo"
                 />
               </div>
@@ -58,7 +60,8 @@ export default function ContactFormHybrid({
                   id="email"
                   name="email"
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none"
+                  style="background-color: #F5F5F5; color: #1F2937;"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -72,7 +75,8 @@ export default function ContactFormHybrid({
                   name="mensagem"
                   rows={5}
                   required
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                  class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none resize-none"
+                  style="background-color: #F5F5F5; color: #1F2937;"
                   placeholder="Conte-nos sobre seu projeto ou dúvida..."
                 ></textarea>
               </div>
@@ -80,10 +84,11 @@ export default function ContactFormHybrid({
               <button
                 type="button"
                 id="submitBtn"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200"
+                class="w-full bg-black hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200"
               >
                 Enviar Mensagem
               </button>
+            </div>
             </div>
           </div>
         </div>
