@@ -32,8 +32,8 @@ export default async function SubmitToConvexAction(
       };
     }
 
-    // URL do Convex (development)
-    const convexUrl = "https://acrobatic-parakeet-865.convex.cloud";
+    // URL do Convex (production)
+    const convexUrl = "https://watchful-capybara-907.convex.cloud";
     
     console.log("🔄 Chamando Convex via HTTP Client...");
     
