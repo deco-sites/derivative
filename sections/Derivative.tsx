@@ -272,7 +272,7 @@ export default function Derivative({
               <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
                 <video 
                   id="video-mobile-oculos"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; pointer-events: none;"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; pointer-events: none; -webkit-user-select: none; user-select: none;"
                   muted 
                   loop 
                   playsinline
@@ -280,7 +280,6 @@ export default function Derivative({
                   webkit-playsinline="true"
                   x5-playsinline="true"
                   autoplay
-                  controls="false"
                   disablepictureinpicture
                   controlslist="nodownload nofullscreen noremoteplayback"
                   disableRemotePlayback
@@ -1184,22 +1183,24 @@ export default function Derivative({
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html: `
-            // Force video autoplay on mobile (including iOS Chrome)
+            // Force video autoplay on mobile (including iOS Chrome) - IMMEDIATE
             (function() {
               function forceVideoPlay() {
                 const video = document.getElementById('video-mobile-oculos');
                 if (video) {
-                  // Ensure video is muted for autoplay compliance
-                  video.muted = true;
-                  video.volume = 0;
-                  
-                  // Remove all controls completely
+                  // IMMEDIATELY remove all controls before video loads
                   video.controls = false;
                   video.removeAttribute('controls');
                   video.setAttribute('controls', 'false');
                   video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
                   video.setAttribute('disableRemotePlayback', 'true');
                   video.style.pointerEvents = 'none';
+                  video.style.webkitUserSelect = 'none';
+                  video.style.userSelect = 'none';
+                  
+                  // Ensure video is muted for autoplay compliance
+                  video.muted = true;
+                  video.volume = 0;
                   
                   // Set additional iOS Chrome specific properties
                   video.setAttribute('webkit-playsinline', 'true');
@@ -1212,6 +1213,9 @@ export default function Derivative({
                   if (playPromise !== undefined) {
                     playPromise.then(() => {
                       console.log('Video autoplay started successfully on iOS Chrome');
+                      // Double-check controls are removed after play starts
+                      video.controls = false;
+                      video.removeAttribute('controls');
                     }).catch(error => {
                       console.log('Autoplay failed on iOS Chrome, trying user interaction fallback');
                       
@@ -1219,6 +1223,8 @@ export default function Derivative({
                       const playOnInteraction = () => {
                         video.muted = true;
                         video.volume = 0;
+                        video.controls = false;
+                        video.removeAttribute('controls');
                         video.play().then(() => {
                           console.log('Video started after user interaction on iOS Chrome');
                         }).catch(e => console.log('Video play failed on iOS Chrome:', e));
@@ -1233,16 +1239,20 @@ export default function Derivative({
                 }
               }
               
-              // Try multiple times to ensure video loads
+              // Execute IMMEDIATELY - no delays
+              forceVideoPlay();
+              
+              // Also try when DOM is ready
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', forceVideoPlay);
               } else {
                 forceVideoPlay();
               }
               
-              // Also try after a delay to ensure everything is loaded
+              // Try multiple times to ensure video loads
+              setTimeout(forceVideoPlay, 100);
+              setTimeout(forceVideoPlay, 500);
               setTimeout(forceVideoPlay, 1000);
-              setTimeout(forceVideoPlay, 3000);
             })();
           `
         }}
