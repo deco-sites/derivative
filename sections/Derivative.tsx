@@ -9,11 +9,19 @@ export interface Props {
 }
 
 export default function Derivative({
-  subtitle = "Criado a partir da união de redes de pesca interceptadas antes de virarem redes fantasmas e resíduos têxteis pré-consumo",
+  subtitle = "Material que nasce da união de redes de pesca interceptadas e de resíduos têxteis pré-consumo",
   keyBenefits = [
     {
       icon: "https://assets.decocache.com/derivative/59a05c46-dd77-42a0-b6d5-d8cdf3244268/Frame-(1).svg",
       text: "Novo destino para ameaças ambientais"
+    },
+    {
+      icon: "https://assets.decocache.com/derivative/59a05c46-dd77-42a0-b6d5-d8cdf3244268/Frame-(1).svg",
+      text: "Material único no Brasil"
+    },
+    {
+      icon: "https://assets.decocache.com/derivative/59a05c46-dd77-42a0-b6d5-d8cdf3244268/Frame-(1).svg",
+      text: "Transparência e rastreabilidade"
     }
   ]
 }: Props) {
@@ -50,13 +58,13 @@ export default function Derivative({
 
             {/* Subtitle */}
             <p class="text-xl lg:text-2xl leading-relaxed mb-6 font-sans max-w-2xl" style="margin-top: -10px; color: #4A4A4A !important;">
-              Criado a partir da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas antes de virarem redes fantasmas e <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
+              Material que nasce da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas e de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
             </p>
 
             {/* Key Benefits */}
-            <div class="mb-16">
+            <div class="mb-16 space-y-4">
               {keyBenefits.map((benefit, index) => (
-                <div key={index} class="flex items-center gap-4 px-6 py-4 rounded-xl border-2 inline-block" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important; width: fit-content;">
+                <div key={index} class="flex items-center gap-4 px-6 py-4 rounded-xl border-2" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important; width: fit-content;">
                   <div class="flex-shrink-0">
                     <img 
                       src={benefit.icon} 
@@ -100,12 +108,12 @@ export default function Derivative({
           {/* Mobile - Description */}
           <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8">
             <p class="text-lg leading-relaxed font-sans w-full px-2" style="color: #4A4A4A !important;">
-              Criado a partir da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas antes de virarem redes fantasmas e <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
+              Material que nasce da união de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">redes de pesca</strong> interceptadas e de <strong style="font-weight: 600 !important; font-style: italic !important; color: #4A4A4A !important;">resíduos têxteis</strong> pré-consumo
             </p>
           </div>
 
           {/* Mobile - Key Benefits */}
-          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8">
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8 space-y-4">
             {keyBenefits.map((benefit, index) => (
               <div key={index} class="flex items-center gap-3 px-4 py-3 rounded-xl border-2 w-full" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important;">
                 <div class="flex-shrink-0">

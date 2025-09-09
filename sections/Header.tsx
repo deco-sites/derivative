@@ -49,7 +49,7 @@ export default function Header({
     ],
   },
   backgroundVideo = "https://assets.decocache.com/derivative/d81f13fc-4f89-4c4c-a562-b434436f99bd/background2_header-(1).mp4",
-  title = "Fortaleça sua marca enquanto regeneramos os oceanos",
+  title = "REGENERANDO O OCEANO, TRANSFORMANDO MARCAS",
   ctaButton = {
     id: "cta-movement",
     href: "#movimento",
@@ -172,21 +172,30 @@ export default function Header({
       </nav>
 
       {/* Hero Content */}
-      <div class="relative z-10 flex items-center justify-center min-h-[calc(100vh-120px)]">
+      <div class="relative z-10 flex flex-col justify-between min-h-[calc(100vh-120px)] py-8">
+        <div class="flex-1 flex items-center justify-center">
         <div class="container mx-auto px-4 lg:px-8 text-center">
           <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-snow-white leading-tight mb-8 max-w-5xl mx-auto font-sans">
             {title}
           </h1>
           
           <div class="mt-12">
-            <button
-              type="button"
-              id="ctaBtn"
+              <button
+                type="button"
+                id="ctaBtn"
               class="inline-block bg-snow-white text-mineral-black px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200 shadow-lg rounded-lg"
             >
               {ctaButton?.text}
-            </button>
+              </button>
+            </div>
           </div>
+        </div>
+        
+        {/* Sub-headline no rodapé */}
+        <div class="container mx-auto px-4 lg:px-8 text-center pb-8">
+          <p class="text-lg lg:text-xl text-snow-white/80 max-w-4xl mx-auto leading-relaxed">
+            O que era uma das maiores ameaças aos oceanos se torna produtos de alto valor e propósito
+          </p>
         </div>
       </div>
 
