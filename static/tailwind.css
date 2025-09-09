@@ -4537,6 +4537,9 @@ input.tab:checked + .tab-content,
   --tw-text-opacity: 1;
   color: rgb(252 250 250 / var(--tw-text-opacity));
 }
+.text-snow-white\/80{
+  color: rgb(252 250 250 / 0.8);
+}
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
