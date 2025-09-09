@@ -272,7 +272,7 @@ export default function Derivative({
               <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
                 <video 
                   id="video-mobile-oculos"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; pointer-events: none;"
                   muted 
                   loop 
                   playsinline
@@ -282,6 +282,8 @@ export default function Derivative({
                   autoplay
                   controls="false"
                   disablepictureinpicture
+                  controlslist="nodownload nofullscreen noremoteplayback"
+                  disableRemotePlayback
                 >
                   <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
@@ -795,6 +797,41 @@ export default function Derivative({
             mix-blend-mode: lighten !important;
             filter: brightness(1.3) contrast(1.2) !important;
           }
+          /* Remove all video controls completely */
+          #video-mobile-oculos {
+            pointer-events: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-panel {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-play-button {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-timeline {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-current-time-display {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-mute-button {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-volume-slider {
+            display: none !important;
+          }
+          #video-mobile-oculos::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+          }
         `
       }} />
 
@@ -1155,6 +1192,14 @@ export default function Derivative({
                   // Ensure video is muted for autoplay compliance
                   video.muted = true;
                   video.volume = 0;
+                  
+                  // Remove all controls completely
+                  video.controls = false;
+                  video.removeAttribute('controls');
+                  video.setAttribute('controls', 'false');
+                  video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+                  video.setAttribute('disableRemotePlayback', 'true');
+                  video.style.pointerEvents = 'none';
                   
                   // Set additional iOS Chrome specific properties
                   video.setAttribute('webkit-playsinline', 'true');
