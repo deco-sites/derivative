@@ -42,14 +42,14 @@ export default function Services({
       title: "Deriva Estúdio",
       subtitle: "Co-criação de soluções inteligentes",
       description: "Nossa frente criativa une design, engenharia, biologia e tecnologia para desenvolver soluções inteligentes e objetos de desejo usando o Derivative.",
-      icon: "https://assets.decocache.com/derivative/e9d8f699-07d8-4ccb-a376-b3ed527b3ea8/services_2.svg",
+      icon: "https://assets.decocache.com/derivative/ef364b7e-91ce-4e8b-a4d3-0e2c53d1e06b/services_2.jpg",
       tags: ["Design Multidisciplinar", "Ciclo de Vida Completo", "Objetos de Desejo"]
     },
     {
       title: "Deriva Way",
       subtitle: "Circularidade completa",
       description: "Desenvolvemos um Derivative exclusivo utilizando os resíduos têxteis pré-consumo das fábricas, permitindo que o resíduo retorne para a cadeia como produto do ecossistema da marca.",
-      icon: "https://assets.decocache.com/derivative/3d02652f-4c28-4d48-aacd-7ca319460042/services_3.svg",
+      icon: "https://assets.decocache.com/derivative/f544e9c6-40e2-4bdc-85f8-9adf0c9e6daf/services_3.jpg",
       tags: ["Economia Circular", "Resíduos Próprios", "Conexão Oceânica"]
     }
   ],
@@ -407,15 +407,15 @@ export default function Services({
       </div>
       
 
-      {/* Lottie Player Monitor */}
+      {/* Lottie Player Monitor - Otimizado para Mobile */}
       <script type="text/javascript">{`
         console.log('Services: Script loaded');
         
         document.addEventListener('DOMContentLoaded', function() {
           console.log('Services: DOM loaded');
           
-          // Wait for lottie-player elements to be ready
-          setTimeout(() => {
+          // Função para inicializar Lottie players
+          function initLottiePlayers() {
             const lottieElements = document.querySelectorAll('lottie-player');
             console.log('Services: Found', lottieElements.length, 'lottie-player elements');
             
@@ -437,7 +437,18 @@ export default function Services({
                 player.play();
               }
             });
-          }, 1000);
+          }
+          
+          // Inicialização imediata para mobile, delay para desktop
+          const isMobile = window.innerWidth < 1024;
+          
+          if (isMobile) {
+            // Mobile: inicialização imediata
+            initLottiePlayers();
+          } else {
+            // Desktop: delay de 1 segundo
+            setTimeout(initLottiePlayers, 1000);
+          }
         });
       `}</script>
     </div>

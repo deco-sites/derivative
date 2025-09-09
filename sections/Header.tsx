@@ -114,12 +114,13 @@ export default function Header({
 
           {/* Contact Button - Right */}
           <div class="hidden lg:block">
-            <a
-              href="/contato"
+            <button
+              type="button"
+              id="contactBtn"
               class="inline-block border-2 border-snow-white text-snow-white px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-snow-white hover:text-mineral-black transition-all duration-200 rounded-lg"
             >
               CONTATO
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -156,12 +157,13 @@ export default function Header({
                   ))}
                 </ul>
                 <div class="mt-8">
-                  <a
-                    href="/contato"
+                  <button
+                    type="button"
+                    id="contactBtnMobile"
                     class="inline-block border-2 border-snow-white text-snow-white px-6 py-3 font-mono text-xs uppercase tracking-wider hover:bg-snow-white hover:text-mineral-black transition-all duration-200 rounded-lg"
                   >
                     CONTATO
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -177,15 +179,314 @@ export default function Header({
           </h1>
           
           <div class="mt-12">
-            <a
-              href={ctaButton?.href}
+            <button
+              type="button"
+              id="ctaBtn"
               class="inline-block bg-snow-white text-mineral-black px-8 py-4 font-mono text-sm uppercase tracking-wider hover:bg-fog-gray transition-colors duration-200 shadow-lg rounded-lg"
             >
               {ctaButton?.text}
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Modal Popup */}
+      <div id="contactModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
+          <div class="flex flex-col lg:flex-row h-full">
+            {/* Formulário - Esquerda */}
+            <div class="flex-1 p-8 lg:p-12 overflow-y-auto">
+              <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                  Vamos conversar!
+                </h2>
+                <button 
+                  type="button"
+                  id="closeModal" 
+                  class="text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Fechar modal"
+                >
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              
+              <p class="text-lg text-gray-600 mb-8">
+                Nos conte sobre o seu projeto e entenda como podemos colaborar.
+              </p>
+
+              <div id="message" class="mb-6 p-4 rounded-lg hidden"></div>
+
+              {/* Formulário */}
+              <div id="contactForm" class="space-y-6">
+                <div>
+                  <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">
+                    Nome Completo
+                  </label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    required
+                    class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none"
+                    style="background-color: #F5F5F5; color: #1F2937;"
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none"
+                    style="background-color: #F5F5F5; color: #1F2937;"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">
+                    Mensagem
+                  </label>
+                  <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows={5}
+                    required
+                    class="w-full px-4 py-3 border-0 rounded-xl focus:bg-transparent focus:border focus:border-gray-400 focus:outline-none resize-none"
+                    style="background-color: #F5F5F5; color: #1F2937;"
+                    placeholder="Conte-nos sobre seu projeto ou dúvida..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="button"
+                  id="submitBtn"
+                  class="w-full bg-black hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-xl transition-all duration-200"
+                >
+                  Enviar Mensagem
+                </button>
+              </div>
+            </div>
+
+            {/* Imagem - Direita */}
+            <div class="hidden lg:block lg:w-1/2">
+              <img 
+                src="https://assets.decocache.com/derivative/5f15ed8f-d966-4a9b-b620-990282e029f0/3-(6).jpg"
+                alt="Deriva"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* JavaScript para Modal e Formulário */}
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          console.log('🚀 Header Modal Script carregado!');
+          
+          // Aguardar o DOM estar pronto
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initModal);
+          } else {
+            initModal();
+          }
+          
+          function initModal() {
+            console.log('🚀 Inicializando modal...');
+            
+            const modal = document.getElementById('contactModal');
+            const ctaBtn = document.getElementById('ctaBtn');
+            const contactBtn = document.getElementById('contactBtn');
+            const contactBtnMobile = document.getElementById('contactBtnMobile');
+            const closeModal = document.getElementById('closeModal');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (!modal) {
+              console.error('❌ Modal não encontrado!');
+              return;
+            }
+            
+            // Função para abrir modal
+            function openModal() {
+              console.log('📱 Abrindo modal...');
+              modal.classList.remove('hidden');
+              modal.classList.add('flex');
+              document.body.style.overflow = 'hidden'; // Previne scroll do body
+            }
+            
+            // Função para fechar modal
+            function closeModalFunc() {
+              console.log('❌ Fechando modal...');
+              modal.classList.add('hidden');
+              modal.classList.remove('flex');
+              document.body.style.overflow = 'auto'; // Restaura scroll do body
+              
+              // Limpar formulário
+              const nomeInput = document.getElementById('nome');
+              const emailInput = document.getElementById('email');
+              const mensagemInput = document.getElementById('mensagem');
+              const messageDiv = document.getElementById('message');
+              
+              if (nomeInput) nomeInput.value = '';
+              if (emailInput) emailInput.value = '';
+              if (mensagemInput) mensagemInput.value = '';
+              if (messageDiv) {
+                messageDiv.classList.add('hidden');
+                messageDiv.textContent = '';
+              }
+            }
+            
+            // Event listeners para abrir modal
+            if (ctaBtn) {
+              ctaBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+              });
+            }
+            
+            if (contactBtn) {
+              contactBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+              });
+            }
+            
+            if (contactBtnMobile) {
+              contactBtnMobile.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+                // Fechar menu mobile se estiver aberto
+                const menuCheckbox = document.getElementById('menu-mobile');
+                if (menuCheckbox) {
+                  menuCheckbox.checked = false;
+                }
+              });
+            }
+            
+            // Event listener para fechar modal
+            if (closeModal) {
+              closeModal.addEventListener('click', closeModalFunc);
+            }
+            
+            // Fechar modal clicando no backdrop
+            modal.addEventListener('click', (e) => {
+              if (e.target === modal) {
+                closeModalFunc();
+              }
+            });
+            
+            // Fechar modal com ESC
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModalFunc();
+              }
+            });
+            
+            // Função para lidar com o submit do formulário
+            const handleSubmit = async function(e) {
+              console.log('🚀 HANDLE SUBMIT CHAMADO!', e);
+              e.preventDefault();
+              e.stopPropagation();
+              
+              const nomeInput = document.getElementById('nome');
+              const emailInput = document.getElementById('email');
+              const mensagemInput = document.getElementById('mensagem');
+              const messageDiv = document.getElementById('message');
+              
+              const data = {
+                nome: nomeInput.value,
+                email: emailInput.value,
+                mensagem: mensagemInput.value
+              };
+              
+              console.log('📝 Dados coletados:', data);
+              
+              // Validar dados
+              if (!data.nome || !data.email || !data.mensagem) {
+                showMessage('Todos os campos são obrigatórios.', false);
+                return;
+              }
+              
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Enviando...';
+              
+              try {
+                console.log('🔄 Enviando via Deco Action...');
+                
+                // Usar a action do Deco para bypass do CORS
+                const response = await fetch('/live/invoke/site/actions/submitToConvex.ts', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    nome: data.nome.trim(),
+                    email: data.email.trim().toLowerCase(),
+                    mensagem: data.mensagem.trim()
+                  })
+                });
+                
+                console.log('📡 Resposta da Action:', response.status, response.statusText);
+                
+                if (!response.ok) {
+                  const errorText = await response.text();
+                  console.error('❌ Erro na Action:', errorText);
+                  throw new Error('Erro na Action: ' + response.status);
+                }
+                
+                const result = await response.json();
+                console.log('✅ Sucesso via Action:', result);
+                
+                if (result.success) {
+                  showMessage(result.message, true);
+                  
+                  // Limpar formulário
+                  nomeInput.value = '';
+                  emailInput.value = '';
+                  mensagemInput.value = '';
+                  
+                  // Fechar modal após 2 segundos
+                  setTimeout(() => {
+                    closeModalFunc();
+                  }, 2000);
+                } else {
+                  showMessage(result.message, false);
+                }
+                
+              } catch (error) {
+                console.error('❌ Erro:', error);
+                showMessage('Erro ao enviar mensagem. Tente novamente.', false);
+              } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Mensagem';
+              }
+            };
+            
+            function showMessage(text, isSuccess) {
+              const messageDiv = document.getElementById('message');
+              messageDiv.textContent = text;
+              messageDiv.className = 'mb-6 p-4 rounded-lg ' + 
+                (isSuccess ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-red-100 text-red-800 border border-red-200');
+              messageDiv.classList.remove('hidden');
+            }
+            
+            // Adicionar event listener ao botão de submit
+            if (submitBtn) {
+              submitBtn.addEventListener('click', handleSubmit);
+            }
+            
+            console.log('✅ Modal configurado! Formulário inicializado.');
+          }
+        `
+      }} />
     </header>
   );
 }
