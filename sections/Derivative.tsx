@@ -271,12 +271,17 @@ export default function Derivative({
               {/* Video Container */}
               <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
                 <video 
+                  id="video-mobile-oculos"
                   style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
-                  autoplay 
                   muted 
                   loop 
                   playsinline
-                  preload="metadata"
+                  preload="auto"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  autoplay
+                  controls="false"
+                  disablepictureinpicture
                 >
                   <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
@@ -1132,6 +1137,67 @@ export default function Derivative({
                   }
                 }, 100);
               }
+            })();
+          `
+        }}
+      />
+
+      {/* Mobile Video Autoplay Script */}
+      <script 
+        type="text/javascript"
+        dangerouslySetInnerHTML={{
+          __html: `
+            // Force video autoplay on mobile (including iOS Chrome)
+            (function() {
+              function forceVideoPlay() {
+                const video = document.getElementById('video-mobile-oculos');
+                if (video) {
+                  // Ensure video is muted for autoplay compliance
+                  video.muted = true;
+                  video.volume = 0;
+                  
+                  // Set additional iOS Chrome specific properties
+                  video.setAttribute('webkit-playsinline', 'true');
+                  video.setAttribute('playsinline', 'true');
+                  video.setAttribute('x5-playsinline', 'true');
+                  
+                  // Try to play the video
+                  const playPromise = video.play();
+                  
+                  if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                      console.log('Video autoplay started successfully on iOS Chrome');
+                    }).catch(error => {
+                      console.log('Autoplay failed on iOS Chrome, trying user interaction fallback');
+                      
+                      // Fallback: try to play on first user interaction
+                      const playOnInteraction = () => {
+                        video.muted = true;
+                        video.volume = 0;
+                        video.play().then(() => {
+                          console.log('Video started after user interaction on iOS Chrome');
+                        }).catch(e => console.log('Video play failed on iOS Chrome:', e));
+                        document.removeEventListener('touchstart', playOnInteraction);
+                        document.removeEventListener('click', playOnInteraction);
+                      };
+                      
+                      document.addEventListener('touchstart', playOnInteraction, { once: true });
+                      document.addEventListener('click', playOnInteraction, { once: true });
+                    });
+                  }
+                }
+              }
+              
+              // Try multiple times to ensure video loads
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', forceVideoPlay);
+              } else {
+                forceVideoPlay();
+              }
+              
+              // Also try after a delay to ensure everything is loaded
+              setTimeout(forceVideoPlay, 1000);
+              setTimeout(forceVideoPlay, 3000);
             })();
           `
         }}
