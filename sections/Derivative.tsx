@@ -193,22 +193,18 @@ export default function Derivative({
                 </h3>
               </div>
             {/* Video Container */}
-            <div className="video-lighten" style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+            <div class="video-lighten" style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
               <video 
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: "0.5rem"
-                }}
-                autoPlay 
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
+                autoplay 
                 muted 
                 loop 
-                playsInline
+                playsinline
+                preload="metadata"
               >
                 <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
-                </video>
+              </video>
             </div>
           </div>
 
@@ -273,22 +269,18 @@ export default function Derivative({
                   </h3>
                 </div>
               {/* Video Container */}
-              <div className="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+              <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
                 <video 
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    borderRadius: "0.5rem"
-                  }}
-                  autoPlay 
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
+                  autoplay 
                   muted 
                   loop 
-                  playsInline
+                  playsinline
+                  preload="metadata"
                 >
                   <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
-                  </video>
+                </video>
               </div>
             </div>
 
