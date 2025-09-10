@@ -1,34 +1,41 @@
 import { ComponentChildren } from "preact";
 import { asset as asset, Head as Head } from "@deco/deco/htmx";
-export const Layout = ({ children, revision, hmrUniqueId }: {
-  children: ComponentChildren;
-  revision: string;
-  hmrUniqueId: string;
+export const Layout = ({
+	children,
+	revision,
+	hmrUniqueId,
+}: {
+	children: ComponentChildren;
+	revision: string;
+	hmrUniqueId: string;
 }) => {
-  return (
-    <>
-      {/* Include Icons and manifest */}
-      {/** @ts-ignore: ignore error */}
-      <Head>
-        {/* Enable View Transitions API */}
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `@view-transition { navigation: auto; }`,
-          }}
-        />
+	return (
+		<>
+			{/* Include Icons and manifest */}
+			{/** @ts-ignore: ignore error */}
+			<Head>
+				{/* Enable View Transitions API */}
+				<style
+					dangerouslySetInnerHTML={{
+						__html: `@view-transition { navigation: auto; }`,
+					}}
+				/>
 
-        {/* Tailwind v3 CSS file */}
-        <link
-          href={`/styles.css?revision=${revision}${hmrUniqueId}`}
-          rel="stylesheet"
-        />
+				{/* Tailwind v3 CSS file */}
+				<link
+					href={`/styles.css?revision=${revision}${hmrUniqueId}`}
+					rel="stylesheet"
+				/>
 
-        {/* Web Manifest */}
-        <link rel="manifest" href={asset("/site.webmanifest")} />
-      </Head>
+				{/* Web Manifest */}
+				<link rel="manifest" href={asset("/site.webmanifest")} />
 
-      {/* Rest of Preact tree */}
-      {children}
-    </>
-  );
+				{/* Link tags */}
+				<meta name="og:url" content="https://www.deriva.earth" />
+			</Head>
+
+			{/* Rest of Preact tree */}
+			{children}
+		</>
+	);
 };
