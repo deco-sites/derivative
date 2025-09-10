@@ -4086,9 +4086,6 @@ input.tab:checked + .tab-content,
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-white\/10{
-  background-color: rgb(255 255 255 / 0.1);
-}
 .bg-white\/5{
   background-color: rgb(255 255 255 / 0.05);
 }
@@ -4649,6 +4646,9 @@ input.tab:checked + .tab-content,
 }
 .delay-200{
   transition-delay: 200ms;
+}
+.delay-300{
+  transition-delay: 300ms;
 }
 .duration-1000{
   transition-duration: 1000ms;
