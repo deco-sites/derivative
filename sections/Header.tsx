@@ -1,5 +1,6 @@
 import type { ImageWidget, VideoWidget } from "apps/admin/widgets.ts";
 import { AppContext } from "../apps/site.ts";
+import Image from "apps/website/components/Image.tsx";
 
 export interface CTA {
 	id?: string;
@@ -320,10 +321,13 @@ export default function Header({
 
 						{/* Imagem - Direita */}
 						<div class="hidden lg:block lg:w-1/2">
-							<img
+							<Image
 								src="https://assets.decocache.com/derivative/5f15ed8f-d966-4a9b-b620-990282e029f0/3-(6).jpg"
 								alt="Deriva"
 								class="w-full h-full object-cover"
+                width={448}
+                height={706}
+                loading="lazy"
 							/>
 						</div>
 					</div>
