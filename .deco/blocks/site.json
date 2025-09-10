@@ -12,7 +12,8 @@
     "title": "Deriva",
     "description": "O Deriva busca combater a pesca fantasma através de um sistema regenerativo, recuperando redes de pesca que seriam descartadas no oceano ou na terra. ",
     "image": "https://assets.decocache.com/derivative/81b8194d-1773-4168-a910-85120fd64747/seo_banner_deriva.jpg",
-    "favicon": "https://assets.decocache.com/derivative/6dacb3f2-1b14-4717-b058-e6c780cb8008/logo2-insta.png"
+    "favicon": "https://assets.decocache.com/derivative/6dacb3f2-1b14-4717-b058-e6c780cb8008/logo2-insta.png",
+    "canonical": "https://www.deriva.earth"
   },
   "global": [
     {
@@ -25,5 +26,19 @@
   "firstByteThresholdMS": false,
   "theme": {
     "__resolveType": "Neutral"
-  }
+  },
+  "abTesting": {
+    "replaces": [],
+    "includeScriptsToHead": {
+      "includes": []
+    },
+    "includeScriptsToBody": {
+      "includes": []
+    }
+  },
+  "flavor": {
+    "framework": "fresh"
+  },
+  "whilelistURLs": [],
+  "whitelistPatterns": []
 }
