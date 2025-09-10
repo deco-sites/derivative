@@ -22,10 +22,14 @@ export const Layout = ({ children, revision, hmrUniqueId }: {
         <meta property="og:title" content="Deriva | Regenerando o oceano, transformando marcas" />
         <meta property="og:description" content="O Deriva busca combater a pesca fantasma através de um sistema regenerativo, recuperando redes de pesca que seriam descartadas no oceano ou na terra. Articulamos comunidades pesqueiras e a indústria para transformar esse material em pellets de nylon reciclado de alta-performance." />
         <meta property="og:image" content="https://assets.decocache.com/derivative/31f980ff-f87d-4b44-bbbc-3b3b00c24591/seo_banner_deriva.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Deriva - Regenerando o oceano, transformando marcas" />
         <meta property="og:url" content="https://deriva.com.br" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Deriva" />
         <meta property="og:locale" content="pt_BR" />
+        <meta property="og:updated_time" content={new Date().toISOString()} />
         
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -38,7 +42,26 @@ export const Layout = ({ children, revision, hmrUniqueId }: {
         {/* Additional Meta Tags */}
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
+        <meta name="facebookbot" content="index, follow" />
+        <meta name="linkedinbot" content="index, follow" />
+        <meta name="whatsapp" content="index, follow" />
         <link rel="canonical" href="https://deriva.com.br" />
+        
+        {/* WhatsApp Specific */}
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:secure_url" content="https://assets.decocache.com/derivative/31f980ff-f87d-4b44-bbbc-3b3b00c24591/seo_banner_deriva.png" />
+        
+        {/* Discord Specific */}
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        
+        {/* Additional Open Graph for better compatibility */}
+        <meta property="article:author" content="Deriva" />
+        <meta property="article:publisher" content="Deriva" />
+        <meta property="article:section" content="Sustentabilidade" />
+        <meta property="article:tag" content="sustentabilidade" />
+        <meta property="article:tag" content="reciclagem" />
+        <meta property="article:tag" content="pesca fantasma" />
         
         {/* Enable View Transitions API */}
         <style
