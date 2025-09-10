@@ -155,7 +155,7 @@ export default function Derivative({
             <div class="flex flex-col justify-center flex-1 gap-2 px-6 py-3 w-full">
                 <p class="text-fog-gray font-bold text-sm">Resíduo</p>
                 <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
-                  REDES DANIFICADAS
+                  REDES DANIFICADAS E RESÍDUOS TÊXTEIS
                 </h3>
               </div>
             {/* Interference Pattern Animation Container */}
@@ -178,7 +178,7 @@ export default function Derivative({
               <div class="flex flex-col gap-2 px-6 py-3 w-full">
                 <p class="text-fog-gray font-bold text-sm">Matéria-prima</p>
                 <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
-                  PELLETS
+                  DERIVATIVE®
                 </h3>
               </div>
             {/* 3D Animation Container */}
@@ -200,14 +200,17 @@ export default function Derivative({
           <div class="bg-mineral-black rounded-2xl h-[400px] flex flex-col items-center" style="width: 380px;">
               <div class="flex flex-col gap-2 px-6 py-3 w-full">
                 <p class="text-fog-gray font-bold text-sm">PRODUTOS</p>
-                <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
+                <h3 id="product-title-desktop" class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
                   ARMAÇÃO DE ÓCULOS
                 </h3>
               </div>
-            {/* Video Container */}
+            {/* Video Carousel Container */}
             <div class="video-lighten" style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+              {/* Video 1 - Óculos */}
               <video 
-                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem;"
+                id="video-desktop-1"
+                class="video-carousel-item active"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; position: absolute; top: 0; left: 0; opacity: 1; transition: opacity 0.5s ease-in-out;"
                 autoplay 
                 muted 
                 loop 
@@ -217,6 +220,39 @@ export default function Derivative({
                 <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                 Seu navegador não suporta vídeos.
               </video>
+              
+              {/* Video 2 - Relógio */}
+              <video 
+                id="video-desktop-2"
+                class="video-carousel-item"
+                style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s ease-in-out;"
+                muted 
+                loop 
+                playsinline
+                preload="metadata"
+              >
+                <source src="https://assets.decocache.com/derivative/90d80454-042c-4569-9805-c621485972ed/social_u4548274989_3d_modern_sportive_wristwatch_product_wireframe_f_4f8b60f9-d119-488d-841e-0ef23cb596d4_3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
+              
+              {/* Dots Indicator */}
+              <div class="video-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
+                <button 
+                  class="video-dot active" 
+                  data-video="0"
+                  style="width: 8px; height: 8px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.8); cursor: pointer; transition: background-color 0.3s ease;"
+                ></button>
+                <button 
+                  class="video-dot" 
+                  data-video="1"
+                  style="width: 8px; height: 8px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.3); cursor: pointer; transition: background-color 0.3s ease;"
+                ></button>
+                <button 
+                  class="video-dot" 
+                  data-video="2"
+                  style="width: 8px; height: 8px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.3); cursor: pointer; transition: background-color 0.3s ease;"
+                ></button>
+              </div>
             </div>
           </div>
 
@@ -231,7 +267,7 @@ export default function Derivative({
               <div class="flex flex-col justify-center flex-1 gap-2 px-4 py-3 w-full">
                   <p class="text-fog-gray font-bold text-sm">Resíduo</p>
                   <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
-                    REDES DANIFICADAS
+                    REDES DANIFICADAS E RESÍDUOS TÊXTEIS
                   </h3>
                 </div>
               {/* Interference Pattern Animation Container */}
@@ -254,7 +290,7 @@ export default function Derivative({
                 <div class="flex flex-col gap-2 px-4 py-3 w-full">
                   <p class="text-fog-gray font-bold text-sm">Matéria-prima</p>
                   <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
-                    PELLETS
+                    DERIVATIVE®
                   </h3>
                 </div>
               {/* 3D Animation Container */}
@@ -276,15 +312,17 @@ export default function Derivative({
             <div class="bg-mineral-black rounded-2xl h-[300px] flex flex-col items-center w-full max-w-sm">
                 <div class="flex flex-col gap-2 px-4 py-3 w-full">
                   <p class="text-fog-gray font-bold text-sm">PRODUTOS</p>
-                  <h3 class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
+                  <h3 id="product-title-mobile" class="text-snow-white font-mono font-medium text-base tracking-tight leading-tight">
                     ARMAÇÃO DE ÓCULOS
                   </h3>
                 </div>
-              {/* Video Container */}
+              {/* Video Carousel Container */}
               <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+                {/* Video 1 - Óculos */}
                 <video 
-                  id="video-mobile-oculos"
-                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; pointer-events: none; -webkit-user-select: none; user-select: none;"
+                  id="video-mobile-1"
+                  class="video-carousel-item active"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; position: absolute; top: 0; left: 0; opacity: 1; transition: opacity 0.5s ease-in-out; pointer-events: none; -webkit-user-select: none; user-select: none;"
                   muted 
                   loop 
                   playsinline
@@ -299,6 +337,44 @@ export default function Derivative({
                   <source src="https://assets.decocache.com/derivative/4a529e95-9bc4-42d6-b339-6b683cbd9104/video_oculos.mp4?v=4" type="video/mp4" />
                   Seu navegador não suporta vídeos.
                 </video>
+                
+                {/* Video 2 - Relógio */}
+                <video 
+                  id="video-mobile-2"
+                  class="video-carousel-item"
+                  style="width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.5s ease-in-out; pointer-events: none; -webkit-user-select: none; user-select: none;"
+                  muted 
+                  loop 
+                  playsinline
+                  preload="auto"
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  disablepictureinpicture
+                  controlslist="nodownload nofullscreen noremoteplayback"
+                  disableRemotePlayback
+                >
+                  <source src="https://assets.decocache.com/derivative/90d80454-042c-4569-9805-c621485972ed/social_u4548274989_3d_modern_sportive_wristwatch_product_wireframe_f_4f8b60f9-d119-488d-841e-0ef23cb596d4_3.mp4" type="video/mp4" />
+                  Seu navegador não suporta vídeos.
+                </video>
+                
+                {/* Dots Indicator */}
+                <div class="video-dots" style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
+                  <button 
+                    class="video-dot active" 
+                    data-video="0"
+                    style="width: 6px; height: 6px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.8); cursor: pointer; transition: background-color 0.3s ease;"
+                  ></button>
+                  <button 
+                    class="video-dot" 
+                    data-video="1"
+                    style="width: 6px; height: 6px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.3); cursor: pointer; transition: background-color 0.3s ease;"
+                  ></button>
+                  <button 
+                    class="video-dot" 
+                    data-video="2"
+                    style="width: 6px; height: 6px; border-radius: 50%; border: none; background-color: rgba(255,255,255,0.3); cursor: pointer; transition: background-color 0.3s ease;"
+                  ></button>
+                </div>
               </div>
             </div>
 
@@ -808,39 +884,56 @@ export default function Derivative({
             mix-blend-mode: lighten !important;
             filter: brightness(1.3) contrast(1.2) !important;
           }
-          /* Remove all video controls completely */
-          #video-mobile-oculos {
+          /* Remove all video controls completely for all carousel videos */
+          .video-carousel-item {
             pointer-events: none !important;
             -webkit-user-select: none !important;
             -moz-user-select: none !important;
             -ms-user-select: none !important;
             user-select: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls {
+          
+          .video-carousel-item::-webkit-media-controls {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-panel {
+          .video-carousel-item::-webkit-media-controls-panel {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-play-button {
+          .video-carousel-item::-webkit-media-controls-play-button {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-timeline {
+          .video-carousel-item::-webkit-media-controls-timeline {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-current-time-display {
+          .video-carousel-item::-webkit-media-controls-current-time-display {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-time-remaining-display {
+          .video-carousel-item::-webkit-media-controls-time-remaining-display {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-mute-button {
+          .video-carousel-item::-webkit-media-controls-mute-button {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-volume-slider {
+          .video-carousel-item::-webkit-media-controls-volume-slider {
             display: none !important;
           }
-          #video-mobile-oculos::-webkit-media-controls-fullscreen-button {
+          .video-carousel-item::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+          }
+          
+          /* Specific IDs for extra safety */
+          #video-desktop-1, #video-desktop-2, #video-mobile-1, #video-mobile-2 {
+            pointer-events: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+          }
+          
+          #video-desktop-1::-webkit-media-controls,
+          #video-desktop-2::-webkit-media-controls,
+          #video-mobile-1::-webkit-media-controls,
+          #video-mobile-2::-webkit-media-controls {
             display: none !important;
           }
         `
@@ -1190,17 +1283,134 @@ export default function Derivative({
         }}
       />
 
-      {/* Mobile Video Autoplay Script */}
+      {/* Video Carousel Script */}
       <script 
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html: `
-            // Force video autoplay on mobile (including iOS Chrome) - IMMEDIATE
+            // Video Carousel Controller
             (function() {
+              const videoCount = 3;
+              const autoPlayDelay = 5000; // 5 seconds
+              
+              // Separate state for each container
+              const carouselStates = {
+                desktop: { currentIndex: 0, interval: null },
+                mobile: { currentIndex: 0, interval: null }
+              };
+              
+              function initCarousel() {
+                // Initialize desktop carousel
+                initCarouselForContainer('desktop');
+                // Initialize mobile carousel
+                initCarouselForContainer('mobile');
+              }
+              
+              function initCarouselForContainer(type) {
+                const videos = document.querySelectorAll(\`[id^="video-\${type}-"]\`);
+                const dots = document.querySelectorAll(\`.video-dots [data-video]\`);
+                const titleElement = document.getElementById(\`product-title-\${type}\`);
+                
+                if (videos.length === 0) return;
+                
+                // Product titles for each video
+                const productTitles = ['ARMAÇÃO DE ÓCULOS', 'RELÓGIO', 'SEU PRODUTO'];
+                
+                // Auto-play functionality
+                function startAutoPlay() {
+                  if (carouselStates[type].interval) clearInterval(carouselStates[type].interval);
+                  
+                  carouselStates[type].interval = setInterval(() => {
+                    carouselStates[type].currentIndex = (carouselStates[type].currentIndex + 1) % videoCount;
+                    showVideo(carouselStates[type].currentIndex, type);
+                  }, autoPlayDelay);
+                }
+                
+                function showVideo(index, type) {
+                  // Hide all videos and remove controls
+                  videos.forEach((video, i) => {
+                    // Only show video if it's one of the first two (index 0 or 1)
+                    if (index < 2) {
+                      video.style.opacity = i === index ? '1' : '0';
+                    } else {
+                      // For third item (index 2), hide all videos
+                      video.style.opacity = '0';
+                    }
+                    
+                    // Aggressively remove controls on every change
+                    video.controls = false;
+                    video.removeAttribute('controls');
+                    video.setAttribute('controls', 'false');
+                    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+                    video.setAttribute('disableRemotePlayback', 'true');
+                    video.style.pointerEvents = 'none';
+                    video.style.webkitUserSelect = 'none';
+                    video.style.userSelect = 'none';
+                    
+                    if (i === index && index < 2) {
+                      video.play().catch(e => console.log('Video play failed:', e));
+                    } else {
+                      video.pause();
+                    }
+                  });
+                  
+                  // Update product title
+                  if (titleElement) {
+                    titleElement.textContent = productTitles[index];
+                    console.log(\`Updated \${type} title to: \${productTitles[index]}\`);
+                  }
+                  
+                  // Update dots
+                  dots.forEach((dot, i) => {
+                    if (i === index) {
+                      dot.style.backgroundColor = 'rgba(255,255,255,0.8)';
+                    } else {
+                      dot.style.backgroundColor = 'rgba(255,255,255,0.3)';
+                    }
+                  });
+                }
+                
+                // Dot click handlers
+                dots.forEach((dot, index) => {
+                  dot.addEventListener('click', () => {
+                    carouselStates[type].currentIndex = index;
+                    showVideo(carouselStates[type].currentIndex, type);
+                    startAutoPlay(); // Restart auto-play
+                  });
+                });
+                
+                // Initialize first video
+                showVideo(0, type);
+                startAutoPlay();
+                
+                // Pause auto-play on hover/touch
+                const container = videos[0].closest('.video-lighten');
+                if (container) {
+                  container.addEventListener('mouseenter', () => {
+                    if (carouselStates[type].interval) clearInterval(carouselStates[type].interval);
+                  });
+                  
+                  container.addEventListener('mouseleave', () => {
+                    startAutoPlay();
+                  });
+                  
+                  // Touch events for mobile
+                  container.addEventListener('touchstart', () => {
+                    if (carouselStates[type].interval) clearInterval(carouselStates[type].interval);
+                  });
+                  
+                  container.addEventListener('touchend', () => {
+                    setTimeout(() => startAutoPlay(), 2000); // Resume after 2 seconds
+                  });
+                }
+              }
+              
+              // Force video autoplay for all videos
               function forceVideoPlay() {
-                const video = document.getElementById('video-mobile-oculos');
-                if (video) {
-                  // IMMEDIATELY remove all controls before video loads
+                const allVideos = document.querySelectorAll('video[id^="video-"]');
+                
+                allVideos.forEach(video => {
+                  // Remove all controls
                   video.controls = false;
                   video.removeAttribute('controls');
                   video.setAttribute('controls', 'false');
@@ -1218,53 +1428,26 @@ export default function Derivative({
                   video.setAttribute('webkit-playsinline', 'true');
                   video.setAttribute('playsinline', 'true');
                   video.setAttribute('x5-playsinline', 'true');
-                  
-                  // Try to play the video
-                  const playPromise = video.play();
-                  
-                  if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                      console.log('Video autoplay started successfully on iOS Chrome');
-                      // Double-check controls are removed after play starts
-                      video.controls = false;
-                      video.removeAttribute('controls');
-                    }).catch(error => {
-                      console.log('Autoplay failed on iOS Chrome, trying user interaction fallback');
-                      
-                      // Fallback: try to play on first user interaction
-                      const playOnInteraction = () => {
-                        video.muted = true;
-                        video.volume = 0;
-                        video.controls = false;
-                        video.removeAttribute('controls');
-                        video.play().then(() => {
-                          console.log('Video started after user interaction on iOS Chrome');
-                        }).catch(e => console.log('Video play failed on iOS Chrome:', e));
-                        document.removeEventListener('touchstart', playOnInteraction);
-                        document.removeEventListener('click', playOnInteraction);
-                      };
-                      
-                      document.addEventListener('touchstart', playOnInteraction, { once: true });
-                      document.addEventListener('click', playOnInteraction, { once: true });
-                    });
-                  }
-                }
+                });
               }
               
-              // Execute IMMEDIATELY - no delays
-              forceVideoPlay();
-              
-              // Also try when DOM is ready
+              // Initialize when DOM is ready
               if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', forceVideoPlay);
+                document.addEventListener('DOMContentLoaded', () => {
+                  forceVideoPlay();
+                  setTimeout(initCarousel, 500);
+                });
               } else {
                 forceVideoPlay();
+                setTimeout(initCarousel, 500);
               }
               
-              // Try multiple times to ensure video loads
-              setTimeout(forceVideoPlay, 100);
-              setTimeout(forceVideoPlay, 500);
-              setTimeout(forceVideoPlay, 1000);
+              // Cleanup on page unload
+              window.addEventListener('beforeunload', () => {
+                Object.values(carouselStates).forEach(state => {
+                  if (state.interval) clearInterval(state.interval);
+                });
+              });
             })();
           `
         }}
