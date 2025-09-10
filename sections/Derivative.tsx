@@ -936,6 +936,67 @@ export default function Derivative({
           #video-mobile-2::-webkit-media-controls {
             display: none !important;
           }
+          
+          /* Extra aggressive mobile control hiding */
+          @media (max-width: 1023px) {
+            video[id^="video-mobile-"] {
+              -webkit-media-controls: none !important;
+              -webkit-media-controls-panel: none !important;
+              -webkit-media-controls-play-button: none !important;
+              -webkit-media-controls-timeline: none !important;
+              -webkit-media-controls-current-time-display: none !important;
+              -webkit-media-controls-time-remaining-display: none !important;
+              -webkit-media-controls-mute-button: none !important;
+              -webkit-media-controls-volume-slider: none !important;
+              -webkit-media-controls-fullscreen-button: none !important;
+              -webkit-media-controls-overlay-play-button: none !important;
+              -webkit-media-controls-start-playback-button: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-panel {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-play-button {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-timeline {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-current-time-display {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-time-remaining-display {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-mute-button {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-volume-slider {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-fullscreen-button {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-overlay-play-button {
+              display: none !important;
+            }
+            
+            video[id^="video-mobile-"]::-webkit-media-controls-start-playback-button {
+              display: none !important;
+            }
+          }
         `
       }} />
 
@@ -1337,15 +1398,25 @@ export default function Derivative({
                       video.style.opacity = '0';
                     }
                     
-                    // Aggressively remove controls on every change
+                    // Aggressively remove controls on every change - enhanced for mobile
                     video.controls = false;
                     video.removeAttribute('controls');
                     video.setAttribute('controls', 'false');
                     video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
                     video.setAttribute('disableRemotePlayback', 'true');
+                    video.setAttribute('disablepictureinpicture', 'true');
+                    video.setAttribute('webkit-playsinline', 'true');
+                    video.setAttribute('playsinline', 'true');
+                    video.setAttribute('x5-playsinline', 'true');
                     video.style.pointerEvents = 'none';
                     video.style.webkitUserSelect = 'none';
                     video.style.userSelect = 'none';
+                    video.style.outline = 'none';
+                    video.style.border = 'none';
+                    
+                    // Force remove any remaining control attributes
+                    video.removeAttribute('controls');
+                    video.removeAttribute('controlsList');
                     
                     if (i === index && index < 2) {
                       video.play().catch(e => console.log('Video play failed:', e));
@@ -1431,15 +1502,38 @@ export default function Derivative({
                 });
               }
               
+              // Continuous control removal for mobile
+              function continuousControlRemoval() {
+                const allVideos = document.querySelectorAll('video[id^="video-"]');
+                allVideos.forEach(video => {
+                  // Aggressively remove controls every call
+                  video.controls = false;
+                  video.removeAttribute('controls');
+                  video.setAttribute('controls', 'false');
+                  video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+                  video.setAttribute('disableRemotePlayback', 'true');
+                  video.setAttribute('disablepictureinpicture', 'true');
+                  video.style.pointerEvents = 'none';
+                  video.style.webkitUserSelect = 'none';
+                  video.style.userSelect = 'none';
+                  video.style.outline = 'none';
+                  video.style.border = 'none';
+                });
+              }
+              
               // Initialize when DOM is ready
               if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                   forceVideoPlay();
                   setTimeout(initCarousel, 500);
+                  // Start continuous control removal for mobile
+                  setInterval(continuousControlRemoval, 100);
                 });
               } else {
                 forceVideoPlay();
                 setTimeout(initCarousel, 500);
+                // Start continuous control removal for mobile
+                setInterval(continuousControlRemoval, 100);
               }
               
               // Cleanup on page unload
