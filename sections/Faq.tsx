@@ -21,35 +21,29 @@ export interface Props {
 }
 
 export default function BlogPosts({
-  title = "FAQs",
-  description =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+  title = "Perguntas frequentes",
+  description = "",
   cta,
   questions = [
     {
-      title: "Question #1 text goes here",
+      title: "Qual é a história por trás do Derivative®?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut vestibulum ligula. Nam et tellus sit amet magna convallis interdum. Integer fermentum ligula nec velit hendrerit, quis feugiat odio feugiat. Ut vel nisi auctor, rhoncus felis vitae, tempor metus. Fusce ut lectus et ex consectetur ullamcorper. Nulla facilisi. Proin ullamcorper, odio a consectetur posuere, mauris felis rutrum lectus, et convallis est risus vitae nisi. Suspendisse potenti. Donec ultricies consectetur lorem, eget tempor nisi cursus in. Vivamus at nulla eros. Sed nec malesuada mauris. Curabitur id ex sed neque rutrum tincidunt. Sed sed lectus nec libero eleifend luctus. Aenean convallis feugiat elit, non tincidunt eros vehicula sed. Phasellus pretium urna sit amet risus interdum tempor.",
+        "O Derivative® é a matéria-prima exclusiva do Deriva, feita a partir da reciclagem da poliamida de redes de pesca pós-consumo e resíduos têxteis pré-consumo. É versátil, de alto valor e propósito, podendo ser aplicado em setores como moda, acessórios e produtos esportivos. Cada lote é 100% rastreável e conectado à sua origem.",
     },
     {
-      title: "Question #2 text goes here",
+      title: "Quando o Deriva começou?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut vestibulum ligula. Nam et tellus sit amet magna convallis interdum. Integer fermentum ligula nec velit hendrerit, quis feugiat odio feugiat. Ut vel nisi auctor, rhoncus felis vitae, tempor metus. Fusce ut lectus et ex consectetur ullamcorper. Nulla facilisi. Proin ullamcorper, odio a consectetur posuere, mauris felis rutrum lectus, et convallis est risus vitae nisi. Suspendisse potenti. Donec ultricies consectetur lorem, eget tempor nisi cursus in. Vivamus at nulla eros. Sed nec malesuada mauris. Curabitur id ex sed neque rutrum tincidunt. Sed sed lectus nec libero eleifend luctus. Aenean convallis feugiat elit, non tincidunt eros vehicula sed. Phasellus pretium urna sit amet risus interdum tempor.",
+        "O Deriva nasceu em 2022 como pesquisa acadêmica e projeto de campo junto a comunidades pesqueiras do Rio de Janeiro. Desde então, fomos evoluindo o modelo e validando hipóteses. Em 2025 iniciamos oficialmente as operações como negócio de impacto, e estamos implementando os primeiros projetos e encontrando early-adopters que compartilham do nosso propósito.",
     },
     {
-      title: "Question #3 text goes here",
+      title: "O Derivative vem de redes fantasmas?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut vestibulum ligula. Nam et tellus sit amet magna convallis interdum. Integer fermentum ligula nec velit hendrerit, quis feugiat odio feugiat. Ut vel nisi auctor, rhoncus felis vitae, tempor metus. Fusce ut lectus et ex consectetur ullamcorper. Nulla facilisi. Proin ullamcorper, odio a consectetur posuere, mauris felis rutrum lectus, et convallis est risus vitae nisi. Suspendisse potenti. Donec ultricies consectetur lorem, eget tempor nisi cursus in. Vivamus at nulla eros. Sed nec malesuada mauris. Curabitur id ex sed neque rutrum tincidunt. Sed sed lectus nec libero eleifend luctus. Aenean convallis feugiat elit, non tincidunt eros vehicula sed. Phasellus pretium urna sit amet risus interdum tempor.",
+        "Nosso foco é interceptar redes antes que virem fantasmas, evitando que cheguem ao mar e causem danos irreversíveis à vida oceânica. Para isso, criamos um sistema de incentivo financeiro ao descarte correto junto às colônias de pesca. Assim, transformamos um passivo em recurso, reduzindo riscos e fortalecendo comunidades pesqueiras.",
     },
     {
-      title: "Question #4 text goes here",
+      title: "Como funciona a parceria com marcas?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut vestibulum ligula. Nam et tellus sit amet magna convallis interdum. Integer fermentum ligula nec velit hendrerit, quis feugiat odio feugiat. Ut vel nisi auctor, rhoncus felis vitae, tempor metus. Fusce ut lectus et ex consectetur ullamcorper. Nulla facilisi. Proin ullamcorper, odio a consectetur posuere, mauris felis rutrum lectus, et convallis est risus vitae nisi. Suspendisse potenti. Donec ultricies consectetur lorem, eget tempor nisi cursus in. Vivamus at nulla eros. Sed nec malesuada mauris. Curabitur id ex sed neque rutrum tincidunt. Sed sed lectus nec libero eleifend luctus. Aenean convallis feugiat elit, non tincidunt eros vehicula sed. Phasellus pretium urna sit amet risus interdum tempor.",
-    },
-    {
-      title: "Question #5 text goes here",
-      answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut vestibulum ligula. Nam et tellus sit amet magna convallis interdum. Integer fermentum ligula nec velit hendrerit, quis feugiat odio feugiat. Ut vel nisi auctor, rhoncus felis vitae, tempor metus. Fusce ut lectus et ex consectetur ullamcorper. Nulla facilisi. Proin ullamcorper, odio a consectetur posuere, mauris felis rutrum lectus, et convallis est risus vitae nisi. Suspendisse potenti. Donec ultricies consectetur lorem, eget tempor nisi cursus in. Vivamus at nulla eros. Sed nec malesuada mauris. Curabitur id ex sed neque rutrum tincidunt. Sed sed lectus nec libero eleifend luctus. Aenean convallis feugiat elit, non tincidunt eros vehicula sed. Phasellus pretium urna sit amet risus interdum tempor.",
+        "Oferecemos três frentes de colaboração: fornecimento do Derivative®, co-criação de soluções através do Deriva Way e o Own your Derivative® que transforma resíduos têxteis da própria marca em um Derivative® exclusivo.",
     },
   ],
 }: Props) {
@@ -119,9 +113,11 @@ export default function BlogPosts({
           <p class="text-4xl leading-snug">
             {title}
           </p>
-          <p class="text-lg">
-            {description}
-          </p>
+          {description && (
+            <p class="text-lg">
+              {description}
+            </p>
+          )}
           {cta && (
             <a
               key={cta?.id}
@@ -166,9 +162,11 @@ export default function BlogPosts({
           <p class="text-3xl leading-snug w-full">
             {title}
           </p>
-          <p class="text-base leading-relaxed w-full">
-            {description}
-          </p>
+          {description && (
+            <p class="text-base leading-relaxed w-full">
+              {description}
+            </p>
+          )}
           {cta && (
             <a
               key={cta?.id}

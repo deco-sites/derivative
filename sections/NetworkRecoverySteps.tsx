@@ -12,30 +12,30 @@ export interface Props {
 }
 
 export default function NetworkRecoverySteps({
-  eyebrow = "Etapas",
+  eyebrow = "Operação",
   steps = [
     {
       id: 1,
       title: "INTERCEPTAR",
-      subtitle: "Redes de pesca danificadas são recuperadas diretamente com membros de comunidades pesqueiras no Rio de Janeiro, evitando que sigam à deriva no oceano ou acabem em aterros.",
+      subtitle: "Redes de pesca danificadas são recuperadas junto a comunidades pesqueiras do Rio de Janeiro, evitando que se tornem lixo ou sigam à deriva nos oceanos gerando a morte de animais.",
       videoUrl: "https://assets.decocache.com/derivative/55b1853a-e446-4934-998d-7161d0b9869d/interceptar_lp.mov"
     },
     {
       id: 2,
       title: "PRÉ-PROCESSAR", 
-      subtitle: "As redes passam por um processo de triagem, classificação e limpeza, garantindo que estejam prontas para serem recicladas e convertidas em matéria-prima de alta qualidade.",
+      subtitle: "As redes passam por um processo de triagem, classificação e limpeza, garantindo que estejam em condições ideais para serem recicladas e transformadas em Derivative®.",
       videoUrl: "https://assets.decocache.com/derivative/d716a957-cf79-4ec6-9ec5-7b2186654888/limpandorede_lp.mov"
     },
     {
       id: 3,
       title: "TRANSFORMAR",
-      subtitle: "O nylon das redes é reciclado e transformado em uma nova matéria-prima, pronta para ser aplicada em novos produtos, reduzindo a demanda por plástico virgem.",
+      subtitle: "O nylon das redes é reciclado e ganha nova vida como Derivative, uma matéria-prima de alto valor e propósito, pronta para dar origem a produtos que carregam inovação e impacto.",
       videoUrl: "https://assets.decocache.com/derivative/90115802-fa45-4928-b89d-85e55dda5fc6/transformar_lp.mov"
     },
     {
       id: 4,
       title: "COLLAB",
-      subtitle: "Empresas comprometidas com impacto positivo utilizam nosso material para criar produtos inovadores e sustentáveis, ampliando o ciclo de regeneração dos oceanos.",
+      subtitle: "Marcas comprometidas com impacto positivo usam nosso material para criar produtos sustentáveis, de alto valor e propósito, ampliando o ciclo de regeneração dos oceanos.",
       videoUrl: "https://assets.decocache.com/derivative/ed79f4ad-8cb8-43f1-9bec-437422340c18/collab_lp.mov"
     }
   ],
@@ -95,7 +95,7 @@ export default function NetworkRecoverySteps({
               class="text-base lg:text-lg leading-relaxed font-sans mx-auto"
               style="color: #A1ACAA; max-width: 800px;"
             >
-              Nosso modelo interrompe ciclos de degradação e, com o tempo, cria condições para restaurar e fortalecer ecossistemas naturais e comunidades
+              Nosso modelo interrompe ciclos de degradação e, com o tempo, cria condições para restaurar e fortalecer ecossistemas naturais e comunidades.
             </p>
           </div>
         </div>

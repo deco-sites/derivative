@@ -19,31 +19,31 @@ export interface Props {
 
 export default function Benefits({
   title = "Benefícios exclusivos para sua marca",
-  description = "Descubra como o Derivative pode transformar sua marca e criar conexões mais profundas com seus consumidores através de soluções regenerativas e sustentáveis.",
+  description = "Descubra como o Derivative® pode transformar sua marca e criar conexões mais profundas com seus consumidores através de soluções regenerativas e sustentáveis.",
   benefits = [
     {
       title: "Potencialize o valor de marca",
-      description: "Faça parte de um movimento global pela regeneração e cultura oceânica e adquira uma narrativa poderosa, que conecta impacto positivo com desejo de consumo, transformando a marca em agente de mudança.",
+      description: "Faça parte de um movimento de regeneração e cultura oceânica, adotando uma narrativa poderosa que conecta o impacto positivo ao desejo de consumo e transforma sua marca em um agente de mudança.",
       image: "https://assets.decocache.com/derivative/7eb13cd6-0d93-405f-8792-df953f9d3474/movimento.svg"
     },
     {
-      title: "Aplique em infinitas possibilidades",
-      description: "Tenha acesso a um material único no Brasil, com aplicações que vão da moda ao design e arquitetura, ampliando as possibilidades criativas da sua marca de forma sustentável e inovadora.",
+      title: "Crie infinitas soluções",
+      description: "Tenha acesso a um material único no Brasil e amplie o potencial criativo da sua marca de forma sustentável, inovadora e com impacto real. Das armações de óculos aos móveis, dê vida a produtos exclusivos e regenerativos.",
       image: "https://assets.decocache.com/derivative/fa4044d0-718a-4c3b-8fa4-ed396ca2deb7/possibilidades.svg"
     },
     {
-      title: "Diferenciação fora do comum",
-      description: "Gere objetos de desejo e soluções inteligentes com o nosso time, reforçando autenticidade e engajamento com consumidores cada vez mais atentos à origem e ao significado do que consomem.",
+      title: "Diferencie sua marca",
+      description: "Crie soluções únicas e objetos de desejo que destacam sua marca, reforçando a autenticidade de marca e o engajamento com consumidores cada vez mais atentos à origem, significado e impacto de cada produto.",
       image: "https://assets.decocache.com/derivative/7f311acf-49c1-4b4e-92fc-8befa267c68b/diferenciacao.svg"
     },
     {
-      title: "Aumente sua performance ESG",
-      description: "Amplie o acesso a investidores e consumidores que priorizam critérios ESG e se alavanque de vantagens competitivas ao garantir uma produção mais coerente e alinhada com os padrões globais de sustentabilidade.",
+      title: "Transforme ESG em vantagem estratégica",
+      description: "Adote uma produção mais coerente e mostre aos consumidores e investidores que seu compromisso com o impacto positivo é real, rastreável e parte central da estratégia da empresa.",
       image: "https://assets.decocache.com/derivative/ca704298-b22a-4570-9fb3-6637a0c4ffac/esg.svg"
     },
     {
       title: "Rastreie toda a cadeia",
-      description: "Garanta segurança sobre a origem e etapas da cadeia, fortalecendo a reputação e criando uma conexão mais profunda e engajada com os consumidores através da transparência total.",
+      description: "Tenha total visibilidade da origem e cada etapa do processo, fortalecendo a confiança do consumidor, consolidando a reputação da marca e mostrando compromisso real com transparência e sustentabilidade.",
       image: "https://assets.decocache.com/derivative/e4099f66-5377-4140-a714-873fcc659a3c/rastreabilidade.svg"
     }
   ],

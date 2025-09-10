@@ -28,27 +28,27 @@ export interface Props {
 export default function Services({
   title = "Para marcas que querem fazer diferente",
   subtitle = "Soluções B2B",
-  description = "Existem muitas formas de se conectar ao Deriva e te convidamos a criar junto um futuro regenerativo onde inovação, estética e impacto caminham lado a lado",
+  description = "O Derivative® não é apenas um material. É uma oportunidade para sua marca inovar com propósito, criar produtos desejáveis e se conectar a consumidores que valorizam impacto real.",
   cta,
   services = [
     {
-      title: "Derivative",
+      title: "Derivative®",
       subtitle: "Fornecimento de material regenerativo",
-      description: "Fornecimento de Derivative para marcas que querem inovar seus produtos com um material exclusivo, regenerativo e cheio de significado.",
+      description: "Fornecemos Derivative® para marcas que querem inovar em seus produtos com um material que carrega exclusividade, propósito e regeneração.",
       icon: "https://assets.decocache.com/derivative/6563a34f-62c5-4a35-a71d-3a1e44bc0170/services_1.svg",
       tags: ["Material Exclusivo", "Impacto Regenerativo", "Narrativa de Propósito"]
     },
     {
-      title: "Deriva Estúdio",
+      title: "Deriva Way",
       subtitle: "Co-criação de soluções inteligentes",
-      description: "Nossa frente criativa une design, engenharia, biologia e tecnologia para desenvolver soluções inteligentes e objetos de desejo usando o Derivative.",
+      description: "Nossa frente criativa combina design, engenharia, biologia e tecnologia para co-criar soluções de produto inteligentes e desejadas usando Derivative®. Vamos além do produto, estruturamos o seu ciclo de vida para que sua existência seja coerente e a experiência com o cliente seja memorável.",
       icon: "https://assets.decocache.com/derivative/ef364b7e-91ce-4e8b-a4d3-0e2c53d1e06b/services_2.jpg",
       tags: ["Design Multidisciplinar", "Ciclo de Vida Completo", "Objetos de Desejo"]
     },
     {
-      title: "Deriva Way",
+      title: "Own your Derivative®",
       subtitle: "Circularidade completa",
-      description: "Desenvolvemos um Derivative exclusivo utilizando os resíduos têxteis pré-consumo das fábricas, permitindo que o resíduo retorne para a cadeia como produto do ecossistema da marca.",
+      description: "Desenvolvemos Derivative® exclusivo a partir dos resíduos têxteis pré-consumo da sua própria produção. Assim, o que antes seria descartado retorna para o ecossistema de produtos, fortalecendo sua marca e promovendo uma economia circular.",
       icon: "https://assets.decocache.com/derivative/f544e9c6-40e2-4bdc-85f8-9adf0c9e6daf/services_3.jpg",
       tags: ["Economia Circular", "Resíduos Próprios", "Conexão Oceânica"]
     }
@@ -102,7 +102,71 @@ export default function Services({
           color: #A1ACAA !important;
         }
         .service-description-short {
-          max-width: 384px !important; /* Same as max-w-sm */
+          max-width: 600px !important; /* Increased from max-w-md */
+        }
+        
+        /* Service icon containers - Desktop */
+        #service-icon-container {
+          width: 100px !important;
+          height: 100px !important;
+          min-width: 100px !important;
+          min-height: 100px !important;
+          max-width: 100px !important;
+          max-height: 100px !important;
+          background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%) !important;
+          border-radius: 50% !important;
+          position: relative !important;
+          padding: 2px !important;
+        }
+        
+        #service-icon-container::before {
+          content: '' !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          border-radius: 50% !important;
+          background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%) !important;
+          z-index: 1 !important;
+        }
+        
+        #service-icon-container img {
+          position: relative !important;
+          z-index: 2 !important;
+          border-radius: 50% !important;
+        }
+        
+        /* Service icon containers - Mobile */
+        #service-icon-container-mobile {
+          width: 80px !important;
+          height: 80px !important;
+          min-width: 80px !important;
+          min-height: 80px !important;
+          max-width: 80px !important;
+          max-height: 80px !important;
+          background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%) !important;
+          border-radius: 50% !important;
+          position: relative !important;
+          padding: 2px !important;
+        }
+        
+        #service-icon-container-mobile::before {
+          content: '' !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          border-radius: 50% !important;
+          background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%) !important;
+          z-index: 1 !important;
+        }
+        
+        #service-icon-container-mobile img {
+          position: relative !important;
+          z-index: 2 !important;
+          border-radius: 50% !important;
         }
         /* Mobile overflow prevention - apenas para esta seção */
         @media (max-width: 1023px) {
@@ -241,8 +305,7 @@ export default function Services({
                       {/* Container circular com imagem */}
                       <div 
                         id="service-icon-container"
-                        class="flex-shrink-0 rounded-full bg-white/10 border border-white/20 overflow-hidden group-open:opacity-30 transition-opacity duration-700" 
-                        style="width: 80px !important; height: 80px !important; min-width: 80px !important; min-height: 80px !important; max-width: 80px !important; max-height: 80px !important; background-color: rgba(255,255,255,0.1) !important; border: 2px solid rgba(255,255,255,0.2) !important; border-radius: 50% !important;"
+                        class="flex-shrink-0 rounded-full overflow-hidden group-open:opacity-30 transition-opacity duration-700" 
                       >
                         {service.icon && (
                           <img 
@@ -270,8 +333,7 @@ export default function Services({
                         {/* Container circular com imagem */}
                         <div 
                           id="service-icon-container-mobile"
-                          class="rounded-full bg-white/10 border border-white/20 overflow-hidden group-open:opacity-30 transition-opacity duration-700" 
-                          style="width: 60px !important; height: 60px !important; min-width: 60px !important; min-height: 60px !important; max-width: 60px !important; max-height: 60px !important; background-color: rgba(255,255,255,0.1) !important; border: 2px solid rgba(255,255,255,0.2) !important; border-radius: 50% !important;"
+                          class="rounded-full overflow-hidden group-open:opacity-30 transition-opacity duration-700" 
                         >
                           {service.icon && (
                             <img 
@@ -332,7 +394,7 @@ export default function Services({
                       
                       {/* Content Area */}
                       <div class="flex-1 space-y-6">
-                        <p class="leading-relaxed max-w-sm service-description-short" style="color: #F3F5F5;">
+                        <p class="leading-relaxed service-description-short text-base" style="color: #F3F5F5;">
                           {service.description}
                         </p>
                         
@@ -342,8 +404,8 @@ export default function Services({
                             {service.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
-                                class="px-4 py-2 text-xs font-medium rounded-full border"
-                                style="color: #F3F5F5; border-color: rgba(255,255,255,0.2); background-color: rgba(255,255,255,0.05);"
+                                class="px-4 py-2 text-xs font-normal rounded-full border uppercase"
+                                style="color: #F3F5F5; border-color: rgba(255,255,255,0.2); background-color: rgba(255,255,255,0.15); font-family: 'Geist Mono', 'JetBrains Mono', monospace;"
                               >
                                 {tag}
                               </span>
@@ -378,7 +440,7 @@ export default function Services({
                       
                       {/* Content Area */}
                       <div class="flex-1 space-y-4 w-full">
-                        <p class="leading-relaxed text-sm" style="color: #F3F5F5;">
+                        <p class="leading-relaxed text-base" style="color: #F3F5F5;">
                           {service.description}
                         </p>
                         
@@ -388,8 +450,8 @@ export default function Services({
                             {service.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
-                                class="px-4 py-2.5 text-xs font-medium rounded-full border service-tag-mobile"
-                                style="color: #F3F5F5 !important; border-color: rgba(255,255,255,0.2) !important; background-color: rgba(255,255,255,0.05) !important; padding: 0.625rem 1rem !important; margin: 0.125rem !important;"
+                                class="px-4 py-2.5 text-xs font-normal rounded-full border service-tag-mobile uppercase"
+                                style="color: #F3F5F5 !important; border-color: rgba(255,255,255,0.2) !important; background-color: rgba(255,255,255,0.15) !important; padding: 0.625rem 1rem !important; margin: 0.125rem !important; font-family: 'Geist Mono', 'JetBrains Mono', monospace !important;"
                               >
                                 {tag}
                               </span>

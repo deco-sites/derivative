@@ -62,6 +62,18 @@ export default function Mission({
 
           {/* Info Cards at Bottom */}
           <div class="mt-auto pt-20">
+            {/* Divider line */}
+            <div class="flex justify-center mb-8 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-250 scroll-animate">
+              <div class="w-24 h-px" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);"></div>
+            </div>
+            
+            {/* Eyebrow for problem section */}
+            <div class="text-center mb-12 opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-300 scroll-animate">
+              <p class="font-bold text-sm uppercase tracking-wider text-white">
+                O PROBLEMA
+              </p>
+            </div>
+            
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 relative opacity-0 translate-y-8 transition-all duration-1000 ease-out delay-400 scroll-animate">
               {/* Info 1 */}
               <div class="text-center">

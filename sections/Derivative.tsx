@@ -62,21 +62,23 @@ export default function Derivative({
             </p>
 
             {/* Key Benefits */}
-            <div class="mb-16 space-y-4">
-              {keyBenefits.map((benefit, index) => (
-                <div key={index} class="flex items-center gap-4 px-6 py-4 rounded-xl border-2" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important; width: fit-content;">
-                  <div class="flex-shrink-0">
-                    <img 
-                      src={benefit.icon} 
-                      alt=""
-                      style="width: 32px !important; height: 32px !important;"
-                    />
+            <div class="mb-16 px-6 py-6 rounded-xl border-2" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important; width: fit-content;">
+              <div class="space-y-4">
+                {keyBenefits.map((benefit, index) => (
+                  <div key={index} class="flex items-center gap-4">
+                    <div class="flex-shrink-0">
+                      <img 
+                        src={benefit.icon} 
+                        alt=""
+                        style="width: 32px !important; height: 32px !important;"
+                      />
+                    </div>
+                    <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 18px !important; font-weight: 500 !important; line-height: 1.5 !important;">
+                      {benefit.text}
+                    </span>
                   </div>
-                  <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 18px !important; font-weight: 500 !important; line-height: 1.5 !important;">
-                    {benefit.text}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -113,21 +115,23 @@ export default function Derivative({
           </div>
 
           {/* Mobile - Key Benefits */}
-          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8 space-y-4">
-            {keyBenefits.map((benefit, index) => (
-              <div key={index} class="flex items-center gap-3 px-4 py-3 rounded-xl border-2 w-full" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important;">
-                <div class="flex-shrink-0">
-                  <img 
-                    src={benefit.icon} 
-                    alt=""
-                    style="width: 28px !important; height: 28px !important;"
-                  />
+          <div class="opacity-0 translate-y-8 transition-all duration-1000 ease-out scroll-animate mb-8 px-4 py-4 rounded-xl border-2 w-full" style="border: 2px solid #E5E5E5 !important; border-radius: 12px !important;">
+            <div class="space-y-4">
+              {keyBenefits.map((benefit, index) => (
+                <div key={index} class="flex items-center gap-3">
+                  <div class="flex-shrink-0">
+                    <img 
+                      src={benefit.icon} 
+                      alt=""
+                      style="width: 28px !important; height: 28px !important;"
+                    />
+                  </div>
+                  <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 16px !important; font-weight: 500 !important; line-height: 1.4 !important;">
+                    {benefit.text}
+                  </span>
                 </div>
-                <span style="color: #4A4A4A !important; font-family: sans-serif !important; font-size: 16px !important; font-weight: 500 !important; line-height: 1.4 !important;">
-                  {benefit.text}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
           {/* Mobile - UnicornStudio Element below */}

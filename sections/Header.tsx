@@ -194,7 +194,7 @@ export default function Header({
         {/* Sub-headline no rodapé */}
         <div class="container mx-auto px-4 lg:px-8 text-center pb-8">
           <p class="text-lg lg:text-xl text-snow-white/80 max-w-4xl mx-auto leading-relaxed">
-            O que era uma das maiores ameaças aos oceanos se torna produtos de alto valor e propósito
+            Uma das maiores ameaças ao oceano se torna solução desejada e inteligente
           </p>
         </div>
       </div>
