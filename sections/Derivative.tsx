@@ -206,6 +206,8 @@ export default function Derivative({
               </div>
             {/* Video Carousel Container */}
             <div class="video-lighten" style="width: 83.333333%; height: 320px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+              {/* Mobile Control Blocker Overlay */}
+              <div class="mobile-video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; pointer-events: auto; background: transparent; display: none;"></div>
               {/* Video 1 - Óculos */}
               <video 
                 id="video-desktop-1"
@@ -318,6 +320,8 @@ export default function Derivative({
                 </div>
               {/* Video Carousel Container */}
               <div class="video-lighten" style="width: 80%; height: 240px; border-radius: 0.5rem; margin-bottom: 0.5rem; overflow: hidden; position: relative; background-color: transparent;">
+                {/* Mobile Control Blocker Overlay */}
+                <div class="mobile-video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; pointer-events: auto; background: transparent; display: none;"></div>
                 {/* Video 1 - Óculos */}
                 <video 
                   id="video-mobile-1"
@@ -937,6 +941,13 @@ export default function Derivative({
             display: none !important;
           }
           
+          /* Mobile video overlay to block controls */
+          @media (max-width: 1023px) {
+            .mobile-video-overlay {
+              display: block !important;
+            }
+          }
+          
           /* Extra aggressive mobile control hiding */
           @media (max-width: 1023px) {
             video[id^="video-mobile-"] {
@@ -1398,25 +1409,23 @@ export default function Derivative({
                       video.style.opacity = '0';
                     }
                     
-                    // Aggressively remove controls on every change - enhanced for mobile
-                    video.controls = false;
-                    video.removeAttribute('controls');
-                    video.setAttribute('controls', 'false');
-                    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
-                    video.setAttribute('disableRemotePlayback', 'true');
-                    video.setAttribute('disablepictureinpicture', 'true');
-                    video.setAttribute('webkit-playsinline', 'true');
-                    video.setAttribute('playsinline', 'true');
-                    video.setAttribute('x5-playsinline', 'true');
-                    video.style.pointerEvents = 'none';
-                    video.style.webkitUserSelect = 'none';
-                    video.style.userSelect = 'none';
-                    video.style.outline = 'none';
-                    video.style.border = 'none';
-                    
-                    // Force remove any remaining control attributes
-                    video.removeAttribute('controls');
-                    video.removeAttribute('controlsList');
+                    // Use platform-specific control removal
+                    if (isMobileDevice()) {
+                      removeVideoControlsMobile(video);
+                    } else {
+                      // Desktop control removal
+                      video.controls = false;
+                      video.removeAttribute('controls');
+                      video.setAttribute('controls', 'false');
+                      video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+                      video.setAttribute('disableRemotePlayback', 'true');
+                      video.setAttribute('disablepictureinpicture', 'true');
+                      video.style.pointerEvents = 'none';
+                      video.style.webkitUserSelect = 'none';
+                      video.style.userSelect = 'none';
+                      video.style.outline = 'none';
+                      video.style.border = 'none';
+                    }
                     
                     if (i === index && index < 2) {
                       video.play().catch(e => console.log('Video play failed:', e));
@@ -1502,22 +1511,109 @@ export default function Derivative({
                 });
               }
               
-              // Continuous control removal for mobile
-              function continuousControlRemoval() {
-                const allVideos = document.querySelectorAll('video[id^="video-"]');
-                allVideos.forEach(video => {
-                  // Aggressively remove controls every call
+              // Mobile device detection
+              function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                       window.innerWidth <= 1024;
+              }
+              
+              // Platform-specific video control removal
+              function removeVideoControlsMobile(video) {
+                // Base control removal
+                video.controls = false;
+                video.removeAttribute('controls');
+                video.setAttribute('controls', 'false');
+                
+                // iOS Safari specific
+                video.setAttribute('webkit-playsinline', 'true');
+                video.setAttribute('playsinline', 'true');
+                video.setAttribute('x-webkit-airplay', 'deny');
+                
+                // Android Chrome specific
+                video.setAttribute('x5-playsinline', 'true');
+                video.setAttribute('x5-video-player-type', 'h5');
+                video.setAttribute('x5-video-player-fullscreen', 'false');
+                video.setAttribute('x5-video-orientation', 'portraint');
+                
+                // Chrome Mobile specific
+                video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
+                video.setAttribute('disableRemotePlayback', 'true');
+                video.setAttribute('disablepictureinpicture', 'true');
+                
+                // Firefox Mobile specific
+                video.setAttribute('moz-playsinline', 'true');
+                
+                // Universal mobile styles
+                video.style.pointerEvents = 'none';
+                video.style.webkitUserSelect = 'none';
+                video.style.userSelect = 'none';
+                video.style.outline = 'none';
+                video.style.border = 'none';
+                video.style.touchAction = 'none';
+                video.style.webkitTouchCallout = 'none';
+                
+                // Force muted for autoplay compliance
+                video.muted = true;
+                video.volume = 0;
+                
+                // Remove any event listeners that might show controls
+                video.addEventListener('loadedmetadata', () => {
                   video.controls = false;
                   video.removeAttribute('controls');
-                  video.setAttribute('controls', 'false');
-                  video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback');
-                  video.setAttribute('disableRemotePlayback', 'true');
-                  video.setAttribute('disablepictureinpicture', 'true');
-                  video.style.pointerEvents = 'none';
-                  video.style.webkitUserSelect = 'none';
-                  video.style.userSelect = 'none';
-                  video.style.outline = 'none';
-                  video.style.border = 'none';
+                });
+                
+                video.addEventListener('play', () => {
+                  video.controls = false;
+                  video.removeAttribute('controls');
+                });
+                
+                video.addEventListener('pause', () => {
+                  video.controls = false;
+                  video.removeAttribute('controls');
+                });
+              }
+              
+              // Continuous control removal for mobile
+              function continuousControlRemoval() {
+                if (!isMobileDevice()) return;
+                
+                const allVideos = document.querySelectorAll('video[id^="video-"]');
+                allVideos.forEach(video => {
+                  removeVideoControlsMobile(video);
+                });
+              }
+              
+              // Initialize mobile overlay
+              function initMobileOverlay() {
+                if (!isMobileDevice()) return;
+                
+                const overlays = document.querySelectorAll('.mobile-video-overlay');
+                overlays.forEach(overlay => {
+                  // Block all touch events that might trigger controls
+                  overlay.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  });
+                  
+                  overlay.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  });
+                  
+                  overlay.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  });
+                  
+                  overlay.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  });
+                  
+                  overlay.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  });
                 });
               }
               
@@ -1526,12 +1622,14 @@ export default function Derivative({
                 document.addEventListener('DOMContentLoaded', () => {
                   forceVideoPlay();
                   setTimeout(initCarousel, 500);
+                  setTimeout(initMobileOverlay, 1000);
                   // Start continuous control removal for mobile
                   setInterval(continuousControlRemoval, 100);
                 });
               } else {
                 forceVideoPlay();
                 setTimeout(initCarousel, 500);
+                setTimeout(initMobileOverlay, 1000);
                 // Start continuous control removal for mobile
                 setInterval(continuousControlRemoval, 100);
               }
