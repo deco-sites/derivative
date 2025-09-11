@@ -1,35 +1,6 @@
-User-agent: *
-Disallow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: FacebookExternalHit
-Allow: /
-
-User-agent: Facebot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: Discordbot
-Allow: /
-
-User-agent: Slackbot
-Allow: /
-
-User-agent: TelegramBot
-Allow: /
-
-User-agent: Pinterestbot
-Allow: /
-
-User-agent: Applebot
-Allow: /
+# Disallow all crawlers access to certain pages. 
+User-agent: * 
+Disallow: /img/* 
+Disallow: /admin/* 
+Disallow: /_live/*
+Disallow: /api/*
