@@ -18,25 +18,25 @@ export default function NetworkRecoverySteps({
       id: 1,
       title: "INTERCEPTAR",
       subtitle: "Redes de pesca danificadas são recuperadas junto a comunidades pesqueiras do Rio de Janeiro, evitando que se tornem lixo ou sigam à deriva nos oceanos gerando a morte de animais.",
-      videoUrl: "https://assets.decocache.com/derivative/55b1853a-e446-4934-998d-7161d0b9869d/interceptar_lp.mov"
+      videoUrl: "https://assets.decocache.com/derivative/720cb122-2d8c-46f0-8cc8-2f0882dbfb2e/interceptar_lp.mp4"
     },
     {
       id: 2,
       title: "PRÉ-PROCESSAR", 
       subtitle: "As redes passam por um processo de triagem, classificação e limpeza, garantindo que estejam em condições ideais para serem recicladas e transformadas em Derivative®.",
-      videoUrl: "https://assets.decocache.com/derivative/d716a957-cf79-4ec6-9ec5-7b2186654888/limpandorede_lp.mov"
+      videoUrl: "https://assets.decocache.com/derivative/19042d78-1daa-446f-b16a-4873e93929a1/limpandorede_lp.mp4"
     },
     {
       id: 3,
       title: "TRANSFORMAR",
       subtitle: "O nylon das redes é reciclado e ganha nova vida como Derivative, uma matéria-prima de alto valor e propósito, pronta para dar origem a produtos que carregam inovação e impacto.",
-      videoUrl: "https://assets.decocache.com/derivative/90115802-fa45-4928-b89d-85e55dda5fc6/transformar_lp.mov"
+      videoUrl: "https://assets.decocache.com/derivative/61d48934-2c8f-4c17-a879-db97c48db004/transformar_lp.mp4"
     },
     {
       id: 4,
       title: "COLLAB",
       subtitle: "Marcas comprometidas com impacto positivo usam nosso material para criar produtos sustentáveis, de alto valor e propósito, ampliando o ciclo de regeneração dos oceanos.",
-      videoUrl: "https://assets.decocache.com/derivative/ed79f4ad-8cb8-43f1-9bec-437422340c18/collab_lp.mov"
+      videoUrl: "https://assets.decocache.com/derivative/cacc874e-a34e-404f-9a47-97ac26697c94/collab_lp.mp4"
     }
   ],
   stepDuration = 12 // 12 segundos por etapa
