@@ -80,6 +80,8 @@
   "__resolveType": "website/pages/Page.tsx",
   "seo": {
     "__resolveType": "website/sections/Seo/SeoV2.tsx",
-    "type": "website"
+    "type": "website",
+    "image": "https://assets.decocache.com/derivative/81b8194d-1773-4168-a910-85120fd64747/seo_banner_deriva.jpg",
+    "favicon": "https://assets.decocache.com/derivative/6dacb3f2-1b14-4717-b058-e6c780cb8008/logo2-insta.png"
   }
 }
