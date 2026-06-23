@@ -35,21 +35,21 @@ export default function Services({
       title: "Derivative®",
       subtitle: "Fornecimento de material regenerativo",
       description: "Fornecemos Derivative® para marcas que querem inovar em seus produtos com um material que carrega exclusividade, propósito e regeneração.",
-      icon: "https://assets.decocache.com/derivative/6563a34f-62c5-4a35-a71d-3a1e44bc0170/services_1.svg",
+      icon: "https://decoims.com/derivative/295bc611-b36f-4f6f-9c1a-ef7623912fcd/services_1.svg",
       tags: ["Material Exclusivo", "Impacto Regenerativo", "Narrativa de Propósito"]
     },
     {
       title: "Deriva Way",
       subtitle: "Co-criação de soluções inteligentes",
       description: "Nossa frente criativa combina design, engenharia, biologia e tecnologia para co-criar soluções de produto inteligentes e desejadas usando Derivative®. Vamos além do produto, estruturamos o seu ciclo de vida para que sua existência seja coerente e a experiência com o cliente seja memorável.",
-      icon: "https://assets.decocache.com/derivative/ef364b7e-91ce-4e8b-a4d3-0e2c53d1e06b/services_2.jpg",
+      icon: "https://decoims.com/derivative/4b5d111a-a32c-439f-ad56-8e7f325cbcd8/services_2.jpg",
       tags: ["Design Multidisciplinar", "Ciclo de Vida Completo", "Objetos de Desejo"]
     },
     {
       title: "Own your Derivative®",
       subtitle: "Circularidade completa",
       description: "Desenvolvemos Derivative® exclusivo a partir dos resíduos têxteis pré-consumo da sua própria produção. Assim, o que antes seria descartado retorna para o ecossistema de produtos, fortalecendo sua marca e promovendo uma economia circular.",
-      icon: "https://assets.decocache.com/derivative/f544e9c6-40e2-4bdc-85f8-9adf0c9e6daf/services_3.jpg",
+      icon: "https://decoims.com/derivative/86261934-7aca-4407-9bf6-4662ff657e62/services_3.jpg",
       tags: ["Economia Circular", "Resíduos Próprios", "Conexão Oceânica"]
     }
   ],

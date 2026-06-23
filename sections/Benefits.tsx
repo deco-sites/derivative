@@ -29,22 +29,22 @@ export default function Benefits({
     {
       title: "Crie infinitas soluções",
       description: "Tenha acesso a um material único no Brasil e amplie o potencial criativo da sua marca de forma sustentável, inovadora e com impacto real. Das armações de óculos aos móveis, dê vida a produtos exclusivos e regenerativos.",
-      image: "https://assets.decocache.com/derivative/fa4044d0-718a-4c3b-8fa4-ed396ca2deb7/possibilidades.svg"
+      image: "https://decoims.com/derivative/d06b1520-d9aa-4c22-888c-d2eb0615192d/possibilidades.svg"
     },
     {
       title: "Diferencie sua marca",
       description: "Crie soluções únicas e objetos de desejo que destacam sua marca, reforçando a autenticidade de marca e o engajamento com consumidores cada vez mais atentos à origem, significado e impacto de cada produto.",
-      image: "https://assets.decocache.com/derivative/7f311acf-49c1-4b4e-92fc-8befa267c68b/diferenciacao.svg"
+      image: "https://decoims.com/derivative/4af928ea-3fb2-4165-941e-a9ba1aca451e/diferenciacao.svg"
     },
     {
       title: "Transforme ESG em vantagem estratégica",
       description: "Adote uma produção mais coerente e mostre aos consumidores e investidores que seu compromisso com o impacto positivo é real, rastreável e parte central da estratégia da empresa.",
-      image: "https://assets.decocache.com/derivative/ca704298-b22a-4570-9fb3-6637a0c4ffac/esg.svg"
+      image: "https://decoims.com/derivative/6a737bd5-af72-4448-aeae-bda2cb6346bc/esg.svg"
     },
     {
       title: "Rastreie toda a cadeia",
       description: "Tenha total visibilidade da origem e cada etapa do processo, fortalecendo a confiança do consumidor, consolidando a reputação da marca e mostrando compromisso real com transparência e sustentabilidade.",
-      image: "https://assets.decocache.com/derivative/e4099f66-5377-4140-a714-873fcc659a3c/rastreabilidade.svg"
+      image: "https://decoims.com/derivative/e6055355-d3bb-4c9d-bf6f-7251b944b448/rastreabilidade.svg"
     }
   ],
 }: Props) {

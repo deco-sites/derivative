@@ -38,7 +38,7 @@ const CTA_PLACEMENT = {
 };
 
 const DEFAULT_IMAGE =
-  "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4763/772e246e-1959-46ac-a309-3f25ab20af6f";
+  "https://decoims.com/derivative/da0468a8-681b-4d13-bf09-0508a1f82b04/772e246e-1959-46ac-a309-3f25ab20af6f.jpg";
 
 export default function ImageWithParagraph({
   title = "Here's an intermediate size heading you can edit",

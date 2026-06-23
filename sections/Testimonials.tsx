@@ -46,7 +46,7 @@ const DEFAULT_PROPS = {
         description:
           "Showcase customer feedback that emphasizes your product or service's key features and addresses prospective clients' concerns. Display endorsements from customer groups that mirror your target audience.",
         avatar:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/7286de42-e9c5-4fcb-ae8b-b992eea4b78e",
+          "https://decoims.com/derivative/ca2669e6-5bc0-42c4-a69b-e20a662b3b29/7286de42-e9c5-4fcb-ae8b-b992eea4b78e.jpg",
         alt: "Avatar",
         name: "Name Surname",
         position: "Position, Company name",
@@ -57,7 +57,7 @@ const DEFAULT_PROPS = {
         description:
           "Showcase customer feedback that emphasizes your product or service's key features and addresses prospective clients' concerns. Display endorsements from customer groups that mirror your target audience.",
         avatar:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/7286de42-e9c5-4fcb-ae8b-b992eea4b78e",
+          "https://decoims.com/derivative/ca2669e6-5bc0-42c4-a69b-e20a662b3b29/7286de42-e9c5-4fcb-ae8b-b992eea4b78e.jpg",
         alt: "Avatar",
         name: "Name Surname",
         position: "Position, Company name",
@@ -68,7 +68,7 @@ const DEFAULT_PROPS = {
         description:
           "Showcase customer feedback that emphasizes your product or service's key features and addresses prospective clients' concerns. Display endorsements from customer groups that mirror your target audience.",
         avatar:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/7286de42-e9c5-4fcb-ae8b-b992eea4b78e",
+          "https://decoims.com/derivative/ca2669e6-5bc0-42c4-a69b-e20a662b3b29/7286de42-e9c5-4fcb-ae8b-b992eea4b78e.jpg",
         alt: "Avatar",
         name: "Name Surname",
         position: "Position, Company name",
@@ -79,7 +79,7 @@ const DEFAULT_PROPS = {
         description:
           "Showcase customer feedback that emphasizes your product or service's key features and addresses prospective clients' concerns. Display endorsements from customer groups that mirror your target audience.",
         avatar:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/7286de42-e9c5-4fcb-ae8b-b992eea4b78e",
+          "https://decoims.com/derivative/ca2669e6-5bc0-42c4-a69b-e20a662b3b29/7286de42-e9c5-4fcb-ae8b-b992eea4b78e.jpg",
         alt: "Avatar",
         name: "Name Surname",
         position: "Position, Company name",
@@ -90,7 +90,7 @@ const DEFAULT_PROPS = {
         description:
           "Showcase customer feedback that emphasizes your product or service's key features and addresses prospective clients' concerns. Display endorsements from customer groups that mirror your target audience.",
         avatar:
-          "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/1527/7286de42-e9c5-4fcb-ae8b-b992eea4b78e",
+          "https://decoims.com/derivative/ca2669e6-5bc0-42c4-a69b-e20a662b3b29/7286de42-e9c5-4fcb-ae8b-b992eea4b78e.jpg",
         alt: "Avatar",
         name: "Name Surname",
         position: "Position, Company name",

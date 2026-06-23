@@ -115,7 +115,7 @@ export default function FormsFooter({
       {/* Image Background */}
       <div class="absolute inset-0 overflow-hidden">
         <img 
-          src="https://assets.decocache.com/derivative/9c51b37a-0a0b-41e8-bebc-98bea5946f87/Jubarte-I-(1).jpg"
+          src="https://decoims.com/derivative/474b0fe4-c224-4974-88b0-6e5fe311c12b/Jubarte-I-(1).jpg"
           alt="Background"
           class="w-full h-full object-cover"
         />
@@ -215,7 +215,7 @@ export default function FormsFooter({
             {/* Logo */}
             <div class="md:col-span-2">
               <img 
-                src="https://assets.decocache.com/derivative/63f2145a-4b99-403e-ba27-cf49104ea963/logo_deriva_horizontal_NO.svg" 
+                src="https://decoims.com/derivative/33936839-2568-4c67-9d35-12b41a144280/logo_deriva_horizontal_NO.svg" 
                 alt="Deriva Logo" 
                 class="h-12 lg:h-16"
               />
