@@ -26,7 +26,7 @@ export interface Props {
 }
 
 const DEFAULT_IMAGE =
-  "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/4763/682eb374-def2-4e85-a45d-b3a7ff8a31a9";
+  "https://decoims.com/derivative/9ac1cda9-d3bf-4f26-a56f-4d3dab43ab00/682eb374-def2-4e85-a45d-b3a7ff8a31a9.jpg";
 
 export default function MainPost({
   post = {

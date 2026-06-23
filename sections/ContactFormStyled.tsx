@@ -12,7 +12,7 @@ export default function ContactFormStyled({
       {/* Imagem de fundo */}
       <div class="absolute inset-0">
         <img 
-          src="https://assets.decocache.com/derivative/9c51b37a-0a0b-41e8-bebc-98bea5946f87/Jubarte-I-(1).jpg"
+          src="https://decoims.com/derivative/474b0fe4-c224-4974-88b0-6e5fe311c12b/Jubarte-I-(1).jpg"
           alt="Background"
           class="w-full h-full object-cover"
         />
